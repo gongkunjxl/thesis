@@ -1,0 +1,104 @@
+\thusetup{
+  %******************************
+  % 注意：
+  %   1. 配置里面不要出现空行
+  %   2. 不需要的配置信息可以删除
+  %******************************
+  %
+  %=====
+  % 秘级
+  %=====
+  secretlevel={秘密},
+  secretyear={10},
+  %
+  %=========
+  % 中文信息
+  %=========
+  ctitle={面向多计算框架的容器云资源调度研究与实现},
+  cdegree={工学硕士},
+  cdepartment={计算机科学与技术系},
+  cmajor={计算机科学与技术},
+  cauthor={龚坤},
+  csupervisor={武永卫教授},
+  %cassosupervisor={陈文光教授}, % 副指导老师
+  %ccosupervisor={某某某教授}, % 联合指导老师
+  % 日期自动使用当前时间，若需指定按如下方式修改：
+  cdate={二〇一九年六月},
+  %
+  % 博士后专有部分
+  %cfirstdiscipline={计算机科学与技术},
+  %cseconddiscipline={系统结构},
+  %postdoctordate={2009年7月——2011年7月},
+  %id={编号}, % 可以留空： id={},
+  %udc={UDC}, % 可以留空
+  %catalognumber={分类号}, % 可以留空
+  %
+  %=========
+  % 英文信息
+  %=========
+  etitle={Research and Implementation of Container Cloud Resource Scheduling for Multi-dimensional Computing Framework},
+  % 这块比较复杂，需要分情况讨论：
+  % 1. 学术型硕士
+  %    edegree：必须为Master of Arts或Master of Science（注意大小写）
+  %             “哲学、文学、历史学、法学、教育学、艺术学门类，公共管理学科
+  %              填写Master of Arts，其它填写Master of Science”
+  %    emajor：“获得一级学科授权的学科填写一级学科名称，其它填写二级学科名称”
+  % 2. 专业型硕士
+  %    edegree：“填写专业学位英文名称全称”
+  %    emajor：“工程硕士填写工程领域，其它专业学位不填写此项”
+  % 3. 学术型博士
+  %    edegree：Doctor of Philosophy（注意大小写）
+  %    emajor：“获得一级学科授权的学科填写一级学科名称，其它填写二级学科名称”
+  % 4. 专业型博士
+  %    edegree：“填写专业学位英文名称全称”
+  %    emajor：不填写此项
+  edegree={Doctor of Engineering},
+  emajor={Computer Science and Technology},
+  eauthor={Gong Kun},
+  esupervisor={Professor Wu Yongwei},
+  %eassosupervisor={Chen Wenguang},
+  % 日期自动生成，若需指定按如下方式修改：
+  edate={June, 2019}
+  %
+  % 关键词用“英文逗号”分割
+  %ckeywords={\TeX, \LaTeX, CJK, 模板, 论文},
+  %ekeywords={\TeX, \LaTeX, CJK, template, thesis}
+}
+
+% 定义中英文摘要和关键字
+\begin{cabstract}
+  Docker容器虚拟化技术能够和宿主机共享系统资源并且实现容器间的隔离，是当前技术研究的热点，已经成为容器的代名词。基于Docker的私有容器云平台获得广泛的应用，开始逐步取代传统虚拟机为基础构建的云计算系统。与传统的云计算集群类似，一个高效且强大的容器编排管理系统对数据中心资源利用率和集群性能具有至关重要的作用，Kubernetes是当前容器云系统中应用最为广泛的容器调度系统，其轻量开源和强大的服务发现、集群监控和错误恢复能力深受用户好评。但Kubernetes过度专注于调度器能力和性能，其自身的资源分配和调度算法单一往往导致整个容器云集群资源利用率和均衡性很差，尤其是在多种计算框架同时部署的情况下其调度缺陷暴露无遗。
+
+  近年来，OpenShift容器云平台用户针对Kubernetes调度器的不足往往需要开发自己的调度算法来适应特定的应用场景，这对追求性能和资源利用率的普通用户往往具有一定的难度，本文在深入分析OpenShift私有容器云平台Kubernetes调度器核心调度技术后，提出了一种全新的调度方案，本文主要内容如下:
+  \begin{itemize}
+  \item 基于开源的OpenShift Origin构建私有容器云平台Paladin，在该平台上开发部署Hadoop、Spark、MPI、Storm、Regraph等十多种分布式计算框架，能够根据用户需求快速构建分布式计算平台。
+  \item 深入研究Kubernetes调度核心技术，针对其调度算法的不足，提出了一种基于多维资源空闲率权重的评价函数和调度方法，该方法综合考虑物理节点CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用个数等因素影响，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数，最终选取最大评分节点进行容器调度。
+  \item 针对新提出的调度方案，在ContainerCloudSim容器云仿真平台进行调度仿真，并与Kubernetes默认调度方案、Random调度方案进行对比，能够极大提升容器云集群资源利用率和实现负载均衡性
+  \item 在私有容器云平台Paladin上设计并实现该调度方案，使用多个计算框架同时进行调度性能测试，能够极大缩短多计算框架的应用执行时间
+  \end{itemize}
+\end{cabstract}
+
+% 如果习惯关键字跟在摘要文字后面，可以用直接命令来设置，如下：
+\ckeywords{Docker, 容器云, 调度策略, OpenShift平台, 计算框架, FAHP}
+
+\begin{eabstract}
+   An abstract of a dissertation is a summary and extraction of research work
+   and contributions. Included in an abstract should be description of research
+   topic and research objective, brief introduction to methodology and research
+   process, and summarization of conclusion and contributions of the
+   research. An abstract should be characterized by independence and clarity and
+   carry identical information with the dissertation. It should be such that the
+   general idea and major contributions of the dissertation are conveyed without
+   reading the dissertation.
+
+   An abstract should be concise and to the point. It is a misunderstanding to
+   make an abstract an outline of the dissertation and words ``the first
+   chapter'', ``the second chapter'' and the like should be avoided in the
+   abstract.
+
+   Key words are terms used in a dissertation for indexing, reflecting core
+   information of the dissertation. An abstract may contain a maximum of 5 key
+   words, with semi-colons used in between to separate one another.
+\end{eabstract}
+
+\ekeywords{Docker, container cloud, scheduling strategy, openshift platform, computing framework, FAHP}
