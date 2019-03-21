@@ -36,166 +36,55 @@ Docker是当前主流的容器技术代表，Kubernetes作为现阶段应用最�
 \end{figure}
 
 如图2.2所示，OpenShift平台的核心组件包括Master、Node、Pod、Scheduler、Service、Storage等。Mater是主控节点，可以配置高可用的多个主控节点，负责管理和维护OpenShift集群的状态。Master上运行的API Server是其核心组件，所有用户的Web Console以及RESTful API服务都通过该组件进行访问认证控制，各Node节点也会定期轮询API Server更新其状态和容器的状态。Data Store将所有的状态信息存储在分布式的数据库Etcd中，并通过ceph一致性协议保证其数据的一致性，Etcd可以安装在主控节点，也可以单独安装到集群之外。Scheduler调度控制器进行Pod资源的分配和调度，收集过各节点资源情况，选择最优的节点作为容器应用的调度目标。Replication Controller异常自检测和恢复组件，负责监控集群中容器应用的状态和数量是否和用户要求一致，自启动和关闭容器应用满足用户的需求。Node节点通过接收Master节点指令维护容器应用。Pod是OpenShift平台调度器调度的最小单元，一些容器应用和应用之间往往存在较大的关联性，将几个联系紧密的容器部署在一个Pod中进行调度，提升应用的效率，如分布式数据库。容器是一个非持久化的对象，一旦容器重启或销毁，其状态信息将会随之销毁，集群每次给Pod分配的IP地址不同，要对外提供统一持久的服务，需要Service组件，该组件能将所有的信息转发到其对应的容器IP和端口上。此外，还有Router、Persistent Storage、Registry、Haproxy、Kubelet等都是集群的重要组成组件。数据的持久化存储可以是集群的数据库、分布式数据库或者其他的数据库中，当前支持的有NFS、Ceph RDB、GlusterFS等。
-\section{定理环境}
-\label{sec:theorem}
 
-给大家演示一下各种和证明有关的环境：
+\section{容器集群资源调度系统}
+\label{sec:scheduler}
+Docker容器技术是容器集群的核心技术，但一个高效且强大的容器编排引擎也是集群的重要组成部分。一个好的调度器既要提现出作业调度的“公平”性，同时兼顾其性能和鲁棒性，要能应用的实际的生产环境中。在集群数据中心，可以通过应用对资源的需求感知用户部署的应用类型，通常可以划分为CPU密集、内存密集、I/O密集和网络带宽密集型应用。在集群上通常是多种密集型应用同时部署和运行，调度器如何进行资源分配至关重要，这就使得调度变得异常复杂和困难，往往不存在最优解决方案。传统虚拟机的云计算中心资源调度已有相当多的研究，针对容器集群，各大容器产生也相继推出了几款优秀的容器编排引擎，根据其调度架构的不同可以划分为一体式调度系统、两层调度系统、共享状态调度系统。其代表分别是Docker公司的Swarm、Apache的Mesos、Google的Kubernetes。
 
-\begin{assumption}
-待月西厢下，迎风户半开；隔墙花影动，疑是玉人来。
-\begin{eqnarray}
-  \label{eq:eqnxmp}
-  c & = & a^2 - b^2\\
-    & = & (a+b)(a-b)
-\end{eqnarray}
-\end{assumption}
+\subsection{一体式调度系统}
+一体式的调度使用单一的调度代理处理所有的请求，通过固定的调度算法调度所有的作业，这种调度方式导致调度扩展性很差，用户很难灵活定制自己的调度策略，而且所有的调度信息在单节点上进行运算，不能并行执行，单节点也会成为其瓶颈。Docker公司2014年发布的容器编排管理工具Swarm是典型的一体式调度系统，同期发布的还有Docker管理工具Machine以及Compose，合称为Docker三剑客。Swarm支持Docker标准的API，内置于Docker CLI中，无需进行安装，拥有活跃的社区，易于搭建并且已应用于实际的生产环境中。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{swarm-structure}
+	\caption{Swarm架构图}
+	\label{fig:xfig1}
+\end{figure}
 
-千辛万苦，历尽艰难，得有今日。然相从数千里，未曾哀戚。今将渡江，方图百年欢笑，如
-何反起悲伤？（引自《杜十娘怒沉百宝箱》）
+Swarm集群由管理节点和工作节点构成，其中管理节点可以配置多个，实现高可用的多管理模式，内部通过RAFT算法实现主从的一致性。管理节点上除Docker Daemon守护进程、Load Balancing、Scaling组件外，最为重要的是Scheduler和Discovery组件，其中Discovery负责集群中节点的发现和状态更新，Scheduler首先根据用户的限制对节点进行筛选，然后使用内置的调度策略进行应用调度。工作节点主要运行Docker Daemon和Load Balancing，根据控制节点的指令运行调度过来的容器应用。在调度器的过滤模块主要提供了约束过滤器和健康过滤器，此外还可以配置吸引力过滤器、依赖过滤器和端口过滤器。
 
-\begin{definition}
-子曰：「道千乘之国，敬事而信，节用而爱人，使民以时。」
-\end{definition}
+约束过滤器是通过有用的约束条件筛选节点，集群中每个节点都带有一个key-value标签，对于一些特殊的应用可以指定其label进行调度到指定的节点上运行；健康过滤器过滤掉不健康的节点，避免容器调度后运行失败；吸引力过滤器是将新的容器链接到已经创建的容器上，实现共同运行和销毁，此外还可以通过镜像和标签吸引，镜像吸引是将容器直接调度到拥有该镜像的节点上，避免重复开销镜像下载时间，节约网络资源，标签吸引是通过标签指定链接到已创建的旧容器实现共同工作；依赖过滤器是新容器依赖于其他的容器，可能会共享磁盘卷、或在同一个网络栈上等；端口过滤器将需要特定开发端口的容器运行到开放该端口的节点上，避免容器不可用的情况发生。
 
-千古第一定义！问世间、情为何物，只教生死相许？天南地北双飞客，老翅几回寒暑。欢乐趣，离别苦，就中更有痴儿女。
-君应有语，渺万里层云，千山暮雪，只影向谁去？
+Swarm的调度策略主要包括Random、Spread和Binpack算法，下面分别对其算法进行简单的介绍:
+\begin{enumerate}[1.]
+	\item Random算法。该算法随机从过滤完的节点中选取一个节点进行调度判断，如果该节点满足条件则将容器调度到该节点上，否则随机选取下一个节点直至找到合适的节点调度，直至找到合适的节点或返回调度错误信息。
+	\item Spread算法也就是最少容器算法，该算法的初衷是保证容器进群的负载均衡。每次遍历一遍集群中每个节点上运行的容器数量，选择容器数量最少的节点进行容器调度，若该节点不满足条件，则依次从后往前进行调度尝试，直至找到满足条件的节点或返回调度错误。
+	\item Binpack算法就是最多容器算法，该算法的目的在于最大化利用集群中节点资源，和Spread算法相反，每次从集群中选择运行容器数量最多的节点进行容器调度，若满足条件则将容器调度至该节点，否则依次从多到少尝试运行容器节点，直至找到合适节点或返回错误。
+\end{enumerate}
 
-横汾路，寂寞当年箫鼓，荒烟依旧平楚。招魂楚些何嗟及，山鬼暗谛风雨。天也妒，未信与，莺儿燕子俱黄土。
-千秋万古，为留待骚人，狂歌痛饮，来访雁丘处。
+\subsection{两层调度系统}
+两层调度系统是将资源调度和作业调度分开，资源调度层只负责给计算框架分配所需的资源，具体的作业调度由每个计算框架的调度算法完成。在一些成熟的计算处理框架中如Hadoop、Spark、MPI等有相对成熟和高效的调度算法，两层调度将这些调度算法集成进来，通过一个轻量的资源共方式来控制资源的分配和访问，一旦资源分配给某个计算框架，其他计算框架不能使用该资源，因此也会造成资源利用效率不高。Apache Mesos是最为典型的两层调度系统，Mesos最初由加州伯克利分校的AMPLab开发，后在Twitter得到广泛使用和检验。
 
-\begin{proposition}
- 曾子曰：「吾日三省吾身 —— 为人谋而不忠乎？与朋友交而不信乎？传不习乎？」
-\end{proposition}
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{mesos-structure}
+	\caption{Apache Mesos架构图}
+	\label{fig:xfig1}
+\end{figure}
 
-多么凄美的命题啊！其日牛马嘶，新妇入青庐，奄奄黄昏后，寂寂人定初，我命绝今日，
-魂去尸长留，揽裙脱丝履，举身赴清池，府吏闻此事，心知长别离，徘徊庭树下，自挂东南
-枝。
+如图2.4所示，Mesos的总体架构也采用主从设计，Master节点运行作为集群的管理控制节点，可以有一个或者多个(最好为单数)，为了防止单节点故障，通过ZooKeeper提供一致性服务。每次在多个Master中选举一个作为leader对外提供服务，其他的Master副本随时保证和Master的状态一直，一旦服务出现故障，立马进行新的备份选举，从而实现集群的高可用性。集群的架构可以分为两层: 计算框架层和Master调度层。下层的Master管理众多的计算节点，负责收集各节点的资源情况并作出分配决定，上层的计算框架层负责实际任务的调度，从而将整个调度分为了任务调度层和资源调度层，两个层级互不干扰，可以分别使用调度算法，提升了集群调度策略的扩展性。从架构的组成部分来看，主要有五大组成部分，下面分别对组成部分的功能进行介绍:
+\begin{enumerate}[1.]
+	\item ZooKeeper组件。ZooKeeper作为一款Hadoop项目中分布式系统的协调系统，主要用于解决分布式应用中数据管理问题，如应用配置管理、统一命名服务、状态同步服务以及其他的组服务、集群管理等。ZooKeeper操作非常简单易用、功能丰富可靠、并且提供了通用协议下的开源共享的存储库，其核心就是一个精简的文件系统，可以提供一些简单和抽象的操作。在Mesos中、ZooKeeper主要解决Master节点的状态一致性和高可用问题，实现集群的持续稳定的对外服务。
+	\item Mesos Master组件。Master是整个集群的控制器，是整个集群调度的核心组件，既需要对底层的各Slave节点的资源进行管理和收集，同时通过一定的资源分配策略提供资源个体上层的各处理框架Framework。当前对各Framework的资源分配策略为DRF(Dominant Resource Fairness)算法，这是一种针对多维资源(CPU、内存、I/O、网络带宽等)不同需求设计的公平调度算法
+	。Master还负责资源的访问控制，一旦某个资源分配给了特定的Framework，必须等该框架释放该资源才能再次进行分配。
+	\item Mesos Slave组件。该组件作为调度底层具体的执行者，接收来自Master的指令，将自身的资源分配给每个执行器，执行器上运行一个或多个任务，并将各任务作为容器运行起来。
+	此外，Slave节点还定期向Master节点汇报资源使用情况作为Master调度器的调度依据。Slave上还运行一个containerizer用来管理容器的生命周期的包括容器的创建、更新、监控和销毁。
+	\item Framework组件。Framework负责将各计算框架如Hadoop、Spark、MPI等注册接入到集群中，Master的调度器负责对其需要的资源进行分配，具体的任务调度则由各计算框架完成。
+	各计算框架通过调用Master的API进行任务的创建和调度请求，Master再将任务下发到Slave上具体执行。
+	\item Executor组件。Executor负责启动框架内部的Task任务，各种计算框架接入Mesos的方式，接口不同，因此要接入一个新的计算框架就需要编写一个新的Executor，用来通知Mesos如何启动框架中的Task任务。
+\end{enumerate}
 
-\begin{remark}
-天不言自高，水不言自流。
-\begin{gather*}
-\begin{split} 
-\varphi(x,z)
-&=z-\gamma_{10}x-\gamma_{mn}x^mz^n\\
-&=z-Mr^{-1}x-Mr^{-(m+n)}x^mz^n
-\end{split}\\[6pt]
-\begin{align} \zeta^0&=(\xi^0)^2,\\
-\zeta^1 &=\xi^0\xi^1,\\
-\zeta^2 &=(\xi^1)^2,
-\end{align}
-\end{gather*}
-\end{remark}
-
-天尊地卑，乾坤定矣。卑高以陈，贵贱位矣。 动静有常，刚柔断矣。方以类聚，物以群分，
-吉凶生矣。在天成象，在地成形，变化见矣。鼓之以雷霆，润之以风雨，日月运行，一寒一
-暑，乾道成男，坤道成女。乾知大始，坤作成物。乾以易知，坤以简能。易则易知，简则易
-从。易知则有亲，易从则有功。有亲则可久，有功则可大。可久则贤人之德，可大则贤人之
-业。易简，而天下矣之理矣；天下之理得，而成位乎其中矣。
-
-\begin{axiom}
-两点间直线段距离最短。  
-\begin{align}
-x&\equiv y+1\pmod{m^2}\\
-x&\equiv y+1\mod{m^2}\\
-x&\equiv y+1\pod{m^2}
-\end{align}
-\end{axiom}
-
-《彖曰》：大哉乾元，万物资始，乃统天。云行雨施，品物流形。大明始终，六位时成，时
-乘六龙以御天。乾道变化，各正性命，保合大和，乃利贞。首出庶物，万国咸宁。
-
-《象曰》：天行健，君子以自强不息。潜龙勿用，阳在下也。见龙再田，德施普也。终日乾
-乾，反复道也。或跃在渊，进无咎也。飞龙在天，大人造也。亢龙有悔，盈不可久也。用九，
-天德不可为首也。 　　
-
-\begin{lemma}
-《猫和老鼠》是我最爱看的动画片。
-\begin{multline*}%\tag*{[a]} % 这个不出现在索引中
-\int_a^b\biggl\{\int_a^b[f(x)^2g(y)^2+f(y)^2g(x)^2]
- -2f(x)g(x)f(y)g(y)\,dx\biggr\}\,dy \\
- =\int_a^b\biggl\{g(y)^2\int_a^bf^2+f(y)^2
-  \int_a^b g^2-2f(y)g(y)\int_a^b fg\biggr\}\,dy
-\end{multline*}
-\end{lemma}
-
-行行重行行，与君生别离。相去万余里，各在天一涯。道路阻且长，会面安可知。胡马依北
-风，越鸟巢南枝。相去日已远，衣带日已缓。浮云蔽白日，游子不顾返。思君令人老，岁月
-忽已晚。  弃捐勿复道，努力加餐饭。
-
-\begin{theorem}\label{the:theorem1}
-犯我强汉者，虽远必诛\hfill —— 陈汤（汉）
-\end{theorem}
-\begin{subequations}
-\begin{align}
-y & = 1 \\
-y & = 0
-\end{align}
-\end{subequations}
-道可道，非常道。名可名，非常名。无名天地之始；有名万物之母。故常无，欲以观其妙；
-常有，欲以观其徼。此两者，同出而异名，同谓之玄。玄之又玄，众妙之门。上善若水。水
-善利万物而不争，处众人之所恶，故几于道。曲则全，枉则直，洼则盈，敝则新，少则多，
-多则惑。人法地，地法天，天法道，道法自然。知人者智，自知者明。胜人者有力，自胜
-者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。
-
-\begin{proof}
-燕赵古称多感慨悲歌之士。董生举进士，连不得志于有司，怀抱利器，郁郁适兹土，吾
-知其必有合也。董生勉乎哉？
-
-夫以子之不遇时，苟慕义强仁者，皆爱惜焉，矧燕、赵之士出乎其性者哉！然吾尝闻
-风俗与化移易，吾恶知其今不异于古所云邪？聊以吾子之行卜之也。董生勉乎哉？
-
-吾因子有所感矣。为我吊望诸君之墓，而观于其市，复有昔时屠狗者乎？为我谢
-曰：“明天子在上，可以出而仕矣！” \hfill —— 韩愈《送董邵南序》
-\end{proof}
-
-\begin{corollary}
-  四川话配音的《猫和老鼠》是世界上最好看最好听最有趣的动画片。
-\begin{alignat}{3}
-V_i & =v_i - q_i v_j, & \qquad X_i & = x_i - q_i x_j,
- & \qquad U_i & = u_i,
- \qquad \text{for $i\ne j$;}\label{eq:B}\\
-V_j & = v_j, & \qquad X_j & = x_j,
-  & \qquad U_j & u_j + \sum_{i\ne j} q_i u_i.
-\end{alignat}
-\end{corollary}
-
-迢迢牵牛星，皎皎河汉女。
-纤纤擢素手，札札弄机杼。
-终日不成章，泣涕零如雨。
-河汉清且浅，相去复几许。
-盈盈一水间，脉脉不得语。
-
-\begin{example}
-  大家来看这个例子。
-\begin{equation}
-\label{ktc}
-\left\{\begin{array}{l}
-\nabla f({\mbox{\boldmath $x$}}^*)-\sum\limits_{j=1}^p\lambda_j\nabla g_j({\mbox{\boldmath $x$}}^*)=0\\[0.3cm]
-\lambda_jg_j({\mbox{\boldmath $x$}}^*)=0,\quad j=1,2,\cdots,p\\[0.2cm]
-\lambda_j\ge 0,\quad j=1,2,\cdots,p.
-\end{array}\right.
-\end{equation}
-\end{example}
-
-\begin{exercise}
-  请列出 Andrew S. Tanenbaum 和 W. Richard Stevens 的所有著作。
-\end{exercise}
-
-\begin{conjecture} \textit{Poincare Conjecture} If in a closed three-dimensional
-  space, any closed curves can shrink to a point continuously, this space can be
-  deformed to a sphere.
-\end{conjecture}
-
-\begin{problem}
- 回答还是不回答，是个问题。 
-\end{problem}
-
-如何引用定理~\ref{the:theorem1} 呢？加上 \cs{label} 使用 \cs{ref} 即可。妾发
-初覆额，折花门前剧。郎骑竹马来，绕床弄青梅。同居长干里，两小无嫌猜。 十四为君妇，
-羞颜未尝开。低头向暗壁，千唤不一回。十五始展眉，愿同尘与灰。常存抱柱信，岂上望夫
-台。 十六君远行，瞿塘滟滪堆。五月不可触，猿声天上哀。门前迟行迹，一一生绿苔。苔深
-不能扫，落叶秋风早。八月蝴蝶来，双飞西园草。感此伤妾心，坐愁红颜老。
-
+Mesos作为一款优秀的分布式资源管理框架，采用双层调度机制，资源分配层负责将资源分配给计算框架，计算框架使用自身的任务调度器执行任务的调度。通过对其整体建构和核心组件的分析，Mesos可以对分布式集群的资源进行细粒度的划分，按照计算框架实际任务的需求进行资源分配，极大提升了资源的利用效率。Mesos不需要清楚各Framework的具体调度逻辑，只需要通过API向上提供资源分配即可，具有较强的扩展性，容量不会成为制约其性能的因素。Meso是模块化的实现，新增一个Framework不需要对Mesos进行重新编码，可以快速接入和扩展新的应用，Master节点使用ZooKeeper保证其状态一致性，容错性很好。但是，Mesos对底层的资源采用“悲观锁”的方式进行控制，一旦被某个Framework占用，必须等到其释放才能进行新的资源分配，其并发性受到极大的限制，独立的调度框架只能访问集群部分状态信息，往往不能实现优化调度。
+\subsection{共享状态调度系统}
 \section{参考文献}
 \label{sec:bib}
 当然参考文献可以直接写 \cs{bibitem}，虽然费点功夫，但是好控制，各种格式可以自己随意改
