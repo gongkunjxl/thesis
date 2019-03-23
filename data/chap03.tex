@@ -1,20 +1,53 @@
 \chapter{改进OpenShift Origin平台调度策略}
 \label{cha:openshift}
-Kubeenetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度算法虽能满足大部分用户需求，但其算法较为简单，集群资源利用率较低，也不能满足用户的在特定场景下的调度。本章在深入分析默认调度算法后，提出设计了一种新的调度方案MRWS (Multidimensional resource weight scheduling)。
+Kubernetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度算法虽能满足大部分用户需求，但其算法较为简单，集群资源利用率较低，也不能满足用户的在特定场景下的调度。本章在深入分析默认调度算法后，提出设计了一种新的基于多维资源空闲率权重的评价函数和调度方案MRWS (Multidimensional Resource WeightSscheduling)。
 
-\section{其它例子}
-\label{sec:other}
+\section{优化Kubernetes调度流程}
+Kubernetes调度算法分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。用户除开发特殊的调度算法外，还可以针对其调度流程进行适当的优化。
 
-在第~\ref{cha:intro} 章中我们学习了贝叶斯公式~(\ref{equ:chap1:bayes})，这里我们复
-习一下：
-\begin{equation}
-\label{equ:chap2:bayes}
-p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
-\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})}
-\end{equation}
+\subsection{Default调度算法流程}
+在Kubernetes默认调度流程，预选阶段解决节点过滤，优选阶段解决最优节点选择问题，用户可以对两个阶段进行简单的配置，调度器将根据用户指定的预选和优选规则进行过滤和评分计算，最终输出满足条件的Node和Pod绑定策略，将Pod调度到Node节点上，针对两阶段的规则，下面做详细的介绍。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{scheduler-default}
+	\caption{Default调度算法流程}
+	\label{fig:xfig1}
+\end{figure}
+Predicates策略过滤掉不满足Pod需求的节点，主要依据磁盘卷是否冲突、端口冲突、资源容量、节点检测、服务占用、亲和性筛选等条件。1.7版本的筛选条件主要如下，新的版本Kubernetes还在不断完善和更新：
+\begin{enumerate}[(1)]
+	\item NoDiskConflict：检测卷冲突，在当前的规则中，两个不同Pod不能使用相同的卷此一旦Node上已经挂载了该卷并被某个Pod使用，则新的Pod不能再调度到该Node上，否则造成卷冲突。不同的系统对该冲突检测范围不同，如Google Compute Engine在只读模式下允许多个卷，Ceph RDB允许两个Pod分享部分资源，Amazon EBS禁止两个Pod挂载同一个卷。
+	\item NoVolumeZoneConflict：在给定Zone限制的条件下，检测Node上部署的Pod是否存在卷冲突，当前只限定对PV(PersistantVolume)范围进行支持。
+	\item PodFitsHostPorts：端口冲突和服务占用检测，需要调度的Pod内所有的容器需要的端口在Node上是否被其他Pod占用。
+	\item PodFitsResources：根据Pod资源的需求检测节点空闲资源量是否满足其运行需求，主要检测CPU、内存、磁盘等资源。Kubernetes的调度是静态调度，资源的判断是根据分配的资源量而不是资源的实际使用量。
+	\item HostName：检测Pod是否指定了Node节点，所有不在制定Node集合内的节点都将被过滤掉。
+	\item MatchNodeSelector：检测Pod是否指定了MatchNodeSelector属性，若指定了该属性，Node的Label必须和该属性匹配。
+	\item MaxEBSVolumeCount：确保挂载的EBS存储卷总合不超过设置最大值，调度器计算每个Node上直接或间接使用的全部卷总合，一旦超过最大值，Pod不能调度到该节点上。
+	\item CheckNodeMemoryPressure：判断节点是否存在内存压力，若存在内存压力则标记为1，Pod只能调度到内存标记为0的节点上。
+	\item CheckNodeDiskPressure：判断节点是否存在磁盘压力，若存在磁盘压力则标记为1，Pod只能调度到磁盘标记为0节点。
+	\item MatchInterPodAffinity：节点的亲和性过滤，检测Pod是否和已部署的Pod存在亲和性，将有亲和性的Pod调度到相同节点。
+	\item PodToleratesNodeTaints：判断将Pod调度到节点后是否满足节点容忍的条件，相同的Pod副本为了满足容灾性，一般部署到不同的Node甚至是不同的机架和数据中心。
+\end{enumerate}
+此外、还有转为Google Compute Engine和Amazon EBS配置的MaxGCEPDVolumeCount、MaxAzureDiskVolumeCount卷检测条件，检测节点上挂载的卷容量总合是否超过设定的最大值。
 
-\subsection{绘图}
-\label{sec:draw}
+Priorities阶段根据一定的评分算法对预选出来的节点列表进行综合评分，评分依据主要包括资源空闲量、资源消耗平衡性、Pod亲和性、Pod与节点的匹配度等因素。Kubernetes使用优先函数集合进行0-10对节点进行评分，最终计算评分总合，评分越高表明Pod调度到该节点越适合，同时还可以为每一个函数设置一个权重值，主要的评分函数如下:
+\begin{enumerate}[(1)]
+	\item LeastRequestedPriority：根据资源空闲率计算节点得分，即节点的空闲资源与节点资源总量的比值((节点资源总量-节点上Pod的资源和-新Pod的需求)/总容量)来计算。设置CPU和内存具有相同权重，都设置为0.5，资源空闲率越大，剩余资源越多，节点的评分就越高。
+	\item BalancedResourceAllocation：该函数必须联合LeastRequestedPriority一起使用，用于平衡各项资源的使用率，资源使用越均衡，节点的评分越高。Kubernetes主要对内存和CPU资源消耗进行平衡，由两者的“距离”决定分值大小，即使用10-abs(CPU空闲率-内存空闲率)*10进行计算。
+	\item SelectorSpreadPriority：为了更好应对容灾和宕机风险，同属Service、Replication Controller下的Pod尽可能分散部署到不同的Node上。对于指定Zone的Pod，也要尽量分散到不同区域的主机。调度器统计各Node上相同Service、Replication Controller下的Pod，Node上Pod数量越少，评分越高。
+	\item NodeAffinityPriority：设置调度器的亲和性机制，主要对节点进行精确匹配。有两种选择器匹配模式，选择器“hard"模式下设置的NodeSelector必须和节点的Label匹配，保证选择的Node是完全满足需求规则的，”soft"模式下不能完全保证百分百的匹配，但会尽量满足规则要求
+	\item ImageLocalityPriority：为避免镜像的重复下载对网络和磁盘资源的重复消耗，该函数根据Pod中运行容器需要的镜像对节点进行评分，节点上存在的镜像越多，该节点评分越高。若该节点上没有所需的镜像，评分为0，镜像评分的权重可以根据镜像大小按比例决定。
+	\item MostRequestedPriority：和LeastRequestedPriority相反，两者使用一个来计算评分。该函数确保使用资源越多的节点，评分越高，目的在于使用更少的服务器提供服务，节约集群资源，提升资源利用率。
+	\item TaintTolerationPriority：容忍性评分函数，匹配Pod的TolerationList与节点Taint，匹配项越多，该节点的容忍性越好，从而评分越高。
+	\item InterPodAffinityPriority：用于迭代WeightedPodAffinityTerm的元素计算和，若该节点同时满足亲和性设置，则将该评分加入节点的整体评分中。
+	\item NodePreferAvoidPodsPriority：根据节点是否设置Anotation属性进行评分，没有设置该属性则评分为10，设置该属性并且调度的Pod正好是副本，则该节点评分为0，目的在于避免相同副本调度到同一节点。
+\end{enumerate}
+
+优先调度模块定义了一个评分函数集合，各评分函数的权重可以指定，用户根据调度依据的重要程度给各函数赋予不同的权重值，最终所有函数的评分总合就是该节点的最终得分，选择评分最高的节点作为Pod的调度目标。
+
+\subsection{MRWS算法调度流程}
+
+
+
 
 本模板不再预先装载任何绘图包（如 \pkg{pstricks，pgf} 等），完全由用户来决定。
 个人觉得 \pkg{pgf} 不错，不依赖于 Postscript。此外还有很多针对 \LaTeX{} 的

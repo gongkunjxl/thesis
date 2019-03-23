@@ -5,8 +5,9 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces 共享状态资源调度系统\relax }}{13}{figure.caption.12}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Kubernetes体系架构图\relax }}{15}{figure.caption.13}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces kubernetes调度流程\relax }}{17}{figure.caption.14}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces 利用 Xfig 制图\relax }}{19}{figure.caption.15}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces 包含子图形的大图形(subcaptionbox示例)\relax }}{20}{figure.caption.16}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 包含子图形的大图形(subfigure示例)\relax }}{20}{figure.caption.17}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces 并排第一个图\relax }}{21}{figure.caption.18}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces 并排第二个图\relax }}{21}{figure.caption.18}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Default调度算法流程\relax }}{19}{figure.caption.15}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 利用 Xfig 制图\relax }}{22}{figure.caption.16}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 包含子图形的大图形(subcaptionbox示例)\relax }}{23}{figure.caption.17}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 包含子图形的大图形(subfigure示例)\relax }}{23}{figure.caption.18}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces 并排第一个图\relax }}{24}{figure.caption.19}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 并排第二个图\relax }}{24}{figure.caption.19}
