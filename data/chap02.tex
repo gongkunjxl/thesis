@@ -126,46 +126,18 @@ Kubernetes是一个主从架构体系，该集群管理器很好的解决了扩�
 除上述给出的核心组件外，Kubernetes还有负责提供集群DNS服务的kube-dns、提供外网访问入口的Ingress Controller、提供资源监控的Heapster、提供管理控制界面的Dashboard、提供日志采集、存储和查询的Fluentd-elasticsearch组件等。
 
 \subsection{Kubernetes调度流程}
+Kubernetes调度器运行在Master节点上，作为一个可插拔的模块，在默认配置下，调度器可以满足大部分的需求，如特定的Pod分配到到指定的节点，相同集合下的Pod分配到不同节点，平衡各节点的资源使用率等。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{kubernetes-scheduler}
+	\caption{kubernetes调度流程}
+	\label{fig:xfig1}
+\end{figure}
+调度器相对于普通用户而言类似一个黑盒，输入Pod的资源需求，输出Pod和节点的绑定，起到指挥中枢的作用。但是在很多业务场景下，用户希望自己的Pod调度可控，如制定调度算法、特殊的硬件需求的Pod调度到特殊的节点、通信量大的计算框架部署在相同机架上、数据需求大的Pod部署在存储数据的节点上等。调度器的调度流程如图2.7所示，命令工具Kubectl或Web Browser向Master上的API Server发送调度请求如创建Pod，API Server对请求做出响应处理并将处理的结果存储在Etcd中，同时设置PodSpec.NodeName为空，加入未调度Pod队列。调度器监控Etcd中未调度Pod队列状态，发现有未调度的Pod时通过调度策略尝试绑定Pod到节点，调度策略分为两个阶段: 预选阶段和优选阶段。预选阶段主要过滤节点，筛选满足Pod资源需求的节点如CPU、内存是否满足需求，端口是否冲突以及其他特定需求等，淘汰不满足需求的节点。优选阶段将满足资源需求的节点进行综合评分，主要根据资源使用的均衡性、相同副本的容灾性等调度策略，最终选取得分最高的节点，将Pod调度到该节点上，并将绑定状态存储到Etcd中。节点上的Kubelet监控Etcd中Pod调度结果，接管调度的后续工作，负责Pod生命周期的管理，一个完整的调度结束。
 
-\section{公式}
-\label{sec:equation}
-贝叶斯公式如式~(\ref{equ:chap1:bayes})，其中 $p(y|\mathbf{x})$ 为后验；
-$p(\mathbf{x})$ 为先验；分母 $p(\mathbf{x})$ 为归一化因子。
-\begin{equation}
-\label{equ:chap1:bayes}
-p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
-\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})} 
-\end{equation}
+\section{本章小结}
+本章从Docker的基本概念出发，简要阐述Docker虚拟化技术底层实现的部分原理，详细对比Docker虚拟化和虚拟机的区别以及两种技术的优缺点。接着详细介绍了集成当前流行的Docker和容器编排引擎Kubernetes技术的Openshfit Origin容器云平台的技术架构，对其重要的技术层次和核心组件进行分析，从而引发对容器编排技术的讨论。针对当前流行的三种容器编排引擎架构一体式调度、两层调度和共享状态调度进行介绍和分析，分别以Swarm、Mesos和Kubernetes为例进行深入的分析，Swarm和Mesos讨论了其核心组件和整体技术架构，由于OpenShift Origin平台采用Kubernetes作为容器编排引擎，因此，针对Kubernetes除进行核心组件介绍外，还深入盐焗了其调度流程。为下一章在OpenShift Origin容器应用平台上提出针对多计算框架的调度方案奠定基础。
 
-论文里面公式越多，\TeX{} 就越 happy。再看一个 \pkg{amsmath} 的例子：
-\newcommand{\envert}[1]{\left\lvert#1\right\rvert} 
-\begin{equation}\label{detK2}
-\det\mathbf{K}(t=1,t_1,\dots,t_n)=\sum_{I\in\mathbf{n}}(-1)^{\envert{I}}
-\prod_{i\in I}t_i\prod_{j\in I}(D_j+\lambda_jt_j)\det\mathbf{A}
-^{(\lambda)}(\overline{I}|\overline{I})=0.
-\end{equation} 
 
-前面定理示例部分列举了很多公式环境，可以说把常见的情况都覆盖了，大家在写公式的时
-候一定要好好看 \pkg{amsmath} 的文档，并参考模板中的用法：
-\begin{multline*}%\tag{[b]} % 这个出现在索引中的
-\int_a^b\biggl\{\int_a^b[f(x)^2g(y)^2+f(y)^2g(x)^2]
- -2f(x)g(x)f(y)g(y)\,dx\biggr\}\,dy \\
- =\int_a^b\biggl\{g(y)^2\int_a^bf^2+f(y)^2
-  \int_a^b g^2-2f(y)g(y)\int_a^b fg\biggr\}\,dy
-\end{multline*}
 
-其实还可以看看这个多级规划：
-\begin{equation}\label{bilevel}
-\left\{\begin{array}{l}
-\max\limits_{{\mbox{\footnotesize\boldmath $x$}}} F(x,y_1^*,y_2^*,\cdots,y_m^*)\\[0.2cm]
-\mbox{subject to:}\\[0.1cm]
-\qquad G(x)\le 0\\[0.1cm]
-\qquad(y_1^*,y_2^*,\cdots,y_m^*)\mbox{ solves problems }(i=1,2,\cdots,m)\\[0.1cm]
-\qquad\left\{\begin{array}{l}
-    \max\limits_{{\mbox{\footnotesize\boldmath $y_i$}}}f_i(x,y_1,y_2,\cdots,y_m)\\[0.2cm]
-    \mbox{subject to:}\\[0.1cm]
-    \qquad g_i(x,y_1,y_2,\cdots,y_m)\le 0.
-    \end{array}\right.
-\end{array}\right.
-\end{equation}
-这些跟规划相关的公式都来自于刘宝碇老师《不确定规划》的课件。
+

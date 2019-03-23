@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  22 MAR 2019 15:57
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  23 MAR 2019 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1991,6 +1991,9 @@ LaTeX Warning: Label `fig:xfig1' multiply defined.
 
 LaTeX Warning: Label `fig:xfig1' multiply defined.
 
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
 ) (./data/chap03.aux
 
 LaTeX Warning: Label `fig:xfig1' multiply defined.
@@ -2392,56 +2395,57 @@ File: figures/full-state-structure.pdf Graphic file (type pdf)
  [13] [14]
 File: figures/kubernetes-structure.pdf Graphic file (type pdf)
 <use figures/kubernetes-structure.pdf>
-
-Overfull \hbox (38.9475pt too wide) in paragraph at lines 112--113
- [][] 
- []
-
-[15]
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.045pt on input line 130.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 130.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.0pt on input line 130.
-Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
-ut line 136.
- [16]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 158.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.03374pt on input line 158.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.0pt on input line 158.
-) [17]
+ [15]
+File: figures/kubernetes-scheduler.pdf Graphic file (type pdf)
+<use figures/kubernetes-scheduler.pdf>
+ [16] [17]) [18]
 \openout2 = `data/chap03.aux'.
 
- (./data/chap03.tex
+
+(./data/chap03.tex
 第3章
+
+LaTeX Warning: Reference `equ:chap1:bayes' on page 19 undefined on input line 8
+.
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.045pt on input line 12.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 8.0pt on input line 12.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 6.0pt on input line 12.
+Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
+ut line 14.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 19.
+(Font)              scaled to size 8.0pt on input line 20.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 31.
+(Font)              scaled to size 8.0pt on input line 32.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.52437pt on input line 31.
+(Font)              scaled to size 6.52437pt on input line 32.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.03374pt on input line 32.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 31.
+(Font)              scaled to size 9.03374pt on input line 32.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 31.
+(Font)              scaled to size 5.0pt on input line 32.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 9.03374pt on input line 32.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 5.0pt on input line 32.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 31.
+(Font)              scaled to size 6.0pt on input line 32.
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'STFangsong' does not contain script 'CJK'.
 *************************************************
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 33.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 34.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [18
+ [19
 
 
 
@@ -2454,17 +2458,17 @@ File: figures/thu-fig-logo.pdf Graphic file (type pdf)
 <use figures/thu-fig-logo.pdf>
 File: figures/thu-text-logo.pdf Graphic file (type pdf)
 <use figures/thu-text-logo.pdf>
- [19]
+ [20]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
 )
-[20] (./main.lof)
+[21] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [21
+ [22
 
 
 
@@ -2473,14 +2477,14 @@ File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [22
+ [23
 
 
 ] (./main.loe)
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [23
+ (./main.bbl [24
 
 
 ]
@@ -2493,7 +2497,7 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 )
-[24
+[25
 
 
 ]
@@ -2502,11 +2506,11 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
  (./data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
- [25
+ [26
 
 
 
-]) [26
+]) [27
 
 
 ] (./data/appendix01.tex
@@ -2522,7 +2526,7 @@ line 36.
 \c@endmpdefopctr=\count388
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[27
+[28
 
 
 ]
@@ -2542,31 +2546,31 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 99.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [28]
+ [29]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [29]
+ [30]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [30]
+ [31]
 附录 B
-[31
+[32
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [32]
+ [33]
 附录 C
-) [33
+) [34
 
 ]
 \openout2 = `data/resume.aux'.
 
- (./data/resume.tex [34
+ (./data/resume.tex [35
 
 
 
-]) [35]
+]) [36]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2581,7 +2585,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [36
+ [37
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2590,7 +2594,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [37]
+ [38]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -2601,19 +2605,22 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 07DCC437BBE289919924E8F1F631488D.
+(rerunfilecheck)             Checksum: EF6682F792BB724F892AF92B57607D54.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31643 strings out of 492970
- 620520 string characters out of 6133938
- 704970 words of memory out of 5000000
- 35102 multiletter control sequences out of 15000+600000
- 687416 words of font info for 234 fonts, out of 8000000 for 9000
+ 31596 strings out of 492970
+ 619938 string characters out of 6133938
+ 704983 words of memory out of 5000000
+ 35065 multiletter control sequences out of 15000+600000
+ 673084 words of font info for 199 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,18n,96p,10432b,699s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (47 pages).
+Output written on main.pdf (48 pages).
