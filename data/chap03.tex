@@ -45,14 +45,14 @@ Priorities阶段根据一定的评分算法对预选出来的节点列表进行�
 优先调度模块定义了一个评分函数集合，各评分函数的权重可以指定，用户根据调度依据的重要程度给各函数赋予不同的权重值，最终所有函数的评分总合就是该节点的最终得分，选择评分最高的节点作为Pod的调度目标。
 
 \subsection{MRWS算法调度流程}
+Kubernetes调度系统的Default算法核心在于优选阶段的评分函数，调度策略根据节点评分高低做出调度决策。在所有的评分函数中，除一些特殊的调度规则外，如节点亲和性、节点容忍度、节点上的镜像文件等，最为重要的是根据资源空闲率做出评分的LeastRequestedPriority和资源使用平衡性做出评分的BalancedResourceAllocation函数。这两个函数是整个评分函数集合中的核心，在其他外在规则相同的条件下，直接决定节点的评分高低。但是，这两个评分函数仅考虑了内存和CPU的空闲率和消耗平衡性，这种评分会造成节点其他维度资源消耗不均，如I/O、带宽、节点上运行的Pod数量等，一旦某个维度的资源过载，节点将不能部署更多的Pod，造成集群资源利用率低下。因此，新的调度算法MRWS将更多关注于集群CPU、内存、磁盘、网络带宽以及节点运行Pod数量的均衡性，提升集群的负载均衡和资源利用率。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{scheduler-mrws}
+	\caption{MRWS算法调度流程}
+	\label{fig:xfig1}
+\end{figure}
 
-
-
-
-本模板不再预先装载任何绘图包（如 \pkg{pstricks，pgf} 等），完全由用户来决定。
-个人觉得 \pkg{pgf} 不错，不依赖于 Postscript。此外还有很多针对 \LaTeX{} 的
- GUI 作图工具，如 XFig(jFig), WinFig, Tpx, Ipe, Dia, Inkscape, LaTeXPiX,
-jPicEdt, jaxdraw 等等。
 
 \subsection{插图}
 \label{sec:graphs}
