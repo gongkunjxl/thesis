@@ -4,6 +4,7 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: data/chap01.aux
 A level-1 auxiliary file: data/chap02.aux
 A level-1 auxiliary file: data/chap03.aux
+A level-1 auxiliary file: data/chap04.aux
 The style file: thuthesis-numeric.bst
 A level-1 auxiliary file: data/ack.aux
 A level-1 auxiliary file: data/resume.aux
@@ -11,7 +12,7 @@ Database file #1: ref/refs.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 1 entry,
             3363 wiz_defined-function locations,
-            771 strings with 5837 characters,
+            772 strings with 5852 characters,
 and the built_in function-call counts, 786 in all, are:
 = -- 67
 > -- 43
