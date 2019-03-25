@@ -25,21 +25,22 @@
 \contentsline {subsection}{\numberline {3.2.1}MRWS空闲资源评分}{23}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}MRWS平衡模块评分}{25}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}MRWS均衡度评价模块}{26}{subsection.3.2.3}
-\contentsline {chapter}{插图索引}{28}{section*.20}
-\contentsline {chapter}{表格索引}{29}{section*.22}
-\contentsline {chapter}{公式索引}{30}{section*.24}
-\contentsline {chapter}{参考文献}{31}{section*.26}
-\contentsline {chapter}{致\hspace {1em}谢}{32}{section*.28}
-\contentsline {chapter}{声\hspace {1em}明}{33}{section*.30}
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{34}{appendix.A}
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{34}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{35}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{36}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{37}{subsection.A.1.3}
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{38}{appendix.B}
-\contentsline {section}{\numberline {B.1}单目标规划}{38}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{38}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{39}{subsection.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{39}{subsection.B.1.3}
-\contentsline {chapter}{\numberline {附录 C}其它附录}{40}{appendix.C}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{41}{section*.40}
+\contentsline {section}{\numberline {3.3}本章小结}{26}{section.3.3}
+\contentsline {chapter}{插图索引}{27}{section*.17}
+\contentsline {chapter}{表格索引}{28}{section*.19}
+\contentsline {chapter}{公式索引}{29}{section*.21}
+\contentsline {chapter}{参考文献}{30}{section*.23}
+\contentsline {chapter}{致\hspace {1em}谢}{31}{section*.25}
+\contentsline {chapter}{声\hspace {1em}明}{32}{section*.27}
+\contentsline {chapter}{\numberline {附录 A}外文资料原文}{33}{appendix.A}
+\contentsline {section}{\numberline {A.1}Single-Objective Programming}{33}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{34}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{35}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{36}{subsection.A.1.3}
+\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{37}{appendix.B}
+\contentsline {section}{\numberline {B.1}单目标规划}{37}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}线性规划}{37}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}非线性规划}{38}{subsection.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}整数规划}{38}{subsection.B.1.3}
+\contentsline {chapter}{\numberline {附录 C}其它附录}{39}{appendix.C}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{40}{section*.37}
