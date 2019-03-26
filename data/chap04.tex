@@ -103,6 +103,55 @@ CI &= \frac{\lambda_{max}-n}{n-1} \\
 CR &= \frac{CI}{RI}
 \end{split}
 \end{equation}
+其中，$\lambda_{max}$是判断矩阵最大特征值，n是影响决策因素的数量即判断矩阵的阶数，CI表示一般一致性指标，RI是随机一致性指标，因此CR是随机一致性比率。若CR<0.1则判断矩阵满足一致性要求，否则需要调整判断矩阵直至其满足一致性判断要求。当CR<0.1时将$\lambda_{max}$对应的特征向量$\nu_{max}$归一化，其值w就是所需求解的权重值。常用的随机一致性指标RI的值如表4.2所示。
+\begin{table}[htbp]
+	\caption{随机一致性指标RI值}
+	\begin{center}
+	\begin{tabular}{|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|p{0.8cm}<{\centering}|} \hline
+	n & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+	RI & 0 & 0 & 0.58 & 0.90 & 1.12 & 1.24 & 1.32 & 1.41 & 1.45 & 1.49 \\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+
+以上是用FAHP方法求解权重参数的全部过程，首先对影响决策的因素进行两两比较，构建模糊成对比矩阵，用$\widetilde{1}\sim \widetilde{9}$表示相对重要程度。根据成对比矩阵，给定$\alpha\in[0,1]$获得割集矩阵，设定优化参数$\mu \in[0,1]$获得判断矩阵，计算判断矩阵的最大特征值和对应的特征向量，检测最大特质值是否满足一致性要求，最后将最大特征向量归一化获得权重值。
+
+\subsection{FAHP求解权重参数示例}
+上述介绍了FAHP求解权重参数的详细流程和计算方法，下面通过一个简单的例子展示该方法求解权重参数的计算过程，假设在一个物理问题中力学指数的评价由巴氏硬度、耐荷重性、耐冲击性和满水变形四个因素决定，其影响力学指数的判断因素如图4.2所示。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{fahp-example}
+	\caption{力学指数的评价因素}
+	\label{fig:xfig1}
+\end{figure}
+某专家通过对影响力学指数的因素进行两两对比后给出其三角模糊判断数，根据其给出的模糊数构建模糊成对比矩阵式(4-10)，从左至右一次为巴氏硬度、耐荷重性、耐冲击性和满水变形。
+\begin{equation}
+\widetilde{A} = \left\{\begin{array}{l}
+1 \quad \widetilde{3} \quad \widetilde{7} \quad \widetilde{5}  \\
+\widetilde{3}^{-1} \quad 1 \quad \widetilde{5} \quad \widetilde{3} \\
+\widetilde{7}^{-1} \quad \widetilde{5}^{-1} 1 \quad \widetilde{3}^{-1} \\
+\widetilde{5}^{-1} \quad \widetilde{3}^{-1} \quad \widetilde{3} \quad 1 \\
+\end{array}\right\}
+\end{equation}
+给定$\alpha=0.5$和优化参数$\mu=0.5$，根据式(4-7)和(4-8)可以获得割集矩阵和判断矩阵，判断矩阵A如下:
+\begin{equation}
+A = \left\{\begin{array}{l}
+1 \quad 3 \quad 7 \quad 5 \\
+\frac{3}{8} \quad 1 \quad 5 \quad 3 \\
+\frac{7}{48} \quad \frac{5}{24} \quad 1 \quad \frac{3}{8} \\
+\frac{5}{24} \quad \frac{3}{8} \quad 3 \quad 1 \\
+\end{array}\right\}
+\end{equation}
+
+使用特征向量法对判断矩阵进行特征值和特征向量求解，最大特征值$\lambda_{max}=4.21154$，其对应的特征向量值$\nu_{max}=[0.88297,0.41986,0.08951,0.18992]$，使用最大特征值对帕判断矩阵A的一致性进行判断，CR=0.082<0.1满足一致性要求。对其最大特征值对应的特征向量进行归一化，其权重w=[0.558,0.265,0.057,0.120]分别表示巴氏硬度、耐荷重性、耐冲击性和满水变形四个因素对力学系数影响的权重系数，用于对后面的目标层做出决策。
+
+
+
+
+
+
+
+
 
 
 
