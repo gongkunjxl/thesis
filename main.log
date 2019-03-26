@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  25 MAR 2019 23:42
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  26 MAR 2019 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2437,12 +2437,20 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 ] [28]
 File: figures/fahp-flow.pdf Graphic file (type pdf)
 <use figures/fahp-flow.pdf>
-) [29] (./main.lof)
+ [29]
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 73
+.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 11.04124pt on input line 73.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.06006pt on input line 73.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.07271pt on input line 73.
+ [30]) [31] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [30
-\FN@pp@footnotehinttrue 
+ [32
 
 
 
@@ -2451,14 +2459,15 @@ File: figures/fahp-flow.pdf Graphic file (type pdf)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [31
+ [33
 
 
 ] (./main.loe)
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [32
+
+(./main.bbl [34
 
 
 ]
@@ -2468,7 +2477,7 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [33
+) [35
 
 
 ]
@@ -2479,12 +2488,11 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
-
-[34
-
+ [36
 
 
-]) [35
+
+]) [37
 
 
 ] (./data/appendix01.tex
@@ -2498,27 +2506,19 @@ line 36.
 \c@endmpdefopctr=\count388
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[36
+[38
 
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 99
-.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 11.04124pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.06006pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.07271pt on input line 99.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [37]
+ [39]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [38]
+ [40]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [39]
+ [41]
 附录 B
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.045pt on input line 193.
@@ -2532,12 +2532,12 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.06006pt on input line 208.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 208.
-[40
+[42
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [41]
+ [43]
 附录 C
 *************************************************
 * fontspec warning: "script-not-exist"
@@ -2547,17 +2547,17 @@ File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 262.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [42
+)) [44
 
 ]
 \openout2 = `data/resume.aux'.
 
 
-(./data/resume.tex [43
+(./data/resume.tex [45
 
 
 
-]) [44]
+]) [46]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2572,7 +2572,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [45
+ [47
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2581,7 +2581,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [46]
+ [48]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -2593,19 +2593,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6232915066FB559424D76A03F4E6D354.
+(rerunfilecheck)             Checksum: 73B131D34C8496AF67E9F14458527A5B.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31462 strings out of 492970
- 611872 string characters out of 6133938
+ 31472 strings out of 492970
+ 612559 string characters out of 6133938
  707477 words of memory out of 5000000
- 34923 multiletter control sequences out of 15000+600000
+ 34933 multiletter control sequences out of 15000+600000
  661024 words of font info for 190 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,18n,96p,10432b,682s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (56 pages).
+Output written on main.pdf (58 pages).

@@ -30,21 +30,21 @@
 \contentsline {section}{\numberline {4.1}模糊层次分析法FAHP}{27}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}FAHP方法介绍}{27}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}FAHP求解权重参数步骤}{29}{subsection.4.1.2}
-\contentsline {chapter}{插图索引}{30}{section*.18}
-\contentsline {chapter}{表格索引}{31}{section*.20}
-\contentsline {chapter}{公式索引}{32}{section*.22}
-\contentsline {chapter}{参考文献}{33}{section*.24}
-\contentsline {chapter}{致\hspace {1em}谢}{34}{section*.26}
-\contentsline {chapter}{声\hspace {1em}明}{35}{section*.28}
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{36}{appendix.A}
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{36}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{37}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{38}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{39}{subsection.A.1.3}
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{40}{appendix.B}
-\contentsline {section}{\numberline {B.1}单目标规划}{40}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{40}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{41}{subsection.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{41}{subsection.B.1.3}
-\contentsline {chapter}{\numberline {附录 C}其它附录}{42}{appendix.C}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{43}{section*.38}
+\contentsline {chapter}{插图索引}{32}{section*.19}
+\contentsline {chapter}{表格索引}{33}{section*.21}
+\contentsline {chapter}{公式索引}{34}{section*.23}
+\contentsline {chapter}{参考文献}{35}{section*.25}
+\contentsline {chapter}{致\hspace {1em}谢}{36}{section*.27}
+\contentsline {chapter}{声\hspace {1em}明}{37}{section*.29}
+\contentsline {chapter}{\numberline {附录 A}外文资料原文}{38}{appendix.A}
+\contentsline {section}{\numberline {A.1}Single-Objective Programming}{38}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{39}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{40}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{41}{subsection.A.1.3}
+\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{42}{appendix.B}
+\contentsline {section}{\numberline {B.1}单目标规划}{42}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}线性规划}{42}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}非线性规划}{43}{subsection.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}整数规划}{43}{subsection.B.1.3}
+\contentsline {chapter}{\numberline {附录 C}其它附录}{44}{appendix.C}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{45}{section*.39}
