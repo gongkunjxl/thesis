@@ -125,20 +125,20 @@ CR &= \frac{CI}{RI}
 \end{figure}
 某专家通过对影响力学指数的因素进行两两对比后给出其三角模糊判断数，根据其给出的模糊数构建模糊成对比矩阵式(4-10)，从左至右一次为巴氏硬度、耐荷重性、耐冲击性和满水变形。
 \begin{equation}
-\widetilde{A} = \left\{\begin{array}{l}
-1 \quad \widetilde{3} \quad \widetilde{7} \quad \widetilde{5}  \\
-\widetilde{3}^{-1} \quad 1 \quad \widetilde{5} \quad \widetilde{3} \\
-\widetilde{7}^{-1} \quad \widetilde{5}^{-1} 1 \quad \widetilde{3}^{-1} \\
-\widetilde{5}^{-1} \quad \widetilde{3}^{-1} \quad \widetilde{3} \quad 1 \\
+\widetilde{A} = \left\{\begin{array}{cccc}
+1 & \widetilde{3} & \widetilde{7} & \widetilde{5}  \\
+\widetilde{3}^{-1} & 1 & \widetilde{5} & \widetilde{3} \\
+\widetilde{7}^{-1} & \widetilde{5}^{-1} & 1 & \widetilde{3}^{-1} \\
+\widetilde{5}^{-1} & \widetilde{3}^{-1} & \widetilde{3} & 1 \\
 \end{array}\right\}
 \end{equation}
 给定$\alpha=0.5$和优化参数$\mu=0.5$，根据式(4-7)和(4-8)可以获得割集矩阵和判断矩阵，判断矩阵A如下:
 \begin{equation}
-A = \left\{\begin{array}{l}
-1 \quad 3 \quad 7 \quad 5 \\
-\frac{3}{8} \quad 1 \quad 5 \quad 3 \\
-\frac{7}{48} \quad \frac{5}{24} \quad 1 \quad \frac{3}{8} \\
-\frac{5}{24} \quad \frac{3}{8} \quad 3 \quad 1 \\
+A = \left\{\begin{array}{cccc}
+1 & 3 & 7 & 5 \\
+\frac{3}{8} & 1 & 5 & 3 \\
+\frac{7}{48} & \frac{5}{24} & 1 & \frac{3}{8} \\
+\frac{5}{24} & \frac{3}{8} & 3 & 1 \\
 \end{array}\right\}
 \end{equation}
 
@@ -185,14 +185,50 @@ A = \left\{\begin{array}{l}
 
 针对已部署Pod这一影响调度的因素，其重要性相对其他资源要低，容器应用对该资源的需求以及节点上能部署的Pod总数都无法度量，不能像其他资源一样直接通过比值的差值作为模糊数的获取依据。因此，将CPU、内存、磁盘和网络带宽四种资源的比值从小到大排序，相较于Pod这一因素的重要性依次获得模糊数为(${\widetilde{3},\widetilde{5},\widetilde{7},\widetilde{9}}$)，反之，Pod相对于其他资源的模糊数为(${\widetilde{3}^{-1},\widetilde{5}^{-1},\widetilde{7}^{-1},\widetilde{9}^{-1}}$)。
 
-经过上述容器应用各维度资源和节点资源比值可以获取各因素之间的两两对比的模糊数，从而构建模糊成对比矩阵，最终自动获取判断矩阵，求解出判断矩阵的特征值和对应的特征向量，归一化出各因素的权重值，实现权重参数的自动求解。下面用一个实际的例子详细展示模糊成对比矩阵的构建以及最终权重参数的求解过程。
+经过上述容器应用各维度资源和节点资源比值可以获取各因素之间的两两对比的模糊数，从而构建模糊成对比矩阵，最终自动获取判断矩阵，求解出判断矩阵的特征值和对应的特征向量，判断矩阵满足一致性判断后，归一化出各因素的权重值，实现权重参数的自动求解。下面用一个实际的例子详细展示模糊成对比矩阵的构建以及最终权重参数的求解过程。
 
+若单个节点的资源配置如表4.5所示，这里假设集群是一个同构的服务集群，集群中所有节点的资源配置相同，对于异构的节点，模糊成对比矩阵的构建需要使用单位资源组的方法确定模糊数。
+\begin{table}[htbp]
+	\centering\dawu[1.3]
+	\caption{单台物理机的资源配置}
+	\begin{tabular}{|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|} \hline
+		类型 & CPU(M) & MEM(M) & Disk(G) & BW(M) \\ \hline
+		数量 & 2400 & 16000 & 1024 & 100  \\ \hline
+	\end{tabular}
+\end{table}
 
+在该同构集群上进行应用容器的调度，设某个应用容器对各维度资源的需求和资源与节点资源的比值如表4.6所示。
+\begin{table}[htbp]
+	\centering\dawu[1.3]
+	\caption{某应用容器的资源需求}
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|} \hline
+		类型 & CPU(M) & MEM(M) & Disk(G) & BW(M) & Pod \\ \hline
+		数量 & 540 & 400 & 80 & 25 & 1 \\ \hline
+		占比 & 0.225 & 0.025 & 0.075 & 0.4 & - \\ \hline
+	\end{tabular}
+\end{table}
 
+根据各维度资源所占比值的差值作为模糊数的依据，可以构建出该容器应用的模糊成对比矩阵，已部署Pod因素影响较弱，其他因素与该因素对比获取的模糊数较大。自动构建的模糊成对比矩阵如式(4-12)所示，行和列依次为CPU、内存、磁盘、网络带宽以及已部署Pod等影响决策的因素，通过两两对比确定模糊数后获得一个5*5的判断方阵。
+\begin{equation}
+\widetilde{A} = \left\{\begin{array}{ccccc}
+1 & \widetilde{5} & \widetilde{3} & \widetilde{1} & \widetilde{7}  \\
+\widetilde{5}^{-1} & 1 & \widetilde{1} & \widetilde{5}^{-1} & \widetilde{3} \\
+\widetilde{3}^{-1} & \widetilde{1}^{-1} & 1 & \widetilde{3}^{-1} & \widetilde{5} \\
+\widetilde{1}^{-1} & \widetilde{5} & \widetilde{3} & 1 & \widetilde{9} \\
+\widetilde{7}^{-1} & \widetilde{3}^{-1} & \widetilde{1} & \widetilde{9}^{-1} & 1 \\
+\end{array}\right\}
+\end{equation}
 
-
-
-
+给定割集参数$\alpha=0.5$，优化参数$\mu=0.5$，参数$\alpha$反映模糊数中最大可能值的模糊程度，即真实值与最大可能值的距离，当$\alpha=1$时，模糊数的真实值就是最大可能值，$\alpha=0$时模糊程度出现最大范围，真实值和最大可能值接近程度最低。$\mu$作为优化参数，在模糊给定$\alpha$后反映上界和下界的取值，$\mu=1$时取上界值，$\mu=0$时取下界值。两个参数对权重参数的影响可以参考文献[XX]，该文献对两个参数对权重产生的影响进行了详细的分析。将上述的模糊成对比矩阵转化为割集矩阵，然后再转变为实际判断矩阵如(4-13)所示。
+\begin{equation}
+A = \left\{\begin{array}{ccccc}
+1 & 5 & 3 & 1 & 7 \\
+\frac{5}{24} & 1 & 1 & \frac{5}{24} & 3 \\
+\frac{3}{8} & 1 & 1 & \frac{3}{8} & 5 \\
+1 & 5 & 3 & 1 & 9 \\
+\frac{7}{48} & \frac{3}{8} & 1 & \frac{9}{80} & 1 \\
+\end{array}\right\}
+\end{equation}
 
 
 
