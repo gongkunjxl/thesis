@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  27 MAR 2019 11:50
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  28 MAR 2019 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2011,6 +2011,10 @@ LaTeX Warning: Label `fig:xfig1' multiply defined.
 
 LaTeX Warning: Label `fig:xfig1' multiply defined.
 
+) (./data/chap05.aux
+
+LaTeX Warning: Label `fig:xfig1' multiply defined.
+
 ) (./data/ack.aux) (./data/resume.aux))
 \openout1 = `main.aux'.
 
@@ -2463,11 +2467,23 @@ Overfull \hbox (2.4243pt too wide) in paragraph at lines 167--167
  []|\T1/ntxtlf/m/n/11.04124 Resources| 
  []
 
-[34] [35] [36]) [37] (./main.lof)
+[34] [35] [36] [37]) [38]
+\openout2 = `data/chap05.aux'.
+
+ (./data/chap05.tex
+第5章
+[39
+
+
+
+]
+File: figures/cloudsim-layer.pdf Graphic file (type pdf)
+<use figures/cloudsim-layer.pdf>
+ [40]) [41] [42] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [38
+ [43
 
 
 
@@ -2476,10 +2492,10 @@ Overfull \hbox (2.4243pt too wide) in paragraph at lines 167--167
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [39
+ [44
 
 
-] (./main.loe [40
+] (./main.loe [45
 
 
 ])
@@ -2487,14 +2503,14 @@ Overfull \hbox (2.4243pt too wide) in paragraph at lines 167--167
 \openout7 = `main.loe'.
 
 
-(./main.bbl [41]
+(./main.bbl [46]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 11.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [42
+) [47
 
 
 ]
@@ -2505,11 +2521,11 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
- [43
+ [48
 
 
 
-]) [44
+]) [49
 
 
 ] (./data/appendix01.tex
@@ -2523,19 +2539,19 @@ line 36.
 \c@endmpdefopctr=\count388
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[45
+[50
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [46]
+ [51]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [47]
+ [52]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [48]
+ [53]
 附录 B
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.045pt on input line 193.
@@ -2549,12 +2565,12 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.06006pt on input line 208.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 208.
-[49
+[54
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [50]
+ [55]
 附录 C
 *************************************************
 * fontspec warning: "script-not-exist"
@@ -2564,17 +2580,17 @@ File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 262.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [51
+)) [56
 
 ]
 \openout2 = `data/resume.aux'.
 
 
-(./data/resume.tex [52
+(./data/resume.tex [57
 
 
 
-]) [53]
+]) [58]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2589,7 +2605,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [54
+ [59
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2598,31 +2614,31 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [55]
+ [60]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
  (./main.aux (./data/chap01.aux)
-(./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux) (./data/ack.aux)
-(./data/resume.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+(./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux)
+(./data/ack.aux) (./data/resume.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 78.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CB480CC99F701ABF21050C3AB103C105.
+(rerunfilecheck)             Checksum: 009DE3B981E88BAC1B7C1CBFEAF44870.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31481 strings out of 492970
- 612798 string characters out of 6133938
- 710239 words of memory out of 5000000
- 34940 multiletter control sequences out of 15000+600000
+ 31495 strings out of 492970
+ 613063 string characters out of 6133938
+ 713482 words of memory out of 5000000
+ 34946 multiletter control sequences out of 15000+600000
  661024 words of font info for 190 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 66i,18n,96p,10432b,684s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,18n,96p,10432b,682s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (65 pages).
+Output written on main.pdf (70 pages).
