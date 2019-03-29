@@ -83,8 +83,70 @@ CloudSim有一些重要的类和核心概念，针对这些类的大致作用进
 至此，ContainerCloudSim容器云仿真平台介绍完毕，具体的仿真执行流程具体的实现可以参见其源代码。
 
 \subsection{MRWS资源利用率测试}
-sdm,dasm,dasm
+在ContainerCloudSim容器云仿真平台上的ContainerPlacementPolicy库下开发MRWS、Kubernetes默认Default算法，该类自带Ramdom算法，对比三种算法下集群资源的利用率。该容器云仿真平台影响调度因素较多，需要根据实际的需要进行一些必要的设置。
 
+首先MRWS算法和Kubernetes的Default算法在预选阶段使用的筛选规则相同，评分阶段除空闲资源评分函数和平衡函数外，其他评分函数相同。因此，假设其他评分函数和外部条件都相同的情况下，只需模拟比较MRWS算法和Default算发的空闲资源评分函数。在模拟器设置方面，要对比容器各种调度算法下集群资源的利用率和负载均衡性，对虚拟机的调度策略已有众多的研究，不是本文的研究方向，因此，假设ContainerCloudSim数据中心的单个Host上只运行一个虚拟机，且虚拟机的资源配置和Host主机相同。本文也不对Container的迁移算法做研究，需要在模拟器上设置容器禁止迁移，即不触发迁移阈值。由于只对容器应用调度研究，不执行具体的云任务，不设置容器、虚拟机和主机的PE数。测试负载是基于PlanetLab负载进行的更改，让CPU、内存、磁盘和带宽的利用率从10\%到90\%的随机变化。虚拟机、主机的配置如表5.1所以，CPU的单位是Mips，容器应用根据负载情况随机构建。在云数据中心中，集群通常是异构的，节点拥有资源数量不同，假设存在三种主机，用于模拟异构集群。
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{主机和虚拟机配置表}
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.5cm}<{\centering}|p{2cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|} \hline
+		Host类型 & VM类型 & CPU型号 & MIPS & 内存(G) & 磁盘(G) & 带宽(M) \\ \hline
+		\#1 & \#1 & i7 7500U & 49360 & 16 & 1000  & 100 \\ \hline
+		\#2 & \#2 & i5 8200U & 65770 & 32 & 1000 & 100 \\ \hline
+		\#3 & \#3 & X6 1100T & 78440 & 16 & 1000 & 100 \\ \hline
+	\end{tabular}
+\end{table}
+
+容器应用的配置根据模拟的负载情况自动生成，并对生成的负载自动求解权重参数，参数设置部分代码片段如下：
+\begin{lstlisting}[ language=Java]
+public static final int VM_TYPES = 3;
+public static final double[] VM_MIPS = new double[]{49360, 65770, 78440};
+public static final int[] VM_PES = new int[]{};
+public static final float[] VM_RAM = new float[] {(float)16000, (float) 32000, (float) 16000};//**MB*
+public static final int VM_BW = 100;
+public static final int VM_SIZE = 1000000;
+
+public static final int HOST_TYPES = 3;
+public static final int[] HOST_MIPS = new int[]{49360, 65770, 78440};
+public static final int[] HOST_PES = new int[]{};
+public static final int[] HOST_RAM = new int[]{1600,3200,1600};
+public static final int HOST_BW = 100;
+public static final int HOST_STORAGE = 1000000;
+
+public static final int NUMBER_HOSTS = 30;
+public static final int NUMBER_VMS = 30;
+public static final int NUMBER_CLOUDLETS = 200;
+\end{lstlisting}
+
+模拟实验中设置资源阈值为0.15，一旦节点上的某种资源使用率超过该阈值后将不能部署新的容器应用，模拟实验主要测量在相同数量容器下需要服务器的数量。若节点资源利用越均衡，该节点可部署的容器应用数量越多，从而需要的节点数量越少。实验对比MRWS调度算法、Kubernetes的Default算法简称为KUB算法、Random算法以及FirstFit算法对资源的需求，后两种算法是ContainerCloudSim自带算法，只需要模拟KUB的内存和CPU均衡利用，MRWS综合考虑CPU、内存、磁盘、网络带宽以及已部署Pod应用因素的综合评分算法。模拟实验中单位资源组$res=(cpu,memory,disk,bandwidth)=(10000Mips,4000M,100G,10M)$，单个应用容器的负载是单位资源组的10\%\~ 90\%随机变化的资源需求，构建出的应用容器负载如表5.2所示。
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{N个应用容器的资源配置}
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|} \hline
+		应用容器 & CPU(MIPS) & 内存(M) & 磁盘(G) & 带宽(M) & Pod \\ \hline
+		 1 & 8500 & 680 & 34 & 9 &1 \\ \hline
+		 2 & 4000 & 840 & 12 & 16 & 1 \\ \hline
+		 3 & 2000 & 3400 & 20 & 6 & 1 \\ \hline
+		 4 & 3400 & 1200 & 80 & 10 & 1 \\ \hline
+		 ... & ... & ... & ... & ... & ... \\ \hline
+		 N & 7600 & 600 & 30 & 4 & 1 \\ \hline
+	\end{tabular}
+\end{table}
+根据MRWS的FAHP自动建模和按照资源需求比值的差值构建模糊成对比矩阵，自动求解容器应用各维度资源的权重参数，上述容器列表各维度资源对应的权重参数如表5.3所示。
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{应用容器资源对应的权重参数表}
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|} \hline
+		应用容器 & CPU(MIPS) & 内存(M) & 磁盘(G) & 带宽(M) & Pod \\ \hline
+		 1 & 0.528 & 0.086 & 0.136 & 0.214 & 0.036 \\ \hline
+		 2 & 0.185 & 0.128 & 0.082 & 0.570 & 0.035 \\ \hline
+		 3 & 0.092 & 0.596 & 0.119 & 0.158 & 0.035 \\ \hline
+		 4 & 0.140 & 0.095 & 0.508 & 0.221 & 0.036 \\ \hline
+		 ... & ... & ... & ... & ... & ... \\ \hline
+		 N & 0.596 & 0.092 & 0.158 & 0.119 & 0.035 \\ \hline
+	\end{tabular}
+\end{table}
+测试在相同容器应用数量的条件下所需虚拟机的数量，根据前面一个主机Host上只运行一个和主机配置相同虚拟机，因此虚拟机的数量也是Host主机的数量。实验开始时给定一定数量的Host，三种类型Host数量相同，一旦出现所有主机都无法满足新的容器资源需求，同时增加三种类型Host一台。如200个应用容器时先给定18台主机，以后每次各类型增加一台，即每次增加三台主机，避免某一类型的主机数量过多，测试结果如表5.4所示。
 
 
 
