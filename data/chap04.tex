@@ -56,7 +56,6 @@ a和c分别表示三角模糊数的上界和下界值，b是隶属度为1的中�
 	\centering
 	\includegraphics{fahp-flow}
 	\caption{FAHP计算权重参数过程}
-	\label{fig:xfig1}
 \end{figure}
 如图4.2所示，使用FAHP方法计算权重参数的步骤可以分为构建模糊成对比矩阵、转化为二元割集矩阵、设置优化参数转化为判断矩阵，求解判断矩阵的最大特征值，检验特征值满足一致性要求，若满足则将最大特征值对应的特征向量归一化作为权重参数值，否则需要调整判断矩阵值，重新进行特征值计算。下面详细介绍求解步骤:
 
@@ -121,7 +120,6 @@ CR &= \frac{CI}{RI}
 	\centering
 	\includegraphics{fahp-example}
 	\caption{力学指数的评价因素}
-	\label{fig:xfig1}
 \end{figure}
 某专家通过对影响力学指数的因素进行两两对比后给出其三角模糊判断数，根据其给出的模糊数构建模糊成对比矩阵式(4-10)，从左至右一次为巴氏硬度、耐荷重性、耐冲击性和满水变形。
 \begin{equation}
@@ -154,7 +152,6 @@ A = \left\{\begin{array}{cccc}
 	\centering
 	\includegraphics{fahp-model}
 	\caption{多维资源递阶模糊层次结构}
-	\label{fig:xfig1}
 \end{figure}
 在云计算数据中心，CPU和内存一般是相对稀缺的资源，因此容器应用中CPU和内存相对其他资源需求重要性一般要高。单个节点上部署Pod数量较大，只是数量庞大的小资源需求Pod其管理成本较高，因此已部署Pod这个影响决策的因素相对重要性较弱。在构建模糊成对比矩阵时，该因素的模糊数较小，只是作为平衡各节点运行Pod数量更可能相等，资源依然是首要考虑因素。利用上述的层次结果，下面介绍权重参数的自动求解方法。
 

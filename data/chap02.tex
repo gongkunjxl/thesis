@@ -10,7 +10,6 @@
 	\centering
 	\includegraphics{docker-structure}
 	\caption{容器与虚拟机对比}
-	\label{fig:xfig1}
 \end{figure}
 图2-1中基础设施Infrastructure可以是个人电脑、服务器、云主机等，主机操作系统是运行在基础设施上的系统，最主要的是Linux各种版本，虚拟机管理系统(Hypervisor)可以实现在主机操作系统上独立运行多个子操作系统，在子操作系统上安装完应用所需的各种依赖后就可以实现资源应用的隔离。相对于虚拟机，Docker要简便很多，当前所有的Linux版本以及MacOS、Windows都能运行Docker，Docker Engine取代了Hypervisor，负载管理Docker容器并与操作系统通信，各种应用直接打包到镜像文件中，实现容器间的隔离。
 
@@ -32,7 +31,6 @@ Docker是当前主流的容器技术代表，Kubernetes作为现阶段应用最�
 	\centering
 	\includegraphics{openshift-structure}
 	\caption{OpenShift Origin架构图}
-	\label{fig:xfig1}
 \end{figure}
 
 如图2.2所示，OpenShift平台的核心组件包括Master、Node、Pod、Scheduler、Service、Storage等。Mater是主控节点，可以配置高可用的多个主控节点，负责管理和维护OpenShift集群的状态。Master上运行的API Server是其核心组件，所有用户的Web Console以及RESTful API服务都通过该组件进行访问认证控制，各Node节点也会定期轮询API Server更新其状态和容器的状态。Data Store将所有的状态信息存储在分布式的数据库Etcd中，并通过ceph一致性协议保证其数据的一致性，Etcd可以安装在主控节点，也可以单独安装到集群之外。Scheduler调度控制器进行Pod资源的分配和调度，收集过各节点资源情况，选择最优的节点作为容器应用的调度目标。Replication Controller异常自检测和恢复组件，负责监控集群中容器应用的状态和数量是否和用户要求一致，自启动和关闭容器应用满足用户的需求。Node节点通过接收Master节点指令维护容器应用。Pod是OpenShift平台调度器调度的最小单元，一些容器应用和应用之间往往存在较大的关联性，将几个联系紧密的容器部署在一个Pod中进行调度，提升应用的效率，如分布式数据库。容器是一个非持久化的对象，一旦容器重启或销毁，其状态信息将会随之销毁，集群每次给Pod分配的IP地址不同，要对外提供统一持久的服务，需要Service组件，该组件能将所有的信息转发到其对应的容器IP和端口上。此外，还有Router、Persistent Storage、Registry、Haproxy、Kubelet等都是集群的重要组成组件。数据的持久化存储可以是集群的数据库、分布式数据库或者其他的数据库中，当前支持的有NFS、Ceph RDB、GlusterFS等。
@@ -47,7 +45,6 @@ Docker容器技术是容器集群的核心技术，但一个高效且强大的�
 	\centering
 	\includegraphics{swarm-structure}
 	\caption{Swarm架构图}
-	\label{fig:xfig1}
 \end{figure}
 
 Swarm集群由管理节点和工作节点构成，其中管理节点可以配置多个，实现高可用的多管理模式，内部通过RAFT算法实现主从的一致性。管理节点上除Docker Daemon守护进程、Load Balancing、Scaling组件外，最为重要的是Scheduler和Discovery组件，其中Discovery负责集群中节点的发现和状态更新，Scheduler首先根据用户的限制对节点进行筛选，然后使用内置的调度策略进行应用调度。工作节点主要运行Docker Daemon和Load Balancing，根据控制节点的指令运行调度过来的容器应用。在调度器的过滤模块主要提供了约束过滤器和健康过滤器，此外还可以配置吸引力过滤器、依赖过滤器和端口过滤器。
@@ -68,7 +65,6 @@ Swarm的调度策略主要包括Random、Spread和Binpack算法，下面分别�
 	\centering
 	\includegraphics{mesos-structure}
 	\caption{Apache Mesos架构图}
-	\label{fig:xfig1}
 \end{figure}
 
 如图2.4所示，Mesos的总体架构也采用主从设计，Master节点运行作为集群的管理控制节点，可以有一个或者多个(最好为单数)，为了防止单节点故障，通过ZooKeeper提供一致性服务。每次在多个Master中选举一个作为leader对外提供服务，其他的Master副本随时保证和Master的状态一直，一旦服务出现故障，立马进行新的备份选举，从而实现集群的高可用性。集群的架构可以分为两层: 计算框架层和Master调度层。下层的Master管理众多的计算节点，负责收集各节点的资源情况并作出分配决定，上层的计算框架层负责实际任务的调度，从而将整个调度分为了任务调度层和资源调度层，两个层级互不干扰，可以分别使用调度算法，提升了集群调度策略的扩展性。从架构的组成部分来看，主要有五大组成部分，下面分别对组成部分的功能进行介绍:
@@ -91,7 +87,6 @@ Mesos作为一款优秀的分布式资源管理框架，采用双层调度机制
 	\centering
 	\includegraphics{full-state-structure}
 	\caption{共享状态资源调度系统}
-	\label{fig:xfig1}
 \end{figure}
 在共享状态调度系统中，每一个上层的调度器都可以对整个集群的状态进行访问，资源对所有的调度器都是透明的，可以实现自由竞争，不存在单一的资源分配器，因此也不存在单一节点访问瓶颈。集群不仅支持节点资源的快速增加，也支持调度器的扩展，用户根据自己的实际应用场景开发特殊的调度器，可以很轻易的集成到集群中。为了保证集群的高并发性和可扩展性，共享状态调度系统采用“乐观锁”对底层资源进行并发控制。具体的实现是通过对集群的所有状态都增加一个版本属性，每次提交时比较提交的版本和当前版本号大小，若版本号小于当前的版本号，则不进行任何处理，只有提交版本号大于当前数据版本号的操作才被接受，更新完状态后版本号递增。“乐观锁”并发控制虽然会增加资源访问的冲突数，影响系统的吞吐率，但在实际的系统中依然在一个可以接受范围，下一个小节将对Kubernetes调度系统架构和流程做详细的分析。
 
@@ -111,7 +106,6 @@ Kubernetes是一个主从架构体系，该集群管理器很好的解决了扩�
 	\centering
 	\includegraphics{kubernetes-structure}
 	\caption{Kubernetes体系架构图}
-	\label{fig:xfig1}
 \end{figure}
 如图2.6所示，Kubernetes主从架构主要由控制节点Master、工作节点Node以及外部工具集kubectl、web UI等附加依赖组成。Master作为集群的控制节点，主要负责集群的管理调度，由API Server、Scheduler、Etcd、Controller Manager等组成，实现其主要功能。Node节点主要根据控制节点的指令执行具体的任务，实现应用容器的运行，主要由kubelet、kube-proxy、cAdvisor、Container Runtime等组成。外部可以通过kubectl命令工具对集群进行增删查改的操作，也可以使用Web UI与集群进行交互。下面对集群中的重要组件分别进行介绍:
 \begin{enumerate}[1.]
@@ -131,7 +125,6 @@ Kubernetes调度器运行在Master节点上，作为一个可插拔的模块，�
 	\centering
 	\includegraphics{kubernetes-scheduler}
 	\caption{kubernetes调度流程}
-	\label{fig:xfig1}
 \end{figure}
 调度器相对于普通用户而言类似一个黑盒，输入Pod的资源需求，输出Pod和节点的绑定，起到指挥中枢的作用。但是在很多业务场景下，用户希望自己的Pod调度可控，如制定调度算法、特殊的硬件需求的Pod调度到特殊的节点、通信量大的计算框架部署在相同机架上、数据需求大的Pod部署在存储数据的节点上等。调度器的调度流程如图2.7所示，命令工具Kubectl或Web Browser向Master上的API Server发送调度请求如创建Pod，API Server对请求做出响应处理并将处理的结果存储在Etcd中，同时设置PodSpec.NodeName为空，加入未调度Pod队列。调度器监控Etcd中未调度Pod队列状态，发现有未调度的Pod时通过调度策略尝试绑定Pod到节点，调度策略分为两个阶段: 预选阶段和优选阶段。预选阶段主要过滤节点，筛选满足Pod资源需求的节点如CPU、内存是否满足需求，端口是否冲突以及其他特定需求等，淘汰不满足需求的节点。优选阶段将满足资源需求的节点进行综合评分，主要根据资源使用的均衡性、相同副本的容灾性等调度策略，最终选取得分最高的节点，将Pod调度到该节点上，并将绑定状态存储到Etcd中。节点上的Kubelet监控Etcd中Pod调度结果，接管调度的后续工作，负责Pod生命周期的管理，一个完整的调度结束。
 

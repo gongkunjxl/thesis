@@ -46,14 +46,12 @@ CloudSim有一些重要的类和核心概念，针对这些类的大致作用进
 
 此外，CLoudSim还有数据中心资源配置类DataCenterCharacteristics、扩展虚拟机分配策略的主机类Host、带宽分配策略类BwProvisioner、模拟网络延时行为类NetworkTopology、模拟存储区域网类SanStorage、虚拟分配主存类RamProvisioner、云协调器类CloudCoordinator等一些列重要的类，共同完成CloudSim功能。
 
-
 \subsubsection{ContaienrCloudSim容器云仿真平台}
 随着容器技术的迅猛发展，CaaS(Congtianer as a Service)作为一种新型的服务模式变得越来越普遍。上述介绍的各种云计算仿真平台以及早期的CloudSim版本并不支持容器仿真，一个支持容器应用仿真的平台变得越加紧迫。为了缩短容器云上新方法的开发时间，墨尔本大学的研究人员利用CloudSim虚拟化的特点，在其基础上开发了ContainerCloudSim，专门用于数据中心容器应用的模拟。在最新的CloudSim-4.0上已经集成ContainerCloudSim，提供Docker容器应用仿真支持，ContainerCloudSim与CloudSim生态圈关系如图5.2所示。
 \begin{figure}[H] % use float package if you want it here
 	\centering
 	\includegraphics{container-cloudsim}
 	\caption{ContainerCloudSim与CloudSim生态圈}
-	\label{fig:xfig1}
 \end{figure}
 集成ContainerCloudSim的CloudSim-4.0云平台模拟器已完整支持容器云的仿真，新的版本具有如下几个特点:
 \begin{enumerate}[(1)]
@@ -71,7 +69,6 @@ CloudSim有一些重要的类和核心概念，针对这些类的大致作用进
 	\centering
 	\includegraphics{containercloudsim-layer}
 	\caption{ContainerCloudSim分层架构图}
-	\label{fig:xfig1}
 \end{figure}
 从底至上依次分为数据中心管理服务、能耗监控服务、资源分配服务、资源管理服务、虚拟机生命周期管理服务、容器生命周期管理服务和负载管理服务等。每个层次的大致作用如下:
 \begin{enumerate}
@@ -86,7 +83,7 @@ CloudSim有一些重要的类和核心概念，针对这些类的大致作用进
 至此，ContainerCloudSim容器云仿真平台介绍完毕，具体的仿真执行流程具体的实现可以参见其源代码。
 
 \subsection{MRWS资源利用率测试}
-
+sdm,dasm,dasm
 
 
 
