@@ -13,3 +13,6 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces CloudSim分层架构图\relax }}{40}{figure.caption.26}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces ContainerCloudSim与CloudSim生态圈\relax }}{42}{figure.caption.27}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces ContainerCloudSim分层架构图\relax }}{43}{figure.caption.28}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 四种调度算法下节点CPU利用率波动图\relax }}{48}{figure.caption.33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 四种调度算法下节点负载均衡度\relax }}{49}{figure.caption.34}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 四种调度算法下集群负载均衡度\relax }}{50}{figure.caption.35}
