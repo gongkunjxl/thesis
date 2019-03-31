@@ -243,22 +243,66 @@ public static final int NUMBER_CLOUDLETS = 200;
 
 如图5.6所示，MRWS调度算法集群的负载均衡度最小，大概为Kubernetes算法的二分之一，Ramdom和FirstFit算法的四分之一。因此，在MRWS调度算法的集群中各节点资源消耗情况趋于均衡，单个节点上各维度资源利用也较为均衡，集群的服务性能更优秀。针对集群的服务性能将使用多计算框架应用混合部署在实际的实验平台上进行测试，测试集中调度算方法下混合应用的完成时间。
 
-\section{Paladin容器云平台部署}
+\section{Paladin数据存储处理平台部署}
+由于不具备大规模实际容器云环境对几种调度算法进行测试，将在实验室小规模容器云平台Paladin上对算法性能进行测试，实验中使用多种分布式计算框架容器应用进行混合部署和性能测试。因此，首先需要搭建一个Paladin实验环境，Paladin是实验室开发的一个集海量数据存储管理，基于容器的多种分布式计算框架运行环境快速构建，存储和计算分离的多元化大数据数据处理平台。
+\subsection{Paladin数据存储处理平台介绍}
+Paladin是一个支持用户构建多种大数据计算框架、并提供海量数据存储与管理的平台。用户在平台中选择所需的计算与存储框架，如批处理(Hadoop、Spark)，流计算系统(Storm、Flink)、分布式的MPI、机器学习框架(Mahout、Tensorflow)、图计算系统（GridGraph、ReGraph)以及数据库系统(MongoDB、Mysql、Redis)等等。平台能够快速构建相应的多计算框架运行环境、并且根据具体的需求提供计算任务调度、海量数据存储，通过优化的容器云多维资源利用率均衡调度算法提升资源利用率和集群服务性能。
 
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{paladin-structure}
+	\caption{Paladin平台架构图}
+\end{figure}
 
+从Paladin架构图可以看出，最底层是基础设施部分，即整个集群的物理机和云主机部分，中间是支持上层的中间软件服务如分布式文件系统、Docker容器服务、OpenShift Origin容器云等，最上层提供海量数据存储管理和多种数据处理计算框架，顶层是Web服务层。整个架构中最为重要的两个部分数据存储管理模块和数据处理框架模块，数据管理存储提供用户数据上传、下载、管理、浏览、分享、挂在等一个分布式大数据管理存储系统。数据处理框架提供用户快速构建各种计算框架容器集群环境，根据实际需求配置资源、容器的动态增减变动等，该部分基于开源OpenShift Origin进行搭建，在任何一个容器中可以实现存储数据的挂载，实现存储和计算分离。当前计算框架除支持单应用的Nginx、Apache、PHP、MongoDB等，也支持大量分布式数据处理框架如Hadoop、SPark、Storm、Spark、TensorFlow以及实验室的图计算Regraph、GridGraph等数十种计算框架运行环境的快速部署。用户既可以简单用该系统进行大数据存储管理，也能快速构建大数据处理框架，实现海量数据处理，管理员对基础设施和存储节点，以及系统权限等进行管理。
 
+\subsection{Paladin数据存储处理平台部署}
+首先需要构建小规模的Paladin数据存储处理平台，构建一个容器云环境，该平台集成数据存储和管理。实验中采用6台物理机进行部署，一个主节点Matser，Master节点同时也是Node节点，四个Node节点和一个存储Master节点，由于该存储也需要对用户提供Web Service的服务，因此单独使用一个节点进行部署。将用户的存储管理服务和计算框架服务分离，分别部署在两个不同的物理机上，提升集群吞吐率。S-Master是分布式存储的Master节点，各物理节点的配置如下:
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{Paladin平台物理机配置}
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{1.5cm}<{\centering}|p{3cm}<{\centering}|} \hline
+		\diagbox[innerwidth=1.8cm]{节点}{资源} & CPU核数 & 内存(G) & 磁盘(G) & 带宽(M) & IP \\ \hline
+		Master & 4 & 16 & 1000 & 100 & 192.168.1.100  \\ \hline
+		Node1 & 4 & 16 & 1000 & 100  & 192.168.1.101 \\ \hline
+		Node2 & 4 & 16 & 1000 & 100  & 192.168.1.102 \\ \hline
+		Node3 & 4 & 16 & 1000 & 100  & 192.168.1.103 \\ \hline
+		Node4 & 4 & 16 & 1000 & 100  & 192.168.1.104 \\ \hline
+		S-Matser & 4 & 8 & 500 & 100  & 192.168.1.110 \\ \hline
+	\end{tabular}
+\end{table}
 
+各节点上需要安装的主要软件如下图所示，部署一个完整的容器云平台。在分布式计算框架部分Master节点上主要部署openshift-ansible及其依赖的各种软件包，用于安装OpenShift集群、openshift-origin集群、底层的Docker及其私有仓库、openshift-origin以来的一致性存储Etcd、实验室数据存储管理需要的哭护短paladin-client、经过优化更改后的origin-web、操作系统Centos 7.5。Master节点即作为容器云的主控节点，同时也是Node节点，在分布式存储中作为数据存储节点。S-Mastershi是分布式存储和管理的主控节点，使用Centos 6.9系统，安装Nginx服务、paladin-web-console对普通用户提供数据存储管理的web服务，同时也是数据节点。Node节点作为计算节点，安装Docker、openshift-origin集群子节点的需要的依赖软件如kublet、Haproxy等系列软件、同时还有Etcd和paladin-client、作为存储集群的数据节点，系统是Centos7.5。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{paladin-platform}
+	\caption{Paladin平台节点分布图}
+\end{figure}
 
+安装完成后，Paladin平台的计算框架部分，查询集群活跃节点如下:
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=8cm]{paladin-nodelist}
+	\caption{Paladin安装成功计算节点部分}
+\end{figure}
 
+存储paladin-web-console部分，用户进行数据存储管理，用户在该部分可以进行海量数据的上传、下载、删除等管理，还可以通过paladin-client将数据以盘的形式挂在到物理节点或者容器中，在分布式计算框架容器应用中直接使用数据，实现存储和计算分离。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=7cm]{paladin-web-console}
+	\caption{Paladin数据存储管理服务}
+\end{figure}
 
+整个Paladin平台部署完成后，在该平台上开发部署各种大数据处理框架和容器应用，平台origin-web-console用户服务界面如下:
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=7cm]{origin-web-console}
+	\caption{Paladin数据处理框架部署服务}
+\end{figure}
 
+至此，整个Paladin大数据存储管理和计算框架快速部署容器云平台部署完成，实现了存储计算分离，用户既能进行大数据存储管理，实现普通的云存储系统，又能快速构建大数据处理容器应用框架，实现海量数据处理，为普通用户提供优秀的大数据容器云配套服务。
 
-
-
-
-
-
-
+\section{多计算框架容器应用开发}
 
 
 
