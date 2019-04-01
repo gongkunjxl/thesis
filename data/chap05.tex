@@ -303,6 +303,115 @@ Paladin是一个支持用户构建多种大数据计算框架、并提供海量�
 至此，整个Paladin大数据存储管理和计算框架快速部署容器云平台部署完成，实现了存储计算分离，用户既能进行大数据存储管理，实现普通的云存储系统，又能快速构建大数据处理容器应用框架，实现海量数据处理，为普通用户提供优秀的大数据容器云配套服务。
 
 \section{多计算框架容器应用开发}
+在构建分布式计算应用时，容器数量动态增减变化时需要能自动发现其数量的变化，并自动搭建好计算环境。如在Hadoop容器应用计算框架下，有10个计算容器，减少4个后，应用框架要能够快速发现并自动缩减为6个容器应用的Hadoop计算环境。因此，分布式计算框架容器应用中需要内嵌一个服务自发现组件，当前分布式有Zookeeper、Etcd、Serf等，本文用Serf做服务注册和自发现组件。
+
+\subsection{Serf服务发现}
+在分布式计算框架中，有的计算框架是主从结构如Hadoop、Spark等，有的只是简单的计算框架如MPI等，因此需要一个去中心化的服务发现方案。HashCorp开源的Serf是一个去中心化的服务发现和编排项目，具有成员管理、服务检测、高可用、分区容错等功能，是一个轻量级的服务组件。Serf底层实现Gossip协议，一种类似病毒感染的传播协议，能够快速自动感知节点上线和下线。构成分布式计算框架中的容器应用上都维护一个成员列表，并将节点列表随机发送给周围节点，发送方式有Push和Pull两种，即主动发送和被动请求方式。Serf有一个时效检测器，定期轮询节点列表，给列表中的节点发送心跳包，确保所有的节点在线。
+
+Serf在分布式处理框架的每个应用容器上运行一个serf agent，在第一个容器应用上创建一个聚簇，后面创建容器的代理将会自动连接已存在的聚簇，形成一个集群。Serf是一个去中心化的服务方案，没有一个集中注册的节点，是一个弱一致性的方案，但具有较高的可用性和容错性。在常见的中心化集群中，集群的状态由master维护，通常为了可靠性需要双备份甚至多备份主节点，主节点往往是整个集群的性能瓶颈。在集群规模较大时，信息的传播给网络带来巨大的负载，集群的管理效率和正确性受到挑战，集群规模往往有一个上限。去中心化的集群可以进行大规模扩展，其效率和可靠性几乎不受集群规模的影响，Kubernetes底层用Etcd做服务发现，其规模上限通常在一万左右，而Docker Swarm底层用serf，其规模可以更大，Kubernetes的Etcd将会是制约其集群规模上限的重要因素。
+
+Serf从功能上而言，自下而上可以分为三层：Gossip协议层、消息中间件、客户端接口。Gossip协议层封装Gossip协议以及集群管理的相关操作；消息中间件对传播消息进行封装，包括管理的消息、UserEvent、Query等各种处理逻辑，其中UserEvent是一个单向无需应答的消息，Query是需要应答的双向消息；客户端接口处理集群的输出输出格式，提供rpc接口。Serf是一个弱一致性的解决方案，让节点之间直接进行信息交流，提升软件平台服务自主性，是一个简单、高效、可靠的去中心集群管理和服务发现系统实现。
+
+\subsection{Hadoop计算框架开发}
+在Paldin容器云平台计算框架部分，需要开发多种分布式处理框架，方便用户快速构建大数据处理环境。用户通过web-console与平台进行交互，只需通过鼠标操作就能构建所需的计算环境和配置容器资源，实现快速自动化部署。计算框架最终以模板Template存在集群中，所需的镜像文件在Docker私有仓库registry中，所有用户都重复使用该模板，其构建过程如下所示。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics{hadoop-flow}
+	\caption{Hadoop容器处理框架开发流程图}
+\end{figure}
+
+首先构建Hadoop环境容器应用的镜像文件，编写Hadoop Master和Slave的DockerFile文件，该文件在操作系统镜像ubuntu16.04的基础上安装Hadoop所需的环境，主要包括openjdk-8-jdk、hadoop-2.7.2、wget等，用于配置免密dnsmasq、openssh-server以及服务自发现Serf，将Hadoop所需的配置文件一并修改，整体打包成镜像，部分DockerFile源码如下:
+\begin{lstlisting}[ language=csh]
+FROM ubuntu:16.04
+MAINTAINER gongkunjxl <gongkunjxl@163.com>
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get install -y unzip curl dnsmasq openssh-server
+RUN apt-get install wget vim openjdk-7-jdk fuse libglib2.0-0
+# dnsmasq configuration
+ADD dnsmasq/* /etc/
+# install serf
+RUN curl -Lso serf.zip https://releases.hashicorp.com/serf/0.5.0/serf_0.5.0_linux_amd64.zip
+RUN unzip serf.zip -d /bin 
+RUN rm serf.zip
+#ADD hadoop-2.7.2.tar.gz /root/
+RUN wget XXX/hadoop-2.7.2.tar.gz(根据实际需要选择版本)
+RUN tar -xzvf hadoop-2.7.2.tar.gz
+RUN mv hadoop-2.7.2 /usr/local/hadoop
+RUN rm hadoop-2.7.2.tar.gz
+\end{lstlisting}
+
+此外，还有一些修改的配置文件和样例文件，以及paladin-client挂在文件系统的客户端等，使用docker build命令全部打包成容器Image文件，将文件push到私有仓库中，平台私有仓库的Ip为172.30.7.23:5000，在以后的template文件中将使用该镜像文件源。为重复使用该镜像文件以及用户通过web-console快速构建Hadoop计算框架，需要做成模板放置在平台上，其模板小部分代码如下:
+\begin{lstlisting}[ language=csh]
+{
+"kind": "Template",
+"apiVersion": "v1",
+"metadata": {
+"name": "hadoop-master",
+"annotations": {
+"description": "Hadoop Master",
+"iconClass": "icon-hadoop",
+"tags": "hadoop"
+}
+ "objects": [
+{
+"kind": "Service",
+"apiVersion": "v1",
+"metadata": {
+"name": "${APP_SERVICE_NAME}",
+},
+.......
+\end{lstlisting}
+
+该模板包含一个Service、一个DeploymentConfig，部署弯沉过后可以实现Container的自动伸缩。根据容器编排引擎Kubernetes底层网络原理，两个Pod之间可以实现直接IP互相访问，同一个Namespace下的Pod可以通过网桥直接通信。为了更好的实现对外服务，Pod的Service服务将其IP地址内嵌到后来创建的同一Namespace下的所有Pod中，但在创建Service之前的Pod中不会嵌入IP，这是实现Pod构成集群的最好方式。利用网络管理的这一特性，使用Serf对第一个容器应用创建聚簇，后面容器的Serf代理通过第一个容器的内嵌IP实现集群发现服务。如第一个容器应用是hadoop-master，由于其创建了Service服务，后面创建的所有hadoop-slave容器中都会有\$HADOOP\_MASTER\_SERVICE\_HOST环境变量为hadoop-master的IP地址，实现集群的构建。通过web-console可以快速构建Hadoop处理环境，并根据资源需求实现容器的自动伸缩，按需配置服务。
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=5cm]{hadoop-member}
+	\caption{Hadoop集群成员}
+\end{figure}
+
+同样可以通过hadoop-master Pod的IP地址进行访问，在浏览器中访问Pod的50070和8088端口，查看Hadoop集群状态和运行任务:
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=5cm]{hadoop-status}
+	\caption{Hadoop集群状态信息}
+\end{figure}
+在构建的Hadoop集群上运行wordcount样例，通过8088端口查看任务信息:
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=5cm]{hadoop-task}
+	\caption{Hadoop任务状态信息}
+\end{figure}
+
+至此，一个完整Hadoop容器应用处理框架构建完成，用户可以非常方便的在web-console上实现Hadoop环境的快速部署，并根据资源需求动态伸缩Pod数量，实现容器云平台的按需服务，并通过web查看器任务和集群状态。
+
+\subsection{其他计算框架开发}
+上一小节详细介绍了Paladin平台上Hadoop分布式处理框架的开发流程，使用上述的开发流程，构建其他的数据处理框架。原始的Docker hub中镜像文件大多只支持单个容器应用，即一个容器机器复制，比如PHP、Go、Java、Ruby、Python等语言类容器应用，以及Mysql、MongoDB、MariaDB等数据存储类容器。多分布式的数据处理框架和计算框架几乎没有，因此我们开发了离线数据批处理Hadoop、Spark、流计算Storm、Flink、分布式MPI、机器学习框架Mahout、Tensorflow、图计算系统GridGraph、Regraph等。众多的分布式处理可以满足绝大部分用户的需求，使得该平台将大数据存储管理和数据处理框架有机集合，并实现存储计算分离。底层基于Docker容器应用，集群整体的性能比虚拟机要优秀，减少了虚拟机系统隔离的开销。该平台上构建的分布式模板如下:
+\begin{figure}[H] % use float package if you want it here
+	\centering
+	\includegraphics[width=13cm, height=7cm]{paladin-distribute}
+	\caption{Paladin平台支持的处理框架模板}
+\end{figure}
+
+用户选择需要构建的处理框架，创建其第一个容器应用及其Service，容器应用内部的Serf同时创建集簇，后创建的容器应用通过Service提供的IP用其Serf代理自动连接集簇，构建一个集群。根据实际的资源需求，用户动态调整Pod数量，伸缩其资源，实现按需服务。容器应用中的Serf代理会自动监控容器应用的伸缩，用户调整完Pod数量后无需重启或重新连接集群，Serf服务发现解决方案很好解决分布式框架容器应用上线下线问题。Paladin平台给用户提供了一个web-console的可视化服务，用户无需了解部署原理和细节，甚至无需关心其构建过程，只需要根据实际需要配置处理框架的容器数量，几秒钟内就可以搭建好开发测试环境。用户把所有的精力集中在应用的开发生，完全从集群和环境配置中解放出来。该平台同时还提供数据存储管理可视化，可以挂载到所有的容器应用中，无需用户手动管理和数据节点分配，全自动化的存储计算分离。
+
+\section{多计算框架应用下MRWS性能测试}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
