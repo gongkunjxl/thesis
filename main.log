@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  1 APR 2019 15:28
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  1 APR 2019 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2568,7 +2568,7 @@ File: figures/hadoop-task.pdf Graphic file (type pdf)
  [58]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [59]) [60] (./main.lof [61
+ [59] [60]) [61] (./main.lof [62
 
 
 
@@ -2577,29 +2577,29 @@ File: figures/paladin-distribute.pdf Graphic file (type pdf)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [62] (./main.lot)
+ [63] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [63
+ [64
 
 
-] (./main.loe
-[64
+]
+(./main.loe [65
 
 
 ])
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [65]
+ (./main.bbl [66]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 11.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [66
+) [67
 
 
 ]
@@ -2610,14 +2610,15 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
- [67
+ [68
 
 
 
-]) [68
+]) [69
 
 
-] (./data/appendix01.tex
+]
+(./data/appendix01.tex
 附录 A
 \c@currmpdefctr=\count395
 \c@endmpdefctr=\count396
@@ -2628,19 +2629,19 @@ line 36.
 \c@endmpdefopctr=\count399
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[69
+[70
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [70]
+ [71]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [71]
+ [72]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [72]
+ [73]
 附录 B
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.045pt on input line 193.
@@ -2654,23 +2655,23 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.06006pt on input line 208.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 208.
-[73
+[74
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [74]
+ [75]
 附录 C
-) [75
+) [76
 
 ]
 \openout2 = `data/resume.aux'.
 
- (./data/resume.tex [76
+ (./data/resume.tex [77
 
 
 
-]) [77]
+]) [78]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2685,7 +2686,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [78
+ [79
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2694,7 +2695,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [79]
+ [80]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -2706,19 +2707,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 101.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 24633CE24C9AB311918A084CBDC87FB9.
+(rerunfilecheck)             Checksum: 62E62A6FE57F270D4F266BFD53D4670F.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33018 strings out of 492970
- 637630 string characters out of 6133938
- 776289 words of memory out of 5000000
- 36423 multiletter control sequences out of 15000+600000
+ 33019 strings out of 492970
+ 637643 string characters out of 6133938
+ 776292 words of memory out of 5000000
+ 36424 multiletter control sequences out of 15000+600000
  661354 words of font info for 192 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (90 pages).
+Output written on main.pdf (91 pages).

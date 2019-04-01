@@ -395,6 +395,34 @@ RUN rm hadoop-2.7.2.tar.gz
 用户选择需要构建的处理框架，创建其第一个容器应用及其Service，容器应用内部的Serf同时创建集簇，后创建的容器应用通过Service提供的IP用其Serf代理自动连接集簇，构建一个集群。根据实际的资源需求，用户动态调整Pod数量，伸缩其资源，实现按需服务。容器应用中的Serf代理会自动监控容器应用的伸缩，用户调整完Pod数量后无需重启或重新连接集群，Serf服务发现解决方案很好解决分布式框架容器应用上线下线问题。Paladin平台给用户提供了一个web-console的可视化服务，用户无需了解部署原理和细节，甚至无需关心其构建过程，只需要根据实际需要配置处理框架的容器数量，几秒钟内就可以搭建好开发测试环境。用户把所有的精力集中在应用的开发生，完全从集群和环境配置中解放出来。该平台同时还提供数据存储管理可视化，可以挂载到所有的容器应用中，无需用户手动管理和数据节点分配，全自动化的存储计算分离。
 
 \section{多计算框架应用下MRWS性能测试}
+搭建完容器云数据管理存储和多计算框架容器应用环境快速构建平台后，需要对MRWS调度性能进行测试，对比MRWS、Kubernetes、Random、FirstFit四种调度算法的性能。由于是小规模的容器云集群，无法对资源利用率进行大规模测试，大规模的仿真在ContainerCloudSim已经完成，因此只进行多计算框架容器应用混合部署下几种调度方案的性能。
+
+\subsection{混合部署多计算框架}
+Paladin平台只有五个实际的物理的节点，要在此小规模的集群上测试四种算法的性能，不能进行大规模的负载模拟。因此，构建集中较为典型的密集型应用容器，通过密集型应用的样例运行时间测试集中算法的优劣。Hadoop作为离线数据批处理，在海量数据处理map阶段完成后不能将所有的数据都放入内存做shuffle，要写入磁盘，其处理数据的方式大部分应用都是I/O密集型应用，因此用其数据读写样例作为I/O密集型容器应用，即Hadoop框架作为I/O密集型调度用例。Spark处理框架的特点是将大部分数据放入内存运算，每次将map输出的结果保存在内存中，大部分应用是内存密集型应用，因此Spark的SVM计算用作内存密集型应用。MPI多用于分布式计算，网络和计算资源通常是其瓶颈，在MPI的pi计算是一种CPU密集型应用，因此用作调度测试用例。Paladin集群上将混合部署Hadoop、Spark和MPI三种多计算框架，每个计算框架的容器数量相同，Hadoop上运行I/O和网络密集型应用TeraGen.java、Spark上运行内存密集型应用支持向量机SVM、MPI上运行CPU密集型应用PI计算。
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{用于调度算法测试的计算框架}
+	\begin{tabular}{|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|} \hline
+		框架类型 & 类型 & 运行程序 & 容器数量 \\ \hline
+		Hadoop & I/O密集 & TeraGen & 15  \\ \hline
+		Spark & 内存密集 & SVM & 15  \\ \hline
+		MPI & CPU密集 & PI计算 & 15 \\ \hline
+	\end{tabular}
+\end{table}
+
+调度算法的开发，Paladin是基于OpenShift Origin搭建的，OpenShift Origin是一个开源的容器云平台，其底层的容器编排引擎是Kubernetes。该平台只是搭建与Kubernetes上，并未修改其源码，因此开发该平台的调度方式和Kubernetes开发调度算法完全一样，最后只需要将调度算法的名称注册到平台的配置文件origin-master.conf中即可替代原有的算法。虽然Kubernetes提供了大量的API，但其使用较为繁琐，整个引擎的语言都是go开发，因此使用client-go进行快速开发。client-go是调用Kubernetes集群资源的客户端，对Kubernetes前置的API封装的二次开发都使用client-go这个第三方包实现，可以对集群资源对象进行增删查改。因此，四种调度算法也是使用client-go第三方包开发完成，实现与集群的交互。
+
+进行调度算法测试前，需要构建三种计算框架的容器应用，并对容器应用进行资源配置。根据其运行应用的类型，在相应维度上进行适当对配置，CPU密集型容器应用对CPU资源多配置，其他维度相对配置较少。为了测试混合部署的集群性能，不设置容器的资源使用上限，设置其资源使用下限，目的在于容器应用可以快速完成任务。如一个容器CPU限制使用30\%，如果物理节点上只存在一个容器，则该容器可以使用全部的CPU资源。主要在于测试多计算框架混合部署的场景下，几种调度算法对容器应用进行调度，整个集群完成全部计算框架处理任务的时间，该时间用于衡量集群性能，也就是调度算法的优劣。如果混合部署的几个调度框架同时处理任务，某个调度算法能最快完成全部任务，该调度算法下集群性能最优。四种调度算法下计框架容器应用分布如下:
+\begin{table}[H]
+	\centering\dawu[1.3]
+	\caption{Random调度算法应用容器分布}
+	\begin{tabular}{|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|} \hline
+		框架类型 & 类型 & 运行程序 & 容器数量 \\ \hline
+		Hadoop & I/O密集 & TeraGen & 15  \\ \hline
+		Spark & 内存密集 & SVM & 15  \\ \hline
+		MPI & CPU密集 & PI计算 & 15 \\ \hline
+	\end{tabular}
+\end{table}
 
 
 
