@@ -416,11 +416,12 @@ Paladin平台只有五个实际的物理的节点，要在此小规模的集群�
 \begin{table}[H]
 	\centering\dawu[1.3]
 	\caption{Random调度算法应用容器分布}
-	\begin{tabular}{|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|} \hline
-		框架类型 & 类型 & 运行程序 & 容器数量 \\ \hline
-		Hadoop & I/O密集 & TeraGen & 15  \\ \hline
-		Spark & 内存密集 & SVM & 15  \\ \hline
-		MPI & CPU密集 & PI计算 & 15 \\ \hline
+	\begin{tabular}{|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|p{1.8cm}<{\centering}|} \hline
+		\diagbox[innerwidth=1.8cm]{类型}{节点} & Master & Node1 &Node2 & Node3 & Node4 \\ \hline
+		mpi-pod & I/O密集 & TeraGen & 15  \\ \hline
+		spark-pod & 内存密集 & SVM & 15  \\ \hline
+		hadoop-pod & CPU密集 & PI计算 & 15 \\ \hline
+		总数 & CPU密集 & PI计算 & 15 \\ \hline
 	\end{tabular}
 \end{table}
 
