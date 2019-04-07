@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  1 APR 2019 22:43
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  7 APR 2019 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2568,7 +2568,13 @@ File: figures/hadoop-task.pdf Graphic file (type pdf)
  [58]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [59] [60]) [61] (./main.lof [62
+ [59] [60] [61] [62]
+File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
+<use figures/firstfit-cpu-utilization.pdf>
+ [63]
+File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
+<use figures/kubernetes-cpu-utilization.pdf>
+) [64] (./main.lof [65
 
 
 
@@ -2577,29 +2583,29 @@ File: figures/paladin-distribute.pdf Graphic file (type pdf)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [63] (./main.lot)
+ [66]
+(./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [64
+ [67
 
 
-]
-(./main.loe [65
+] (./main.loe [68
 
 
 ])
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [66]
+ (./main.bbl [69]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 11.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [67
+) [70
 
 
 ]
@@ -2610,15 +2616,15 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
- [68
+
+[71
 
 
 
-]) [69
+]) [72
 
 
-]
-(./data/appendix01.tex
+] (./data/appendix01.tex
 附录 A
 \c@currmpdefctr=\count395
 \c@endmpdefctr=\count396
@@ -2629,19 +2635,19 @@ line 36.
 \c@endmpdefopctr=\count399
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[70
+[73
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [71]
+ [74]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [72]
+ [75]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [73]
+ [76]
 附录 B
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.045pt on input line 193.
@@ -2655,23 +2661,23 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.06006pt on input line 208.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 208.
-[74
+[77
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [75]
+ [78]
 附录 C
-) [76
+) [79
 
 ]
 \openout2 = `data/resume.aux'.
 
- (./data/resume.tex [77
+ (./data/resume.tex [80
 
 
 
-]) [78]
+]) [81]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2686,7 +2692,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [79
+ [82
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2695,7 +2701,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [80]
+ [83]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -2707,19 +2713,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 101.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 62E62A6FE57F270D4F266BFD53D4670F.
+(rerunfilecheck)             Checksum: 87C22B360132A31315A5F71937048C36.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33019 strings out of 492970
- 637643 string characters out of 6133938
- 776292 words of memory out of 5000000
- 36424 multiletter control sequences out of 15000+600000
+ 33027 strings out of 492970
+ 637981 string characters out of 6133938
+ 776294 words of memory out of 5000000
+ 36430 multiletter control sequences out of 15000+600000
  661354 words of font info for 192 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (91 pages).
+Output written on main.pdf (94 pages).

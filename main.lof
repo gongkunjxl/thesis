@@ -26,3 +26,5 @@
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Hadoop集群状态信息\relax }}{58}{figure.caption.44}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Hadoop任务状态信息\relax }}{58}{figure.caption.45}
 \contentsline {figure}{\numberline {5.16}{\ignorespaces Paladin平台支持的处理框架模板\relax }}{59}{figure.caption.46}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces FirstFit调度MPI-pod集群CPU利用情况\relax }}{64}{figure.caption.53}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Kubernetes调度MPI-pod集群CPU利用情况\relax }}{64}{figure.caption.54}
