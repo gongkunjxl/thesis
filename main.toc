@@ -42,9 +42,9 @@
 \contentsline {subsubsection}{\numberline {5.1.1.2}ContaienrCloudSim容器云仿真平台}{42}{subsubsection.5.1.1.2}
 \contentsline {subsection}{\numberline {5.1.2}MRWS资源利用率实验}{44}{subsection.5.1.2}
 \contentsline {subsection}{\numberline {5.1.3}MRWS负载均衡实验}{47}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Paladin数据存储处理平台部署}{50}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Paladin数据存储处理平台介绍}{51}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Paladin数据存储处理平台部署}{52}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.2}Paladin大数据存储与处理的容器云平台部署}{50}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Paladin大数据存储与处理的容器云平台介绍}{51}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Paladin大数据存储与处理的容器云平台部署}{52}{subsection.5.2.2}
 \contentsline {section}{\numberline {5.3}多计算框架容器应用开发}{55}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Serf服务发现}{55}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Hadoop计算框架开发}{56}{subsection.5.3.2}
@@ -52,21 +52,24 @@
 \contentsline {section}{\numberline {5.4}多计算框架应用下MRWS性能测试}{60}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}混合部署多计算框架}{60}{subsection.5.4.1}
 \contentsline {subsection}{\numberline {5.4.2}单个计算框架服务性能}{63}{subsection.5.4.2}
-\contentsline {chapter}{插图索引}{65}{section*.55}
-\contentsline {chapter}{表格索引}{67}{section*.57}
-\contentsline {chapter}{公式索引}{68}{section*.59}
-\contentsline {chapter}{参考文献}{70}{section*.61}
-\contentsline {chapter}{致\hspace {1em}谢}{71}{section*.63}
-\contentsline {chapter}{声\hspace {1em}明}{72}{section*.65}
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{73}{appendix.A}
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{73}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{74}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{75}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{76}{subsection.A.1.3}
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{77}{appendix.B}
-\contentsline {section}{\numberline {B.1}单目标规划}{77}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{77}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{78}{subsection.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{78}{subsection.B.1.3}
-\contentsline {chapter}{\numberline {附录 C}其它附录}{79}{appendix.C}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{80}{section*.75}
+\contentsline {subsection}{\numberline {5.4.3}混合部署多计算框架下的服务性能}{65}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}本章小结}{66}{section.5.5}
+\contentsline {chapter}{\numberline {第6章}总结与展望}{67}{chapter.6}
+\contentsline {chapter}{插图索引}{69}{section*.56}
+\contentsline {chapter}{表格索引}{71}{section*.58}
+\contentsline {chapter}{公式索引}{72}{section*.60}
+\contentsline {chapter}{参考文献}{74}{section*.62}
+\contentsline {chapter}{致\hspace {1em}谢}{75}{section*.64}
+\contentsline {chapter}{声\hspace {1em}明}{76}{section*.66}
+\contentsline {chapter}{\numberline {附录 A}外文资料原文}{77}{appendix.A}
+\contentsline {section}{\numberline {A.1}Single-Objective Programming}{77}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{78}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{79}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{80}{subsection.A.1.3}
+\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{81}{appendix.B}
+\contentsline {section}{\numberline {B.1}单目标规划}{81}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}线性规划}{81}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}非线性规划}{82}{subsection.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}整数规划}{82}{subsection.B.1.3}
+\contentsline {chapter}{\numberline {附录 C}其它附录}{83}{appendix.C}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{84}{section*.76}

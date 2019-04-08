@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  7 APR 2019 15:25
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  8 APR 2019 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2009,8 +2009,8 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 
 LaTeX Warning: Label `cha:intro' multiply defined.
 
-) (./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux) (./data/ack.aux)
-(./data/resume.aux))
+) (./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux)
+(./data/chap06.aux) (./data/ack.aux) (./data/resume.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 41.
@@ -2574,7 +2574,16 @@ File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
  [63]
 File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/kubernetes-cpu-utilization.pdf>
-) [64] (./main.lof [65
+ [64] [65]) [66]
+\openout2 = `data/chap06.aux'.
+
+ (./data/chap06.tex
+第6章
+[67
+
+
+
+]) [68] (./main.lof [69
 
 
 
@@ -2583,29 +2592,29 @@ File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [66]
-(./main.lot)
+ [70] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [67
+ [71
 
 
-] (./main.loe [68
+] (./main.loe [72
 
 
 ])
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [69]
+
+(./main.bbl [73]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.53937pt on input line 11.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 13.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 13.
-) [70
+) [74
 
 
 ]
@@ -2616,12 +2625,11 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 11.
-
-[71
-
+ [75
 
 
-]) [72
+
+]) [76
 
 
 ] (./data/appendix01.tex
@@ -2635,19 +2643,19 @@ line 36.
 \c@endmpdefopctr=\count399
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
 t line 48.
-[73
+[77
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 11.04124pt on input line 108.
- [74]
+ [78]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [75]
+ [79]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
 (Font)              scaled to size 12.045pt on input line 169.
- [76]
+ [80]
 附录 B
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.045pt on input line 193.
@@ -2661,23 +2669,23 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.06006pt on input line 208.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 6.07271pt on input line 208.
-[77
+[81
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [78]
+ [82]
 附录 C
-) [79
+) [83
 
 ]
 \openout2 = `data/resume.aux'.
 
- (./data/resume.tex [80
+ (./data/resume.tex [84
 
 
 
-]) [81]
+]) [85]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf>
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2692,7 +2700,7 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [82
+ [86
 
 ]
 File: figures/scan-record.pdf Graphic file (type pdf)
@@ -2701,31 +2709,31 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [83]
+ [87]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
  (./main.aux (./data/chap01.aux)
 (./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux)
-(./data/ack.aux) (./data/resume.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
+(./data/chap06.aux) (./data/ack.aux) (./data/resume.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 87C22B360132A31315A5F71937048C36.
+(rerunfilecheck)             Checksum: E2AA189E5AED9F8BEDA1BB242EBF0F1B.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33027 strings out of 492970
- 637981 string characters out of 6133938
- 776294 words of memory out of 5000000
- 36430 multiletter control sequences out of 15000+600000
+ 33035 strings out of 492970
+ 638097 string characters out of 6133938
+ 777724 words of memory out of 5000000
+ 36431 multiletter control sequences out of 15000+600000
  661354 words of font info for 192 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (94 pages).
+Output written on main.pdf (98 pages).
