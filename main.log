@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  8 APR 2019 15:28
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  8 APR 2019 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2600,9 +2600,9 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 
  (./data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 11.
+(Font)              scaled to size 8.0pt on input line 12.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 12.045pt on input line 11.
+(Font)              scaled to size 12.045pt on input line 12.
  [70
 
 
@@ -2613,21 +2613,21 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 ]
 \openout2 = `data/resume.aux'.
 
- (./data/resume.tex
+ (./data/resume.tex)
 [72
 
 
 
 
-]) [73]
+]
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
- (./main.aux (./data/chap01.aux) (./data/chap02.aux)
-(./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux) (./data/chap06.aux)
-(./data/ack.aux) (./data/resume.aux))
+ (./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux)
+(./data/chap04.aux) (./data/chap05.aux) (./data/chap06.aux) (./data/ack.aux)
+(./data/resume.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
@@ -2638,12 +2638,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32865 strings out of 492970
- 632231 string characters out of 6133938
+ 32861 strings out of 492970
+ 632122 string characters out of 6133938
  777160 words of memory out of 5000000
- 36279 multiletter control sequences out of 15000+600000
+ 36275 multiletter control sequences out of 15000+600000
  651197 words of font info for 184 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (83 pages).
+Output written on main.pdf (82 pages).
