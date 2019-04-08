@@ -55,21 +55,7 @@
 \contentsline {subsection}{\numberline {5.4.3}混合部署多计算框架下的服务性能}{65}{subsection.5.4.3}
 \contentsline {section}{\numberline {5.5}本章小结}{66}{section.5.5}
 \contentsline {chapter}{\numberline {第6章}总结与展望}{67}{chapter.6}
-\contentsline {chapter}{插图索引}{69}{section*.56}
-\contentsline {chapter}{表格索引}{71}{section*.58}
-\contentsline {chapter}{公式索引}{72}{section*.60}
-\contentsline {chapter}{参考文献}{74}{section*.62}
-\contentsline {chapter}{致\hspace {1em}谢}{75}{section*.64}
-\contentsline {chapter}{声\hspace {1em}明}{76}{section*.66}
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{77}{appendix.A}
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{77}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{78}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{79}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{80}{subsection.A.1.3}
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{81}{appendix.B}
-\contentsline {section}{\numberline {B.1}单目标规划}{81}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{81}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{82}{subsection.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{82}{subsection.B.1.3}
-\contentsline {chapter}{\numberline {附录 C}其它附录}{83}{appendix.C}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{84}{section*.76}
+\contentsline {chapter}{参考文献}{69}{section*.56}
+\contentsline {chapter}{致\hspace {1em}谢}{70}{section*.58}
+\contentsline {chapter}{声\hspace {1em}明}{71}{section*.60}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{72}{section*.62}
