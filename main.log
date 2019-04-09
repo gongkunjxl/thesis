@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  9 APR 2019 14:30
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  9 APR 2019 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2005,12 +2005,9 @@ Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count387
 \l__xeCJK_listings_flag_int=\count388
 )
-(./main.aux (./data/chap01.aux) (./data/chap02.aux
-
-LaTeX Warning: Label `cha:intro' multiply defined.
-
-) (./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux)
-(./data/chap06.aux) (./data/ack.aux) (./data/resume.aux))
+(./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux)
+(./data/chap04.aux) (./data/chap05.aux) (./data/chap06.aux) (./data/ack.aux)
+(./data/resume.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 41.
@@ -2370,17 +2367,17 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
  (./data/chap01.tex
 第1章
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 12.64714pt on input line 16.
+(Font)              scaled to size 12.64714pt on input line 12.
 [1
 
 
 
-]
-Missing character: There is no 􏰁 in font ntx-Regular-tlf-t1!
- [2]
+] [2]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.74377pt on input line 28.
+(Font)              scaled to size 11.74377pt on input line 24.
  [3]) [4]
 \openout2 = `data/chap02.aux'.
 
@@ -2584,12 +2581,12 @@ File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 
 
 ]) [69] (./main.bbl
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 68.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 68.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.53937pt on input line 11.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 13.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 13.
+(Font)              scaled to size 10.53937pt on input line 72.
 ) [70
 
 
@@ -2599,8 +2596,6 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 \openout2 = `data/ack.aux'.
 
  (./data/ack.tex
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 12.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 12.
  [71
@@ -2632,16 +2627,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6F6BB8CECAFDF33F604350E557B96741.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 32861 strings out of 492970
- 632122 string characters out of 6133938
- 781613 words of memory out of 5000000
- 36275 multiletter control sequences out of 15000+600000
+ 32891 strings out of 492970
+ 632737 string characters out of 6133938
+ 782004 words of memory out of 5000000
+ 36305 multiletter control sequences out of 15000+600000
  651197 words of font info for 184 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s

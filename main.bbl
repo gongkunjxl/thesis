@@ -1,10 +1,71 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+
+\bibitem[Hayes(2008)]{Hayes2008Cloud}
+Hayes B.
+\newblock Cloud computing\allowbreak[J].
+\newblock Communications of the Acm, 2008, 51\penalty0 (7): 9-11.
+
+\bibitem[浙江大学SEL实验室(2015)]{2015Docker}
+浙江大学SEL实验室.
+\newblock Docker: 容器与容器云\allowbreak[M].
+\newblock [出版地不详]: 人民邮电出版社, 2015
+
+\bibitem[Lin~Weiwei(2012)]{CloudSummarize}
+Lin~Weiwei Q~D.
+\newblock Survey of resource scheduling in cloud computing\allowbreak[J].
+\newblock Computer Science, 2012, 39\penalty0 (10): 1-6.
+
+\bibitem[Quang-Hung\ et~al.(2013)Quang-Hung, Nien, Nam, Tuong, and
+  Thoai]{Quang2013A}
+Quang-Hung N, Nien P~D, Nam N~H, et~al.
+\newblock A genetic algorithm for power-aware virtual machine allocation in
+  private cloud\allowbreak[C]//\allowbreak{}Information and Communication
+  Technology-EurAsia Conference.
+\newblock Heidelberg, German: [s.n.], 2013.
+
+\bibitem[R.(2012)]{Beloglazov2012}
+R. B~A~J.
+\newblock Energy-aware resource alocation heuristics for eficient management of
+  data centers for cloud computing\allowbreak[J].
+\newblock Future Generation Computer Systems, 2012, 28\penalty0 (5): 755-768.
+
+\bibitem[Soni\ et~al.(2014)Soni and Kalra]{BalanceCenter}
+Soni G, Kalra M.
+\newblock A novel approach for load balancing in cloud data
+  center\allowbreak[C]//\allowbreak{}Advance Computing Conference.
+\newblock Piscataway: [s.n.], 2014.
+
+\bibitem[Kumar\ et~al.(2015)Kumar and Raza]{Kumar2015A}
+Kumar D, Raza Z.
+\newblock A pso based vm resource scheduling model for cloud
+  computing\allowbreak[C]//\allowbreak{}IEEE International Conference on
+  Computational Intelligence.
+\newblock [S.l.: s.n.], 2015.
+
+\bibitem[Buyya\ et~al.(2008)Buyya, Yeo, and Venugopal]{Buyya2008Market}
+Buyya R, Yeo C~S, Venugopal S.
+\newblock Market-oriented cloud computing: Vision, hype, and reality for
+  delivering it services as computing utilities\allowbreak[J].
+\newblock High Performance Computing, 2008, 11\penalty0 (4): 5-13.
+
+\bibitem[Kozhirbayev\ et~al.(2017)Kozhirbayev and Sinnott]{Kozhirbayev2017A}
+Kozhirbayev Z, Sinnott R~O.
+\newblock A performance comparison of container-based technologies for the
+  cloud\allowbreak[J].
+\newblock Future Generation Computer Systems, 2017, 68: 175-182.
+
+\bibitem[Usman()]{Usman2016}
+Usman.
+\newblock Kubernetes, mesos, and swarm: Comparing the rancher orchestration
+  engine options\allowbreak[EB/OL].
+\newblock
+  \url{https://rancher.com/comparing-rancher-orchestration-engine-options/}.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.
