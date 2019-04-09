@@ -82,23 +82,26 @@ OpenShift Origin是一个基于主流容器技术Docker和Kubernetes构建的Paa
 \ckeywords{Kubernetes, OpenShift平台, 多计算框架, 调度策略, ContainerCloudSim, FAHP权重参数}
 
 \begin{eabstract}
-   An abstract of a dissertation is a summary and extraction of research work
-   and contributions. Included in an abstract should be description of research
-   topic and research objective, brief introduction to methodology and research
-   process, and summarization of conclusion and contributions of the
-   research. An abstract should be characterized by independence and clarity and
-   carry identical information with the dissertation. It should be such that the
-   general idea and major contributions of the dissertation are conveyed without
-   reading the dissertation.
+Docker container virtualization technology is a virtualization solution that shares the operating system kernel. The cloud platform based on Docker containerization technology is gradually becoming the core of the next generation cloud computing. In the container cloud, the resource scheduler plays a key role in the performance and resource utilization. Kubernetes container orchestration engine has become the most widely used container cloud platform scheduling system with its powerful service discovery, cluster monitoring and error recovery capabilities. However, Kubernetes is overly focused on container performance and orchestration capabilities. The single scheduling algorithm leads to poor resource utilization and load balancing of the entire container cloud cluster, especially in the scenario of multi-computing framework container application for big data processing.
 
-   An abstract should be concise and to the point. It is a misunderstanding to
-   make an abstract an outline of the dissertation and words ``the first
-   chapter'', ``the second chapter'' and the like should be avoided in the
-   abstract.
-
-   Key words are terms used in a dissertation for indexing, reflecting core
-   information of the dissertation. An abstract may contain a maximum of 5 key
-   words, with semi-colons used in between to separate one another.
+OpenShift Origin is a PaaS layer container cloud platform which builds on Docker and Kubernetes. Its scheduling system relies entirely on Kubernetes' scheduling algorithm. Lab project big data high-performance storage and processing container cloud platform Paladin's service layer develops from open source OpenShift Origin, for its lack of scheduling performance, in the multi-computing framework under the big data processing scenario to optimize its scheduling process, proposed a A new scheduling strategy, which greatly improves cluster performance. The main contributions of this paper are as follows:
+\begin{itemize}
+	\item The big data storage and processing container platform Paladin is based on open source OpenShift Origin and lab project paladin storage. On the platform, more than ten distributed processing frameworks such as Hadoop, Spark, MPI and Storm are developed, and users can quickly build big data processing and telescopic container.
+	\item In-depth study of Kubernetes scheduling core technology and for its lack of scheduling algorithm, an evaluation function and scheduling method based on multi-dimensional resource idle rate weight (MRWS) (Multidimensional Resource Weights Scheduling) is proposed. The method considers the physical node CPU, memory, disk, network bandwidth idle rate and the number of deployed container applications, and uses the Fuzzy Analytic Hierarchy Process (FAHP) to automatically model the cluster resources and solve the weight parameters. The MRWS stategy selects the largest scoring node for container scheduling.
+	\item Large-scale scheduling simulation was performed on the container cloud simulation platform ContainerCloudSim for the MRWS scheduling strategy,and compared with the default scheduling strategy of Kubernetes, FirstFit and Random in terms of resource utilization and load balancing.
+	\item The MRWS scheduling strategy is designed and implemented on Paladin platform, and the cluster performance under MRWS and other scheduling strategies is compared for big data processing scenarios under multi-computing framework. The new scheduling strategy has greatly improved the efficiency of hybrid execution in both single-computing framework container applications and multi-computing framework container applications.
+\end{itemize}
+  
 \end{eabstract}
 
-\ekeywords{Docker, container cloud, scheduling strategy, openshift platform, computing framework, FAHP}
+\ekeywords{Kubernetes, OpenShift platform, multiple computing framework, scheduling strategy, ContainerCloudSim, FAHP weight parameters}
+
+
+
+
+
+
+
+
+
+
