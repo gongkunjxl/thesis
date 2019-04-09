@@ -1,6 +1,6 @@
 \chapter{改进OpenShift Origin平台调度策略}
 \label{cha:openshift}
-Kubernetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度算法虽能满足大部分用户需求，但其算法较为简单，集群资源利用率较低，也不能满足用户的在特定场景下的调度。本章在深入分析默认调度算法后，提出设计了一种新的基于多维资源空闲率权重的评价函数和调度方案MRWS (Multidimensional Resource WeightSscheduling)。
+Kubernetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度算法虽能满足大部分用户需求，但其算法较为简单，集群资源利用率较低，也不能满足用户的在特定场景下的调度。本章在深入分析默认调度算法后，提出设计了一种新的基于多维资源空闲率权重的评价函数和调度方案MRWS (Multidimensional Resource Weights Scheduling)。
 
 \section{优化Kubernetes调度流程}
 Kubernetes调度算法分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。用户除开发特殊的调度算法外，还可以针对其调度流程进行适当的优化。

@@ -67,19 +67,19 @@
 
 % 定义中英文摘要和关键字
 \begin{cabstract}
-  Docker容器虚拟化技术能够和宿主机共享系统资源并且实现容器间的隔离，是当前技术研究的热点，已经成为容器的代名词。基于Docker的私有容器云平台获得广泛的应用，开始逐步取代传统虚拟机为基础构建的云计算系统。与传统的云计算集群类似，一个高效且强大的容器编排管理系统对数据中心资源利用率和集群性能具有至关重要的作用，Kubernetes是当前容器云系统中应用最为广泛的容器调度系统，其轻量开源和强大的服务发现、集群监控和错误恢复能力深受用户好评。但Kubernetes过度专注于调度器能力和性能，其自身的资源分配和调度算法单一往往导致整个容器云集群资源利用率和均衡性很差，尤其是在多种计算框架同时部署的情况下其调度缺陷暴露无遗。
+  Docker容器虚拟化技术是一种共享操作系统内核的虚拟化解决方案，基于Docker容器化技术的云平台日益发展，逐步成为下一代云计算的核心。容器云中资源调度器对集群的性能和资源利用率起到决定性作用，Kubernetes容器编排引擎以其强大的服务发现、集群监控、错误恢复能力成为当前应用最为广泛的容器云平台调度系统。但Kubernetes过度专注于容器性能和编排能力，其调度算法的单一导致整个容器云集群资源利用率和负载均衡性较差，尤其是在多计算框架容器应用对大数据处理的场景下，其调度算法的缺陷暴露无遗。
 
-  近年来，OpenShift容器云平台用户针对Kubernetes调度器的不足往往需要开发自己的调度算法来适应特定的应用场景，这对追求性能和资源利用率的普通用户往往具有一定的难度，本文在深入分析OpenShift私有容器云平台Kubernetes调度器核心调度技术后，提出了一种全新的调度方案，本文主要内容如下:
+OpenShift Origin是一个基于主流容器技术Docker和Kubernetes构建的PaaS层云平台，其调度系统完全依赖Kubernetes的调度算法。实验室项目大数据高效能存储与处理容器云平台Paladin的服务层是基于开源OpenShift Origin研发，针对其调度性能不足，在多计算框架下大数据处理场景下对其调度流程进行优化，提出了一种新的调度策略，极大提升了集群性能。本文主要贡献如下:
   \begin{itemize}
-  \item 基于开源的OpenShift Origin构建私有容器云平台Paladin，在该平台上开发部署Hadoop、Spark、MPI、Storm、Regraph等十多种分布式计算框架，能够根据用户需求快速构建分布式计算平台。
-  \item 深入研究Kubernetes调度核心技术，针对其调度算法的不足，提出了一种基于多维资源空闲率权重的评价函数和调度方法，该方法综合考虑物理节点CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用个数等因素影响，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数，选取最大评分节点进行容器调度。
-  \item 针对新提出的调度方案，在CloudSim-4.0容器云仿真平台进行调度仿真，并与Kubernetes默认调度方案、Random调度方案进行对比，能够极大提升容器云集群资源利用率和实现负载均衡性
-  \item 在私有容器云平台Paladin上设计并实现该调度方案，使用多个计算框架同时进行调度性能测试，能够极大缩短多计算框架的应用执行时间。
+  \item 基于开源的OpenShift Origin和实验室项目Paladin Storage构建大数据存储与处理容器云平台Paladin，在该平台上开发Hadoop、Spark、MPI、Storm等十多种分布式处理框架，用户可以快速构建大数据处理框架和容器伸缩。
+  \item 深入研究Kubernetes调度核心技术，针对其调度算法不足，提出了一种基于多维资源空闲率权重的评价函数和调度方法MRWS(Multidimensional Resource Weights Scheduling)。该方法综合考虑物理节点CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用个数等因素影响，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数，选取最大评分节点进行容器调度。
+  \item 针对MRWS调度策略，在容器云仿真平台ContainerCloudSim上进行大规模调度仿真，并与Random、FirstFit、Kubernetes默认调度策略在资源利用率和负载均衡性方面进行对比。
+  \item 在Paladin上设计并实现MRWS调度策略，针对多计算框架下大数据处理场景，比较MRWS与其他调度策略下的集群性能。新的调度策略无论在单计算框架容器应用还是多计算框架容器应用混合执行效率都有极大的提升。
   \end{itemize}
 \end{cabstract}
 
 % 如果习惯关键字跟在摘要文字后面，可以用直接命令来设置，如下：
-\ckeywords{Docker, 容器云, 调度策略, OpenShift平台, 计算框架, FAHP}
+\ckeywords{Kubernetes, OpenShift平台, 多计算框架, 调度策略, ContainerCloudSim, FAHP权重参数}
 
 \begin{eabstract}
    An abstract of a dissertation is a summary and extraction of research work
