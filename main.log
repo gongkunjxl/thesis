@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  9 APR 2019 16:33
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  10 APR 2019 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2386,7 +2386,7 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 File: figures/docker-structure.pdf Graphic file (type pdf)
 <use figures/docker-structure.pdf>
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 11.04124pt on input line 12.
+(Font)              scaled to size 11.04124pt on input line 11.
 [5
 
 
@@ -2473,13 +2473,13 @@ Overfull \hbox (2.4243pt too wide) in paragraph at lines 164--164
 ]
 File: figures/cloudsim-layer.pdf Graphic file (type pdf)
 <use figures/cloudsim-layer.pdf>
- [40] [41]
+ [40]
 File: figures/container-cloudsim.pdf Graphic file (type pdf)
 <use figures/container-cloudsim.pdf>
- [42]
+ [41]
 File: figures/containercloudsim-layer.pdf Graphic file (type pdf)
 <use figures/containercloudsim-layer.pdf>
- [43] [44] [45]
+ [42] [43] [44]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2493,12 +2493,12 @@ Overfull \hbox (3.38382pt too wide) in paragraph at lines 126--126
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-
+[45]
 Overfull \hbox (3.38382pt too wide) in paragraph at lines 140--140
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-[46] [47]
+[46]
 File: figures/firstfit-cpu.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu.pdf>
 File: figures/random-cpu.pdf Graphic file (type pdf)
@@ -2511,7 +2511,7 @@ File: figures/mrws-cpu.pdf Graphic file (type pdf)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48]
+[47]
 File: figures/firstfit-ba.pdf Graphic file (type pdf)
 <use figures/firstfit-ba.pdf>
 File: figures/random-ba.pdf Graphic file (type pdf)
@@ -2520,7 +2520,7 @@ File: figures/kub-ba.pdf Graphic file (type pdf)
 <use figures/kub-ba.pdf>
 File: figures/mrws-ba.pdf Graphic file (type pdf)
 <use figures/mrws-ba.pdf>
- [49]
+ [48]
 File: figures/firstfit-cluster.pdf Graphic file (type pdf)
 <use figures/firstfit-cluster.pdf>
 File: figures/random-cluster.pdf Graphic file (type pdf)
@@ -2529,24 +2529,24 @@ File: figures/kub-cluster.pdf Graphic file (type pdf)
 <use figures/kub-cluster.pdf>
 File: figures/mrws-cluster.pdf Graphic file (type pdf)
 <use figures/mrws-cluster.pdf>
- [50] [51]
+ [49] [50]
 File: figures/paladin-structure.pdf Graphic file (type pdf)
 <use figures/paladin-structure.pdf>
- [52]
+ [51]
 File: figures/paladin-platform.pdf Graphic file (type pdf)
 <use figures/paladin-platform.pdf>
- [53]
+ [52]
 File: figures/paladin-nodelist.pdf Graphic file (type pdf)
 <use figures/paladin-nodelist.pdf>
 File: figures/paladin-web-console.pdf Graphic file (type pdf)
 <use figures/paladin-web-console.pdf>
- [54]
+ [53]
 File: figures/origin-web-console.pdf Graphic file (type pdf)
 <use figures/origin-web-console.pdf>
- [55]
+ [54]
 File: figures/hadoop-flow.pdf Graphic file (type pdf)
 <use figures/hadoop-flow.pdf>
- [56]
+ [55]
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -2554,40 +2554,41 @@ Overfull \hbox (23.21506pt too wide) in paragraph at lines 333--334
 [][][][][][][][][][][][][][][][]  
  []
 
-[57]
+[56]
 File: figures/hadoop-member.pdf Graphic file (type pdf)
 <use figures/hadoop-member.pdf>
- [58]
+ [57]
 File: figures/hadoop-status.pdf Graphic file (type pdf)
 <use figures/hadoop-status.pdf>
 File: figures/hadoop-task.pdf Graphic file (type pdf)
 <use figures/hadoop-task.pdf>
- [59]
+ [58]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [60] [61] [62] [63]
+ [59] [60] [61] [62]
 File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu-utilization.pdf>
- [64]
+ [63]
 File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/kubernetes-cpu-utilization.pdf>
- [65] [66]) [67]
+ [64] [65]) [66]
 \openout2 = `data/chap06.aux'.
 
  (./data/chap06.tex
 第6章
-[68
+[67
 
 
 
-]) [69] (./main.bbl
+]) [68] (./main.bbl
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 68.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 68.
+Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.53937pt on input line 72.
-) [70
+(Font)              scaled to size 10.53937pt on input line 111.
+) [69
 
 
 
@@ -2598,18 +2599,18 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
  (./data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 12.
- [71
+ [70
 
 
 
-]) [72
+]) [71
 
 
 ]
 \openout2 = `data/resume.aux'.
 
  (./data/resume.tex)
-[73
+[72
 
 
 
@@ -2626,15 +2627,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6F6BB8CECAFDF33F604350E557B96741.
+(rerunfilecheck)             Checksum: DA1ACE4D3A24F81BF7580EA9F67C762A.
  ) 
 Here is how much of TeX's memory you used:
- 32891 strings out of 492970
- 632737 string characters out of 6133938
- 782004 words of memory out of 5000000
- 36305 multiletter control sequences out of 15000+600000
+ 32908 strings out of 492970
+ 633191 string characters out of 6133938
+ 780305 words of memory out of 5000000
+ 36322 multiletter control sequences out of 15000+600000
  651197 words of font info for 184 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (84 pages).
+Output written on main.pdf (83 pages).

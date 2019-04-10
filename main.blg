@@ -13,45 +13,45 @@ A level-1 auxiliary file: data/resume.aux
 Database file #1: ref/refs.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty year in Usman2016
-You've used 11 entries,
+You've used 17 entries,
             3363 wiz_defined-function locations,
-            842 strings with 7543 characters,
-and the built_in function-call counts, 56202 in all, are:
-= -- 5842
-> -- 5717
-< -- 5720
-+ -- 1847
-- -- 53
-* -- 259
-:= -- 6113
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 22
-chr.to.int$ -- 1669
-cite$ -- 12
-duplicate$ -- 216
-empty$ -- 594
-format.name$ -- 99
-if$ -- 16263
+            876 strings with 8759 characters,
+and the built_in function-call counts, 94511 in all, are:
+= -- 9815
+> -- 9691
+< -- 9679
++ -- 3122
+- -- 100
+* -- 432
+:= -- 10272
+add.period$ -- 50
+call.type$ -- 17
+change.case$ -- 34
+chr.to.int$ -- 2806
+cite$ -- 18
+duplicate$ -- 339
+empty$ -- 937
+format.name$ -- 182
+if$ -- 27377
 int.to.chr$ -- 1
-int.to.str$ -- 12
+int.to.str$ -- 18
 missing$ -- 0
-newline$ -- 65
-num.names$ -- 33
-pop$ -- 2493
+newline$ -- 95
+num.names$ -- 51
+pop$ -- 4098
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 17
 quote$ -- 0
-skip$ -- 6759
+skip$ -- 11458
 stack$ -- 0
-substring$ -- 1844
-swap$ -- 19
-text.length$ -- 72
+substring$ -- 3085
+swap$ -- 37
+text.length$ -- 127
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 149
+type$ -- 223
 warning$ -- 1
-while$ -- 104
+while$ -- 175
 width$ -- 0
-write$ -- 168
+write$ -- 253
 (There was 1 warning)
