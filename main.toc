@@ -56,6 +56,6 @@
 \contentsline {section}{\numberline {5.5}本章小结}{66}{section.5.5}
 \contentsline {chapter}{\numberline {第6章}总结与展望}{67}{chapter.6}
 \contentsline {chapter}{参考文献}{69}{section*.56}
-\contentsline {chapter}{致\hspace {1em}谢}{71}{section*.58}
-\contentsline {chapter}{声\hspace {1em}明}{72}{section*.60}
-\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{73}{section*.62}
+\contentsline {chapter}{致\hspace {1em}谢}{72}{section*.58}
+\contentsline {chapter}{声\hspace {1em}明}{73}{section*.60}
+\contentsline {chapter}{个人简历、在学期间发表的学术论文与研究成果}{74}{section*.62}

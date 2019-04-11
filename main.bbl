@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -218,10 +218,52 @@ Piraghaj S~F, Dastjerdi A~V, Calheiros R~N, et~al.
   containers in cloud data centers\allowbreak[J].
 \newblock Software Practice and Experience, 2016.
 
-\bibitem[薛瑞尼(2017)]{thuthesis}
-薛瑞尼.
-\newblock \thuthesis: 清华大学学位论文模板\allowbreak[EB/OL].
-\newblock 2017.
-\newblock \url{https://github.com/xueruini/thuthesis}.
+\bibitem[Lim\ et~al.(2009)Lim, Sharma, Nam, Kim, and Das]{Lim2009MDCSim}
+Lim S~H, Sharma B, Nam G, et~al.
+\newblock Mdcsim: A multi-tier data center simulation,
+  platform\allowbreak[C]//\allowbreak{}IEEE International Conference on Cluster
+  Computing and Workshops.
+\newblock [S.l.: s.n.], 2009.
+
+\bibitem[Ostermann\ et~al.(2011)Ostermann, Plankensteiner, Prodan, and
+  Fahringer]{Ostermann2011GroudSim}
+Ostermann S, Plankensteiner K, Prodan R, et~al.
+\newblock Groudsim: An event-based simulation framework for computational grids
+  and clouds\allowbreak[J].
+\newblock Lecture Notes in Computer Science, 2011, 6586: 305-313.
+
+\bibitem[Garg\ et~al.(2012)Garg and Buyya]{Garg2012NetworkCloudSim}
+Garg S~K, Buyya R.
+\newblock Networkcloudsim: Modelling parallel applications in cloud
+  simulations.\allowbreak[C]//\allowbreak{}Fourth IEEE International Conference
+  on Utility and Cloud Computing.
+\newblock [S.l.: s.n.], 2012.
+
+\bibitem[Jararweh\ et~al.(2013)Jararweh, Alshara, Jarrah, Kharbutli, and
+  Alsaleh]{Jararweh2013TeachCloud}
+Jararweh Y, Alshara Z, Jarrah M, et~al.
+\newblock Teachcloud: A cloud computing educational toolkit\allowbreak[J].
+\newblock International Journal of Cloud Computing, 2013, 2\penalty0 (2/3):
+  237.
+
+\bibitem[Calheiros\ et~al.(2009)Calheiros, Ranjan, Rose, and
+  Buyya]{Calheiros2009CloudSim}
+Calheiros R~N, Ranjan R, Rose C~A~F~D, et~al.
+\newblock Cloudsim: A novel framework for modeling and simulation of cloud
+  computing infrastructures and services\allowbreak[J].
+\newblock Computer Science, 2009.
+
+\bibitem[Howell\ et~al.(1998)Howell and Mcnab]{SimJava1998}
+Howell F, Mcnab R.
+\newblock Simjava: A discrete event simulation package for java with
+  applications in computer systems modelling\allowbreak[J].
+\newblock Proceedings of the First International Conference on Web-based
+  Modelling and Simulation, 1998.
+
+\bibitem[Park\ et~al.(2006)Park and Pai]{Park2006CoMon}
+Park K~S, Pai V~S.
+\newblock Comon: a mostly-scalable monitoring system for
+  planetlab\allowbreak[J].
+\newblock Acm Sigops Operating Systems Review, 2006, 40\penalty0 (1): 65-74.
 
 \end{thebibliography}
