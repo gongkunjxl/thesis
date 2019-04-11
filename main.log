@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  10 APR 2019 23:49
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  11 APR 2019 16:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2593,7 +2593,7 @@ Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
 
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.53937pt on input line 170.
+(Font)              scaled to size 10.53937pt on input line 223.
 ) [70]
 \openout2 = `data/ack.aux'.
 
@@ -2627,13 +2627,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DA1ACE4D3A24F81BF7580EA9F67C762A.
+(rerunfilecheck)             Checksum: FF37A7D68244EC9F7D09549F965EEBF1.
  ) 
 Here is how much of TeX's memory you used:
- 32946 strings out of 492970
- 634583 string characters out of 6133938
- 781013 words of memory out of 5000000
- 36360 multiletter control sequences out of 15000+600000
+ 32969 strings out of 492970
+ 635132 string characters out of 6133938
+ 781319 words of memory out of 5000000
+ 36383 multiletter control sequences out of 15000+600000
  651197 words of font info for 184 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s

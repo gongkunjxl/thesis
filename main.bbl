@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -164,6 +164,59 @@ Halici U, Dogac A.
 Kubernetes中文社区.
 \newblock Kubernetes设计架构\allowbreak[EB/OL].
 \newblock \url{https://www.kubernetes.org.cn/k8s}.
+
+\bibitem[Kwong\ et~al.(2002)Kwong and Bai]{Kwong2002A}
+Kwong C~K, Bai H.
+\newblock A fuzzy ahp approach to the determination of importance weights of
+  customer requirements in quality function deployment\allowbreak[J].
+\newblock Journal of Intelligent Manufacturing, 2002, 13\penalty0 (5): 367-377.
+
+\bibitem[Hong\ et~al.(2013)Hong, Yang, Cai, Huang, and Yun]{Hong2013Cloud}
+Hong P, Yang G~X, Cai L, et~al.
+\newblock Cloud test environment deployment based on the needs of individual
+  users\allowbreak[C]//\allowbreak{}Information Science and Service Science and
+  Data Mining.
+\newblock [S.l.: s.n.], 2013.
+
+\bibitem[Saaty(1994)]{Saaty1994How}
+Saaty T~L.
+\newblock How to make a decision: The analytic hierarchy process\allowbreak[J].
+\newblock European Journal of Operational Research, 1994, 24\penalty0 (6):
+  19-43.
+
+\bibitem[Deng~Xue(2012)]{Deng2012}
+Deng~Xue Z~H, Li~Jiaming.
+\newblock Analysis and application of weight calculation method of analytic
+  hierarchy process\allowbreak[J].
+\newblock Mathematics in Practice and Theory, 2012, 42\penalty0 (7): 93-100.
+
+\bibitem[Wang(2010)]{Wang2010Triangular}
+Wang X.
+\newblock Triangular fuzzy function method for multiple attributes decision
+  making\allowbreak[J].
+\newblock Journal of Liaoning Technical University, 2010.
+
+\bibitem[Chou(2003)]{Chou2003The}
+Chou C~C.
+\newblock The canonical representation of multiplication operation on
+  triangular fuzzy numbers\allowbreak[J].
+\newblock Computers and Mathematics with Applications, 2003, 45\penalty0 (10):
+  1601-1610.
+
+\bibitem[Eastman(1987)]{Eastman1987Introduction}
+Eastman C~M.
+\newblock Introduction to fuzzy arithmetic: Theory and applications : Arnold
+  kaufmann and madan m. gupta , van nostrand reinhold, new york,
+  1985\allowbreak[J].
+\newblock International Journal of Approximate Reasoning, 1987, 1\penalty0 (1):
+  141-143.
+
+\bibitem[Piraghaj\ et~al.(2016)Piraghaj, Dastjerdi, Calheiros, and
+  Buyya]{Piraghaj2016ContainerCloudSim}
+Piraghaj S~F, Dastjerdi A~V, Calheiros R~N, et~al.
+\newblock Containercloudsim: An environment for modeling and simulation of
+  containers in cloud data centers\allowbreak[J].
+\newblock Software Practice and Experience, 2016.
 
 \bibitem[薛瑞尼(2017)]{thuthesis}
 薛瑞尼.
