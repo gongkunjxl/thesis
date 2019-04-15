@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -265,5 +265,13 @@ Park K~S, Pai V~S.
 \newblock Comon: a mostly-scalable monitoring system for
   planetlab\allowbreak[J].
 \newblock Acm Sigops Operating Systems Review, 2006, 40\penalty0 (1): 65-74.
+
+\bibitem[Stubbs\ et~al.(2015)Stubbs, Moreira, and
+  Dooley]{Stubbs2015Distributed}
+Stubbs J, Moreira W, Dooley R.
+\newblock Distributed systems of microservices using docker and
+  serfnode\allowbreak[C]//\allowbreak{}International Workshop on Science
+  Gateways.
+\newblock [S.l.: s.n.], 2015.
 
 \end{thebibliography}

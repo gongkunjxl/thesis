@@ -14,45 +14,45 @@ Database file #1: ref/refs.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty year in Usman2016
 Warning--empty year in KUBdoc
-You've used 40 entries,
+You've used 41 entries,
             3363 wiz_defined-function locations,
-            1022 strings with 13379 characters,
-and the built_in function-call counts, 258717 in all, are:
-= -- 26990
-> -- 26765
-< -- 26684
-+ -- 8586
-- -- 253
-* -- 1079
-:= -- 28001
-add.period$ -- 118
-call.type$ -- 40
-change.case$ -- 80
-chr.to.int$ -- 7817
-cite$ -- 42
-duplicate$ -- 812
-empty$ -- 2229
-format.name$ -- 467
-if$ -- 74928
+            1027 strings with 13573 characters,
+and the built_in function-call counts, 265271 in all, are:
+= -- 27678
+> -- 27436
+< -- 27355
++ -- 8809
+- -- 261
+* -- 1106
+:= -- 28723
+add.period$ -- 121
+call.type$ -- 41
+change.case$ -- 82
+chr.to.int$ -- 8015
+cite$ -- 43
+duplicate$ -- 834
+empty$ -- 2289
+format.name$ -- 481
+if$ -- 76822
 int.to.chr$ -- 1
-int.to.str$ -- 41
+int.to.str$ -- 42
 missing$ -- 0
-newline$ -- 209
-num.names$ -- 120
-pop$ -- 11497
+newline$ -- 214
+num.names$ -- 123
+pop$ -- 11787
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 41
 quote$ -- 0
-skip$ -- 31429
+skip$ -- 32216
 stack$ -- 0
-substring$ -- 8507
-swap$ -- 96
-text.length$ -- 317
+substring$ -- 8718
+swap$ -- 99
+text.length$ -- 327
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 547
+type$ -- 559
 warning$ -- 2
-while$ -- 432
+while$ -- 444
 width$ -- 0
-write$ -- 587
+write$ -- 601
 (There were 2 warnings)
