@@ -20,8 +20,6 @@
   cmajor={计算机科学与技术},
   cauthor={龚坤},
   csupervisor={武永卫教授},
-  %cassosupervisor={陈文光教授}, % 副指导老师
-  %ccosupervisor={某某某教授}, % 联合指导老师
   % 日期自动使用当前时间，若需指定按如下方式修改：
   cdate={二〇一九年六月},
   %
@@ -52,7 +50,7 @@
   % 4. 专业型博士
   %    edegree：“填写专业学位英文名称全称”
   %    emajor：不填写此项
-  edegree={Doctor of Engineering},
+  edegree={Master of Science},
   emajor={Computer Science and Technology},
   eauthor={Gong Kun},
   esupervisor={Professor Wu Yongwei},
@@ -67,12 +65,12 @@
 
 % 定义中英文摘要和关键字
 \begin{cabstract}
-  Docker容器虚拟化技术是一种共享操作系统内核的虚拟化解决方案，基于Docker容器化技术的云平台日益发展，逐步成为下一代云计算的核心。容器云中资源调度器对集群的性能和资源利用率起到决定性作用，Kubernetes容器编排引擎以其强大的服务发现、集群监控、错误恢复能力成为当前应用最为广泛的容器云平台调度系统。但Kubernetes过度专注于容器性能和编排能力，其调度算法的单一导致整个容器云集群资源利用率和负载均衡性较差，尤其是在多计算框架容器应用对大数据处理的场景下，其调度算法的缺陷暴露无遗。
+  Docker容器虚拟化技术是一种共享操作系统内核的虚拟化解决方案，基于Docker技术的云平台日益发展，逐步成为下一代云计算的核心。容器云中资源调度器对集群的性能和资源利用率起到决定性作用，Kubernetes容器编排引擎以其强大的服务发现、集群监控、错误恢复能力成为当前应用最为广泛的容器云平台调度系统。但Kubernetes过度专注于容器性能和编排能力，其调度算法的单一导致整个容器云集群资源利用率和负载均衡性较差，尤其是在多计算框架容器应用对大数据处理的场景下，其调度算法的缺陷暴露无遗。
 
-OpenShift Origin是一个基于主流容器技术Docker和Kubernetes构建的PaaS层云平台，其调度性能完全依赖容器编排的调度算法。实验室项目大数据高效能存储与处理容器云平台Paladin的服务层是基于开源OpenShift Origin研发，针对其调度性能不足，在多计算框架下大数据处理场景下对其调度流程进行优化，提出了一种新的调度策略，极大提升了集群性能。本文主要贡献如下:
+OpenShift Origin是一个基于主流容器技术Docker和Kubernetes构建的PaaS层云平台，其调度性能完全依赖容器编排的调度算法。实验室大数据高效能存储与处理容器云平台Paladin项目的服务层是基于开源OpenShift Origin研发，在多计算框架下大数据处理场景下，对其调度流程进行优化，提出了一种新的调度策略。本文主要贡献如下:
   \begin{itemize}
   \item 基于开源的OpenShift Origin和实验室项目Paladin Storage构建大数据存储与处理容器云平台Paladin，在该平台上开发Hadoop、Spark、MPI、Storm等十多种分布式处理框架，用户可以快速构建大数据处理框架和容器伸缩。
-  \item 深入研究Kubernetes调度核心技术，针对其调度算法不足，提出了一种基于多维资源空闲率权重的评价函数和调度方法MRWS(Multidimensional Resource Weights Scheduling)。该方法综合考虑物理节点CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用个数等因素影响，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数，选取最大评分节点进行容器调度。
+  \item 针对Kubernetes调度不足，提出了一种基于多维资源空闲率权重的调度方法MRWS(Multidimensional Resource Weights Scheduling)。该方法综合考虑物理节点CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用数量等因素，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数，选取最大评分节点进行容器调度。
   \item 针对MRWS调度策略，在容器云仿真平台ContainerCloudSim上进行大规模调度仿真，并与Random、FirstFit、Kubernetes默认调度策略在资源利用率和负载均衡性方面进行对比。
   \item 在Paladin上设计并实现MRWS调度策略，针对多计算框架下大数据处理场景，比较MRWS与其他调度策略下的集群性能。新的调度策略无论在单计算框架容器应用还是多计算框架容器应用混合执行效率都有极大的提升。
   \end{itemize}
@@ -82,12 +80,12 @@ OpenShift Origin是一个基于主流容器技术Docker和Kubernetes构建的Paa
 \ckeywords{Kubernetes, OpenShift平台, 多计算框架, 调度策略, ContainerCloudSim, FAHP权重参数}
 
 \begin{eabstract}
-Docker container virtualization technology is a virtualization solution that shares the operating system kernel. The cloud platform based on Docker containerization technology is gradually becoming the core of the next generation cloud computing. In the container cloud, the resource scheduler plays a key role in the performance and resource utilization. Kubernetes container orchestration engine has become the most widely used container cloud platform scheduling system with its powerful service discovery, cluster monitoring and error recovery capabilities. However, Kubernetes is overly focused on container performance and orchestration capabilities. The single scheduling algorithm leads to poor resource utilization and load balancing of the entire container cloud cluster, especially in the scenario of multi-computing framework container application for big data processing.
+Docker container virtualization technology is a virtualization solution that shares the operating system kernel. The cloud platform based on Docker technology is gradually becoming the core of the next generation cloud computing. In the container cloud, the resource scheduler plays a key role in the performance and resource utilization. Kubernetes container orchestration engine has become the most widely used container cloud platform scheduling system with its powerful service discovery, cluster monitoring and error recovery capabilities. However, Kubernetes is overly focused on container performance and orchestration capabilities. The single scheduling algorithm leads to poor resource utilization and load balancing of the entire container cloud cluster, especially in the scenario of multi-computing framework container application for big data processing.
 
-OpenShift Origin is a PaaS layer container cloud platform which builds on Docker and Kubernetes. Its scheduling performance relies entirely on Kubernetes' scheduling algorithm. Lab project big data high-performance storage and processing container cloud platform Paladin's service layer develops from open source OpenShift Origin, for its lack of scheduling performance, in the multi-computing framework under the big data processing scenario to optimize its scheduling process, proposed a A new scheduling strategy, which greatly improves cluster performance. The main contributions of this paper are as follows:
+OpenShift Origin is a PaaS layer container cloud platform which builds on Docker and Kubernetes. Its scheduling performance relies entirely on Kubernetes' scheduling algorithm. Lab project big data high-performance storage and processing container cloud platform Paladin's service layer develops from open source OpenShift Origin. In the big data processing scenario under multi-computing framework, the scheduling process is optimized and a new scheduling strategy is proposed. The main contributions of this paper are as follows:
 \begin{itemize}
 	\item The big data storage and processing container platform Paladin is based on open source OpenShift Origin and lab project paladin storage. On the platform, more than ten distributed processing frameworks such as Hadoop, Spark, MPI and Storm are developed, and users can quickly build big data processing and telescopic container.
-	\item In-depth study of Kubernetes scheduling core technology and for its lack of scheduling algorithm, an evaluation function and scheduling method based on multi-dimensional resource idle rate weight (MRWS) (Multidimensional Resource Weights Scheduling) is proposed. The method considers the physical node CPU, memory, disk, network bandwidth idle rate and the number of deployed container applications, and uses the Fuzzy Analytic Hierarchy Process (FAHP) to automatically model the cluster resources and solve the weight parameters. The MRWS stategy selects the largest scoring node for container scheduling.
+	\item For lack of Kubernetes's scheduling algorithm, a scheduling method based on multi-dimensional resource idle rate weight (MRWS) (Multidimensional Resource Weights Scheduling) is proposed. The method considers the physical node CPU, memory, disk, network bandwidth idle rate and the number of deployed container applications, and uses the Fuzzy Analytic Hierarchy Process (FAHP) to automatically model the cluster resources and solve the weight parameters. The MRWS stategy selects the largest scoring node for container scheduling.
 	\item Large-scale scheduling simulation was performed on the container cloud simulation platform ContainerCloudSim for the MRWS scheduling strategy,and compared with the default scheduling strategy of Kubernetes, FirstFit and Random in terms of resource utilization and load balancing.
 	\item The MRWS scheduling strategy is designed and implemented on Paladin platform, and the cluster performance under MRWS and other scheduling strategies is compared for big data processing scenarios under multi-computing framework. The new scheduling strategy has greatly improved the efficiency of hybrid execution in both single-computing framework container applications and multi-computing framework container applications.
 \end{itemize}
