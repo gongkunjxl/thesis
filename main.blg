@@ -22,48 +22,47 @@ Warning--empty year in Usman2016
 Warning--empty year in KUBdoc
 Warning--empty year in 2015Docker
 Warning--empty year in 2015Docker
-Warning--empty booktitle in Kumar2015A
 `booktitle' is a missing field, not a string, for entry Jansen2016Employing
-while executing---line 1611 of file thuthesis-numeric.bst
+while executing---line 1614 of file thuthesis-numeric.bst
 You've used 43 entries,
             3363 wiz_defined-function locations,
-            1051 strings with 14005 characters,
-and the built_in function-call counts, 283829 in all, are:
-= -- 29614
-> -- 29351
-< -- 29234
-+ -- 9413
-- -- 280
-* -- 1244
-:= -- 30756
-add.period$ -- 125
+            1047 strings with 14013 characters,
+and the built_in function-call counts, 283708 in all, are:
+= -- 29590
+> -- 29353
+< -- 29226
++ -- 9403
+- -- 278
+* -- 1232
+:= -- 30738
+add.period$ -- 126
 call.type$ -- 43
 change.case$ -- 86
 chr.to.int$ -- 8598
-cite$ -- 49
-duplicate$ -- 879
-empty$ -- 2440
+cite$ -- 48
+duplicate$ -- 875
+empty$ -- 2430
 format.name$ -- 516
-if$ -- 82103
+if$ -- 82055
 int.to.chr$ -- 1
 int.to.str$ -- 44
 missing$ -- 0
-newline$ -- 223
+newline$ -- 224
 num.names$ -- 129
-pop$ -- 12648
+pop$ -- 12663
 preamble$ -- 1
 purify$ -- 43
 quote$ -- 0
-skip$ -- 34383
+skip$ -- 34375
 stack$ -- 0
-substring$ -- 9458
+substring$ -- 9468
 swap$ -- 108
-text.length$ -- 348
+text.length$ -- 346
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 588
-warning$ -- 6
+type$ -- 594
+warning$ -- 5
 while$ -- 484
 width$ -- 0
-write$ -- 634
+write$ -- 626
 (There were 2 error messages)

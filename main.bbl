@@ -24,10 +24,10 @@ Weiwei L, Deyu Q.
 \bibitem[Quang-Hung\ et~al.(2013)Quang-Hung, Nien, Nam, Tuong, and
   Thoai]{Quang2013A}
 Quang-Hung N, Nien P~D, Nam N~H, et~al.
-\newblock A genetic algorithm for power-aware virtual machine allocation in
-  private cloud\allowbreak[C]//\allowbreak{}Information and Communication
+\newblock {A Genetic Algorithm for Power-Aware Virtual Machine Allocation in
+  Private Cloud}\allowbreak[C]//\allowbreak{}Information and Communication
   Technology.
-\newblock Berlin, Heidelberg: [s.n.], 2013: 183-191.
+\newblock 2013: 183-191.
 
 \bibitem[R.(2012)]{Beloglazov2012}
 R. B~A~J.
@@ -38,13 +38,16 @@ R. B~A~J.
 \bibitem[Soni\ et~al.(2014)Soni and Kalra]{BalanceCenter}
 Soni G, Kalra M.
 \newblock A novel approach for load balancing in cloud data
-  center\allowbreak[C]//\allowbreak{}Advance Computing Conference.
-\newblock Piscataway: [s.n.], 2014.
+  center\allowbreak[J].
+\newblock Souvenir of the 2014 IEEE International Advance Computing Conference,
+  IACC 2014, 2014: 807-812.
 
 \bibitem[Kumar\ et~al.(2015)Kumar and Raza]{Kumar2015A}
 Kumar D, Raza Z.
 \newblock A pso based vm resource scheduling model for cloud
-  computing\allowbreak[C]//\allowbreak{}[S.l.: s.n.], 2015: 213-219.
+  computing\allowbreak[J].
+\newblock Proceedings - 2015 IEEE International Conference on Computational
+  Intelligence and Communication Technology, CICT 2015, 2015: 213-219.
 
 \bibitem[Buyya\ et~al.(2008)Buyya, Yeo, and Venugopal]{Buyya2008Market}
 Buyya R, Yeo C~S, Venugopal S.
@@ -76,7 +79,7 @@ Usman.
 Barik R~K, Lenka R~K, Rao K~R, et~al.
 \newblock Performance analysis of virtual machines and containers in cloud
   computing\allowbreak[C]//\allowbreak{}International Conference on Computing.
-\newblock [S.l.: s.n.], 2017.
+\newblock 2017.
 
 \bibitem[Felter\ et~al.(2015)Felter, Ferreira, Rajamony, and
   Rubio]{Felter2007An}
@@ -114,21 +117,21 @@ Shuangke M~A, Zhou L.
 Jansen C, Witt M, Krefting D.
 \newblock Employing docker swarm on openstack for biomedical
   analysis\allowbreak[C]//\allowbreak{}volume 9787.
-\newblock [S.l.: s.n.], 2016: 303-318.
+\newblock 2016: 303-318.
 
 \bibitem[Naik(2016)]{Naik2016Building}
 Naik N.
 \newblock Building a virtual system of systems using docker swarm in multiple
   clouds\allowbreak[C]//\allowbreak{}IEEE International Symposium on Systems
   Engineering.
-\newblock [S.l.: s.n.], 2016.
+\newblock 2016.
 
 \bibitem[Cerin\ et~al.(2017)Cerin, Menouer, Saad, and Abdallah]{Cerin2017A}
 Cerin C, Menouer T, Saad W, et~al.
 \newblock A new docker swarm scheduling
   strategy\allowbreak[C]//\allowbreak{}IEEE International Symposium on Cloud
   and Service Computing.
-\newblock [S.l.: s.n.], 2017.
+\newblock 2017.
 
 \bibitem[Hindman\ et~al.(2013)Hindman, Author, and Konwinski]{Mesos2011}
 Hindman B, Author, Konwinski.
@@ -148,7 +151,7 @@ Verma~A K~M, Pedrosa~L.
 \newblock Large-scale cluster management at google with
   borg\allowbreak[C]//\allowbreak{}the Tenth European Conference on Computer
   Systems.
-\newblock New York, America: [s.n.], 2015.
+\newblock New York, America:  , 2015.
 
 \bibitem[Burns\ et~al.(2016)Burns, Grant, Oppenheimer, Brewer, and
   Wilkes]{Burns2016Borg}
@@ -179,7 +182,7 @@ Hong P, Yang G~X, Cai L, et~al.
 \newblock Cloud test environment deployment based on the needs of individual
   users\allowbreak[C]//\allowbreak{}Information Science and Service Science and
   Data Mining.
-\newblock [S.l.: s.n.], 2013.
+\newblock 2013.
 
 \bibitem[Saaty(1994)]{Saaty1994How}
 Saaty T~L.
@@ -226,7 +229,7 @@ Lim S~H, Sharma B, Nam G, et~al.
 \newblock Mdcsim: A multi-tier data center simulation,
   platform\allowbreak[C]//\allowbreak{}IEEE International Conference on Cluster
   Computing and Workshops.
-\newblock [S.l.: s.n.], 2009.
+\newblock 2009.
 
 \bibitem[Ostermann\ et~al.(2011)Ostermann, Plankensteiner, Prodan, and
   Fahringer]{Ostermann2011GroudSim}
@@ -240,7 +243,7 @@ Garg S~K, Buyya R.
 \newblock Networkcloudsim: Modelling parallel applications in cloud
   simulations.\allowbreak[C]//\allowbreak{}Fourth IEEE International Conference
   on Utility and Cloud Computing.
-\newblock [S.l.: s.n.], 2012.
+\newblock 2012.
 
 \bibitem[Jararweh\ et~al.(2013)Jararweh, Alshara, Jarrah, Kharbutli, and
   Alsaleh]{Jararweh2013TeachCloud}
@@ -275,7 +278,7 @@ Stubbs J, Moreira W, Dooley R.
 \newblock Distributed systems of microservices using docker and
   serfnode\allowbreak[C]//\allowbreak{}International Workshop on Science
   Gateways.
-\newblock [S.l.: s.n.], 2015: 34-39.
+\newblock 2015: 34-39.
 
 \bibitem[Massie\ et~al.(2004)Massie, Chun, and Culler]{Massie2004The}
 Massie M~L, Chun B~N, Culler D~E.
