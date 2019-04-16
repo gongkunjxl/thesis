@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  15 APR 2019 14:27
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  16 APR 2019 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2565,46 +2565,47 @@ File: figures/hadoop-task.pdf Graphic file (type pdf)
  [58]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [59] [60] [61] [62] [63]
+ [59] [60] [61] [62]
 File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu-utilization.pdf>
+ [63]
 File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/kubernetes-cpu-utilization.pdf>
- [64] [65] [66]) [67]
+ [64] [65]) [66]
 \openout2 = `data/chap06.aux'.
 
  (./data/chap06.tex
 第6章
-[68
+[67
 
 
 
-]) [69] (./main.bbl
+]) [68] (./main.bbl
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 68.
+(Font)              scaled to size 7.0pt on input line 73.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 68.
+(Font)              scaled to size 5.0pt on input line 73.
 Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
- [70
+ [69
 
 
 
 
-] [71]) [72]
+] [70]) [71]
 \openout2 = `data/ack.aux'.
 
- (./data/ack.tex [73
+ (./data/ack.tex [72
 
 
 
-]) [74
+]) [73
 
 
 ]
 \openout2 = `data/resume.aux'.
 
 
-(./data/resume.tex) [75
+(./data/resume.tex) [74
 
 
 
@@ -2624,12 +2625,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FF37A7D68244EC9F7D09549F965EEBF1.
  ) 
 Here is how much of TeX's memory you used:
- 32987 strings out of 492970
- 635643 string characters out of 6133938
- 781764 words of memory out of 5000000
- 36402 multiletter control sequences out of 15000+600000
+ 33003 strings out of 492970
+ 636436 string characters out of 6133938
+ 781919 words of memory out of 5000000
+ 36418 multiletter control sequences out of 15000+600000
  645105 words of font info for 182 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (86 pages).
+Output written on main.pdf (85 pages).

@@ -11,48 +11,59 @@ The style file: thuthesis-numeric.bst
 A level-1 auxiliary file: data/ack.aux
 A level-1 auxiliary file: data/resume.aux
 Database file #1: ref/refs.bib
+I was expecting a `,' or a `}'---line 15 of file ref/refs.bib
+ :  
+ :  year =         {2015},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty year in 2015Docker
 Warning--empty year in Usman2016
 Warning--empty year in KUBdoc
-You've used 41 entries,
+Warning--empty year in 2015Docker
+Warning--empty year in 2015Docker
+Warning--empty booktitle in Kumar2015A
+`booktitle' is a missing field, not a string, for entry Jansen2016Employing
+while executing---line 1611 of file thuthesis-numeric.bst
+You've used 43 entries,
             3363 wiz_defined-function locations,
-            1027 strings with 13573 characters,
-and the built_in function-call counts, 265271 in all, are:
-= -- 27678
-> -- 27436
-< -- 27355
-+ -- 8809
-- -- 261
-* -- 1106
-:= -- 28723
-add.period$ -- 121
-call.type$ -- 41
-change.case$ -- 82
-chr.to.int$ -- 8015
-cite$ -- 43
-duplicate$ -- 834
-empty$ -- 2289
-format.name$ -- 481
-if$ -- 76822
+            1051 strings with 14005 characters,
+and the built_in function-call counts, 283829 in all, are:
+= -- 29614
+> -- 29351
+< -- 29234
++ -- 9413
+- -- 280
+* -- 1244
+:= -- 30756
+add.period$ -- 125
+call.type$ -- 43
+change.case$ -- 86
+chr.to.int$ -- 8598
+cite$ -- 49
+duplicate$ -- 879
+empty$ -- 2440
+format.name$ -- 516
+if$ -- 82103
 int.to.chr$ -- 1
-int.to.str$ -- 42
+int.to.str$ -- 44
 missing$ -- 0
-newline$ -- 214
-num.names$ -- 123
-pop$ -- 11787
+newline$ -- 223
+num.names$ -- 129
+pop$ -- 12648
 preamble$ -- 1
-purify$ -- 41
+purify$ -- 43
 quote$ -- 0
-skip$ -- 32216
+skip$ -- 34383
 stack$ -- 0
-substring$ -- 8718
-swap$ -- 99
-text.length$ -- 327
+substring$ -- 9458
+swap$ -- 108
+text.length$ -- 348
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 559
-warning$ -- 2
-while$ -- 444
+type$ -- 588
+warning$ -- 6
+while$ -- 484
 width$ -- 0
-write$ -- 601
-(There were 2 warnings)
+write$ -- 634
+(There were 2 error messages)
