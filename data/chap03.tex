@@ -1,19 +1,19 @@
 \chapter{改进OpenShift Origin平台调度策略}
-Kubernetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度算法虽能满足大部分用户需求，但其算法较为简单，集群资源利用率较低，无法满足用户的在特定场景下的调度需求。本章在深入分析默认调度算法不足后，提出了一种新的基于多维空闲资源权重参数的评价函数和调度方案MRWS (Multidimensional Resource Weights Scheduling)。
+Kubernetes作为OpenShift Origin容器云平台的容器编排引擎，其默认配置的调度方案能够满足大部分用户需求，但其算法较为简单，集群资源利用率较低，负载均衡性较差，无法满足用户的在特定场景下的调度需求。本章在深入分析默认调度算法不足后，提出了一种新的基于多维空闲资源权重参数的评价函数和调度方案MRWS (Multidimensional Resource Weights Scheduling)。
 
 \section{优化Kubernetes调度流程}
-Kubernetes调度算法分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。用户可以对其调度流程进行一定的优化，开发特定场景下的调度算法。
+Kubernetes调度流程分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。用户可以对其调度流程进行一定的优化，定制特定场景下的调度算法。
 
 \subsection{Default调度算法流程}
-在Kubernetes默认调度流程中，预选阶段解决节点过滤问题，优选阶段解决节点选择问题。用户可以对两个阶段进行简单的配置，调度器将根据用户指定的预选和优选规则进行过滤和评分计算，最终输出满足条件的Node和Pod绑定策略，将Pod调度到Node节点上，针对两阶段的规则，下面做详细的介绍。
+在Kubernetes默认调度流程中，预选阶段解决节点过滤问题，优选阶段解决节点选择问题。用户可以对两个阶段进行简单的配置，调度器将根据用户指定的预选和优选规则进行过滤和评分计算，最终输出满足条件的Node和Pod绑定策略，将Pod调度到合适的Node，针对两阶段的规则，下面进行详细的介绍。
 \begin{figure}[H] % use float package if you want it here
 	\centering
 	\includegraphics{scheduler-default}
 	\caption{Default调度算法流程}
 \end{figure}
-Predicates阶段过滤掉不满足Pod资源需求的节点，依据一定规进行筛选，包括磁盘卷冲突、端口冲突、资源容量、节点检测、服务占用、亲和性等。1.7版本的筛选条件主要如下，新的版本Kubernetes正在不断完善和更新：
+Predicates阶段过滤掉不满足Pod资源需求的节点，依据一定规进行筛选，包括磁盘卷冲突、端口冲突、资源容量、节点检测、服务占用、亲和性等。1.7版本的筛选条件主要如下，新的版本Kubernetes还在不断更新和完善：
 \begin{enumerate}[(1)]
-	\item NoDiskConflict：检测卷冲突，在当前的规则中，两个不同Pod不能使用相同的卷。因此，一旦Node上挂载了该卷并被某个Pod使用，则新的Pod不能再调度到该Node上，否则造成卷冲突。不同的系统对该冲突检测范围不同，如Google Compute Engine在只读模式下允许多个卷，Ceph RDB允许两个Pod分享部分资源，Amazon EBS禁止两个Pod挂载同一个卷。
+	\item NoDiskConflict：检测磁盘卷冲突，在当前的规则中，两个不同Pod不能使用相同的卷。因此，一旦Node上挂载了该卷并被某个Pod使用，则新的Pod不能再调度到该Node上，否则造成卷冲突。不同的系统对该冲突检测范围不同，如Google Compute Engine在只读模式下允许多个卷，Ceph RDB允许两个Pod分享部分资源，Amazon EBS禁止两个Pod挂载同一个卷。
 	\item NoVolumeZoneConflict：在给定Zone限制的条件下，检测Node上部署的Pod是否存在卷冲突，当前只限定对PV(Persistant Volume)范围进行支持。
 	\item PodFitsHostPorts：端口冲突和服务占用检测，需要调度的Pod内所有的容器需要的端口在Node上是否被其他Pod占用。
 	\item PodFitsResources：根据Pod资源的需求检测节点空闲资源量是否满足其运行需求，主要检测CPU、内存、磁盘等资源。Kubernetes的调度是静态调度，资源的判断是根据分配的资源量而不是资源的实际使用量。
