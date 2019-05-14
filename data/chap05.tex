@@ -341,7 +341,7 @@ RUN mv hadoop-2.7.2 /usr/local/hadoop
 RUN rm hadoop-2.7.2.tar.gz
 \end{lstlisting}
 
-此外，还有一些修改后的配置文件和样例文件，以及挂载文件系统paladin-client的客户端等。使用docker build命令打包成Image文件，将文件push到私有仓库中，平台私有仓库的Ip为172.30.7.23:5000，后面的template文件中将使用该镜像文件源。为重复使用该镜像文件以及用户通过web-console快速构建Hadoop计算框架，需要生成处理框架模板放置在平台上，其模板小部分代码如下:
+此外，还有一些修改后的配置文件和样例文件，以及挂载文件系统paladin-client的客户端等。使用docker build命令打包成Image文件，将文件push到私有仓库中，平台私有仓库的IP为172.30.7.23:5000，后面的template文件中将使用该镜像文件源。为重复使用该镜像文件以及用户通过web-console快速构建Hadoop计算框架，需要生成处理框架模板放置在平台上，其模板小部分代码如下:
 \begin{lstlisting}[ language=csh]
 {
 "kind": "Template",
