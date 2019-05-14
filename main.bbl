@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -158,6 +158,18 @@ Halici U, Dogac A.
 Kubernetes中文社区.
 \newblock Kubernetes设计架构\allowbreak[EB/OL].
 \newblock \url{https://www.kubernetes.org.cn/k8s}.
+
+\bibitem[Lossent\ et~al.(2017)Lossent, Rodriguez~Peon, and
+  Wagner]{Lossent2017PaaS}
+Lossent A, Rodriguez~Peon A, Wagner A.
+\newblock Paas for web applications with openshift origin\allowbreak[J].
+\newblock Journal of Physics: Conference Series, 2017, 898: 20-37.
+
+\bibitem[陈耿(2017)]{2017Kubernetes}
+陈耿.
+\newblock 开源容器云openshift:
+  构建基于kubernetes的企业应用云平台\allowbreak[M].
+\newblock 北京: 人民邮电出版社, 2017
 
 \bibitem[Kwong\ et~al.(2002)Kwong and Bai]{Kwong2002A}
 Kwong C~K, Bai H.
