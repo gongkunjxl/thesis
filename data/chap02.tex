@@ -1,5 +1,5 @@
 \chapter{OpenShift容器云平台调度系统}
-本章从Docker虚拟化技术出发，介绍基于Docker构建的三种典型容器调度系统: 一体式调度系统、两层调度系统和共享状态调度系统。分析了在Docker和容器编排管理器Kubernetes上构建的开源容器云平台OpenShift架构，Kubernetes容器编排引擎的核心组件和调度原理。
+本章从Docker虚拟化技术出发，介绍基于Docker构建的三种典型容器调度系统: 一体式调度系统、两层调度系统和共享状态调度系统。分析在Docker和容器编排管理器Kubernetes上构建的开源容器云平台OpenShift架构，Kubernetes容器编排引擎的核心组件和调度原理。
 
 \section{Docker虚拟化与OpenShift平台}
 \label{sec:first}
@@ -17,7 +17,7 @@
 \subsection{OpenShift容器云平台}
 \label{chap1:sample:table} 
 Docker是当前主流容器化技术的代表，Kubernetes作为现阶段应用最为广泛的容器编排引擎，OpenShift~\cite{Lossent2017PaaS}将这两种主流技术相结合服务于企业，是红帽公司提供的一款开源容器云平台。
-该平台底层以Docker作为容器引擎驱动，Kubernetes作为容器编排组件，对外提供多种开发语言、中间件、数据库以及极易操作的用户界面、DevOps(Development and Operations)工具等。允许开发者和开发团队在该平台上进行应用的构建、测试、部署以及发布，是一个完善的PaaS层云平台。该平台可以运行和支持有状态和无状态的应用，为容器应用提供较强的安全防护，包括基于用户的访问控制、检查机制以及强制隔离措施。OpenShift平台还实现了多种综合云原生服务，便于快速、灵活地开发应用、构建各种分布式系统，支持多种云环境包括Amazon Web Service、Azure、Google云平台以及VMware等，为开发运维团队提供一个通用的平台和工具集，可以持续的开发和测试。OpenShift分为开源的社区版OpenShift Origin和收费的企业版OpenShift Enterprise，实验室项目大数据存储与处理容器云平台Paladdin服务层是基于OpenShift Origin构建。
+该平台底层以Docker作为容器引擎驱动，Kubernetes作为容器编排组件，对外提供多种开发语言、中间件、数据库以及极易操作的用户界面、DevOps(Development and Operations)工具等。允许开发者和开发团队在该平台上进行应用的构建、测试、部署以及发布，是一个完善的PaaS层云平台。该平台可以运行和支持有状态和无状态的应用，为容器应用提供较强的安全防护，包括基于用户的访问控制、检查机制以及强制隔离措施。OpenShift平台还实现了多种综合云原生服务，便于快速、灵活地开发应用、构建各种分布式系统，支持多种云环境包括Amazon Web Service、Azure、Google云平台以及VMware等，为开发运维团队提供一个通用的平台和工具集，可以持续的开发和测试。OpenShift分为开源的社区版OpenShift Origin和收费的企业版OpenShift Enterprise，实验室项目大数据存储与处理容器云平台Paladin服务层是基于OpenShift Origin构建。
 
 从技术堆栈的角度分析，OpenShift Origin容器云平台自下而上可以划分为基层架构层、容器引擎层、容器编排层、PaaS服务层、界面及工具层~\cite{2017Kubernetes}。下面分别对这几个层次功能进行简单介绍：
 \begin{enumerate}[1.]
@@ -92,12 +92,12 @@ Kubernetes是典型的基于共享状态的调度系统，是一个轻量开源�
 \subsection{Kubernetes简介}
 Kubernetes源自Google的Borg项目，Borg是Google集群管理工具，一直用于管理全球上百万台服务器，性能稳定可靠。为在容器云竞争中占据主导地位，Google基于Borg的管理经验，研发了Docker的容器编排工具Kubernetes，并在2014年将其开源，逐步发展成为一个大的生态技术圈。作为一个跨主机的应用容器编排引擎，Kubernetes提供了一系列强大的功能，包括应用容器部署、资源调度、服务发现、动态扩容以及错误恢复等。Kubernetes强大的集群管理能力非常适用于分布式系统，实现了多租户应用、服务发现、服务注册、负载均衡、故障发现和自动恢复、在线扩容、细粒度调度、资源配额管理等功能，完美定义了构建业务系统的标准化架构。除集群管理方面强大功能外，Kubernetes还提供完整的开发、测试、部署、发布、运维监控等各种开发管理工具。
 
-Kubernetes逐步发展成一个巨大生态圈，为容器编排提供一种简单、轻量的方式，最重要的是用户可以进行功能定制。采用Kubernetes的云计算服务商和用户越来越多，如微软、Yahoo、IBM、华为、VMware、网易、阿里、华为等，还有一些初创公司灵雀云、青云等都采用Kubernetes作为容器云的管理系统。
+Kubernetes逐步发展成一个巨大生态圈，为容器编排提供一种简单、轻量的方式，用户还可以进行功能定制。采用Kubernetes的云计算服务商和用户越来越多，如微软、Yahoo、IBM、华为、VMware、网易、阿里、百度等，还有一些初创公司灵雀云、青云等都采用Kubernetes作为容器云的管理系统。
 
 Kubernetes拥有强大而活跃的社区，众多开发者不断对其进行迭代更新，其代码更加完善。当前Kubernetes社区的支持者有Google、CoreOS、RedHat、华为、网易、阿里云、浙大SEL实验等。Google在2015年联合其他20多家公司成立了开源组织CNCF(Cloud Native Computing Foundation)，加入OpenStack社区，致力于Kubernetes的应用推广，支持其在公有云、私有云等更多基础设施平台上应用，提供更加简便丰富的工具集，方便用户开发和使用。
 
 \subsection{Kubernetes架构和组件}
-Kubernetes是一个主从架构体系，该集群管理器很好的解决了扩容和升级两大难题，具有较强的横向扩展能力，下面是Kubernetes的整体架构图~\cite{KUBdoc}。
+Kubernetes是一个主从架构体系，该集群管理器很好地解决了扩容和服务升级两大难题，具有较强的横向扩展能力，Kubernetes的整体架构图~\cite{KUBdoc}如下。
 \begin{figure}[H] % use float package if you want it here
 	\centering
 	\includegraphics{kubernetes-structure}
@@ -106,11 +106,11 @@ Kubernetes是一个主从架构体系，该集群管理器很好的解决了扩�
 如图2.6所示，Kubernetes主从架构主要由控制节点Master、工作节点Node以及外部工具集kubectl、web UI等附加依赖组成。Master作为集群的控制节点，主要负责集群的管理调度，由API Server、Scheduler、Etcd、Controller Manager等组成，实现其主要功能。Node节点主要根据控制节点的指令执行具体的任务，实现应用容器的运行，主要由kubelet、kube-proxy、cAdvisor、Container Runtime等组成。外部可以通过kubectl命令工具对集群进行增删查改的操作，也可以使用Web UI与集群进行交互。下面对集群中的重要组件分别进行介绍:
 \begin{enumerate}[1.]
 	\item  API Server组件。API Server是系统管理指令的统一入口，负责对外提供RESTful的API服务功能，所有与集群的交互都需要通过API Server组件完成，是集群外部和内部的通信枢纽。APIServer也是资源配额限制的入口，通过Authentication组件提供集群完备的安全认证机制。API Server接收外部Web browser或kubectl的命令请求，将REST对象和状态持久化到Etcd中存储，同时与Node节点上的kubelet进行交互。
-	\item Scheduler组件。集群调度组件，负责集群资源调度和Pod分配工作，Scheduler监控集群中未分配的Pod，根据其对资源的约束条件和集群资源可用性，将Pod调度到实际的Node上运行。调度器一个可插拔的模块，用户可以开发自己的调度算法集成到集群中，其调度流程和调度策略后面会详细的介绍。
+	\item Scheduler组件。集群调度组件，负责集群资源调度和Pod分配工作，Scheduler监控集群中未分配的Pod，根据其对资源的约束条件和集群资源可用性，将Pod调度到实际的Node上运行。调度器一个可插拔的模块，用户可以开发自己的调度算法集成到集群中，其调度流程和调度策略后面会详细介绍。
 	\item Controller Manager组件。控制管理器提供服务发现、集群管理、Pod扩容、服务绑定、应用生命周期管理等功能。其中Node Controller用于管理节点、Replication Controller用于应用容器管理，保证容器副本和需求一致、Namespace Controller用于命名空间管理、Service Controller提供负载和服务代理、Persistent Controller管理维护Persistent Volume和Persistent Volume Claim等。
 	\item Etcd组件。一个高可用、强一致性的服务发现键值存储仓库，用于保存集群中所有的网络配置和对象的状态信息，具有中心数据库的地位，进行分布式的部署，通过watch机制进行服务更新支持。
 	\item Kubelet组件。Kubelet是运行在Node节点上的控制器，用于裁决和驱动容器的执行层，是API Server和Pod的主要实现者。单个Pod中可以运行多个容器和存储数据卷，能够将Pod和相关的依赖项很方便地打包迁移，	API Server进行访问控制，Scheduler进行资源的调度，但是最终Pod能否在Node上运行成功是由kubelet决定的。此外，kubelet通过cAdvisor组件对Node节点的状态、资源进行监控，定期汇报给控制节点，存储在Etcd中。
-	\item Kube-Proxy组件。负责负载均衡和反向代理组件，通过创建Pod的代理服务，用户可以通过IP地址直接访问Pod应用，实现服务到Pod的路由和转发。此外，kube-proxy还实现了一个高可用的负载均衡解决方案，
+	\item Kube-Proxy组件。负责负载均衡和反向代理组件，通过创建Pod的代理服务，用户可以通过IP地址直接访问Pod应用，实现服务到Pod的路由转发。此外，kube-proxy还实现了一个高可用的负载均衡解决方案，
 \end{enumerate}
 
 除上述给出的核心组件外，Kubernetes还有负责提供集群DNS服务的kube-dns、提供外网访问入口的Ingress Controller、提供资源监控的Heapster、提供管理控制界面的Dashboard、提供日志采集、存储和查询的Fluentd-elasticsearch组件等。
