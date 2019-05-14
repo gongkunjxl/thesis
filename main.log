@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  14 MAY 2019 16:23
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  14 MAY 2019 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2375,73 +2375,69 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 
 
 
-] [2]
+]
+File: figures/docker-structure.pdf Graphic file (type pdf)
+<use figures/docker-structure.pdf>
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 11.04124pt on input line 20.
+ [2] [3] [4]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.74377pt on input line 21.
- [3]) [4]
+(Font)              scaled to size 11.74377pt on input line 36.
+ [5]) [6]
 \openout2 = `data/chap02.aux'.
 
  (./data/chap02.tex
 第2章
-File: figures/docker-structure.pdf Graphic file (type pdf)
-<use figures/docker-structure.pdf>
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 11.04124pt on input line 11.
-[5
-
-
-
-] [6]
-File: figures/openshift-structure.pdf Graphic file (type pdf)
-<use figures/openshift-structure.pdf>
- [7] [8]
 File: figures/swarm-structure.pdf Graphic file (type pdf)
 <use figures/swarm-structure.pdf>
- [9] [10]
+[7
+
+
+
+] [8] [9]
 File: figures/mesos-structure.pdf Graphic file (type pdf)
 <use figures/mesos-structure.pdf>
- [11] [12]
+ [10] [11]
 File: figures/full-state-structure.pdf Graphic file (type pdf)
 <use figures/full-state-structure.pdf>
- [13]
+ [12]
 File: figures/kubernetes-structure.pdf Graphic file (type pdf)
 <use figures/kubernetes-structure.pdf>
- [14] [15]
+ [13] [14]
 File: figures/kubernetes-scheduler.pdf Graphic file (type pdf)
 <use figures/kubernetes-scheduler.pdf>
- [16] [17]) [18]
+ [15]) [16]
 \openout2 = `data/chap03.aux'.
 
-
-(./data/chap03.tex
+ (./data/chap03.tex
 第3章
 File: figures/scheduler-default.pdf Graphic file (type pdf)
 <use figures/scheduler-default.pdf>
-[19
+[17
 
 
 
-] [20] [21]
+] [18] [19]
 File: figures/scheduler-mrws.pdf Graphic file (type pdf)
 <use figures/scheduler-mrws.pdf>
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
 ut line 55.
- [22]
+ [20]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 12.045pt on input line 58.
- [23] [24] [25]) [26]
+ [21] [22] [23]) [24]
 \openout2 = `data/chap04.aux'.
 
  (./data/chap04.tex
 第4章
-[27
+[25
 
 
 
-] [28]
+] [26]
 File: figures/fahp-flow.pdf Graphic file (type pdf)
 <use figures/fahp-flow.pdf>
- [29]
+ [27]
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 71
 .
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
@@ -2450,36 +2446,36 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.06006pt on input line 71.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.07271pt on input line 71.
- [30]
+ [28]
 File: figures/fahp-example.pdf Graphic file (type pdf)
 <use figures/fahp-example.pdf>
- [31] [32]
+ [29] [30]
 File: figures/fahp-model.pdf Graphic file (type pdf)
 <use figures/fahp-model.pdf>
- [33]
+ [31]
 Overfull \hbox (2.4243pt too wide) in paragraph at lines 164--164
  []|\T1/ntxtlf/m/n/11.04124 Resources| 
  []
 
-[34] [35] [36] [37]) [38]
+[32] [33] [34] [35]) [36]
 \openout2 = `data/chap05.aux'.
 
  (./data/chap05.tex
 第5章
-[39
+[37
 
 
 
 ]
 File: figures/cloudsim-layer.pdf Graphic file (type pdf)
 <use figures/cloudsim-layer.pdf>
- [40]
+ [38]
 File: figures/container-cloudsim.pdf Graphic file (type pdf)
 <use figures/container-cloudsim.pdf>
- [41]
+ [39]
 File: figures/containercloudsim-layer.pdf Graphic file (type pdf)
 <use figures/containercloudsim-layer.pdf>
- [42] [43] [44]
+ [40] [41] [42]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2493,12 +2489,12 @@ Overfull \hbox (3.38382pt too wide) in paragraph at lines 125--125
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-[45]
+[43]
 Overfull \hbox (3.38382pt too wide) in paragraph at lines 139--139
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-[46]
+[44]
 File: figures/firstfit-cpu.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu.pdf>
 File: figures/random-cpu.pdf Graphic file (type pdf)
@@ -2511,7 +2507,7 @@ File: figures/mrws-cpu.pdf Graphic file (type pdf)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[47]
+[45]
 File: figures/firstfit-ba.pdf Graphic file (type pdf)
 <use figures/firstfit-ba.pdf>
 File: figures/random-ba.pdf Graphic file (type pdf)
@@ -2520,7 +2516,7 @@ File: figures/kub-ba.pdf Graphic file (type pdf)
 <use figures/kub-ba.pdf>
 File: figures/mrws-ba.pdf Graphic file (type pdf)
 <use figures/mrws-ba.pdf>
- [48]
+ [46]
 File: figures/firstfit-cluster.pdf Graphic file (type pdf)
 <use figures/firstfit-cluster.pdf>
 File: figures/random-cluster.pdf Graphic file (type pdf)
@@ -2529,24 +2525,24 @@ File: figures/kub-cluster.pdf Graphic file (type pdf)
 <use figures/kub-cluster.pdf>
 File: figures/mrws-cluster.pdf Graphic file (type pdf)
 <use figures/mrws-cluster.pdf>
- [49] [50]
+ [47] [48]
 File: figures/paladin-structure.pdf Graphic file (type pdf)
 <use figures/paladin-structure.pdf>
- [51]
+ [49]
 File: figures/paladin-platform.pdf Graphic file (type pdf)
 <use figures/paladin-platform.pdf>
- [52]
+ [50]
 File: figures/paladin-nodelist.pdf Graphic file (type pdf)
 <use figures/paladin-nodelist.pdf>
 File: figures/paladin-web-console.pdf Graphic file (type pdf)
 <use figures/paladin-web-console.pdf>
- [53]
+ [51]
 File: figures/origin-web-console.pdf Graphic file (type pdf)
 <use figures/origin-web-console.pdf>
- [54]
+ [52]
 File: figures/hadoop-flow.pdf Graphic file (type pdf)
 <use figures/hadoop-flow.pdf>
- [55]
+ [53]
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -2554,58 +2550,58 @@ Overfull \hbox (23.21506pt too wide) in paragraph at lines 334--335
 [][][][][][][][][][][][][][][][]  
  []
 
-[56]
+[54]
 File: figures/hadoop-member.pdf Graphic file (type pdf)
 <use figures/hadoop-member.pdf>
- [57]
+ [55]
 File: figures/hadoop-status.pdf Graphic file (type pdf)
 <use figures/hadoop-status.pdf>
 File: figures/hadoop-task.pdf Graphic file (type pdf)
 <use figures/hadoop-task.pdf>
- [58]
+ [56]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [59] [60] [61] [62]
+ [57] [58] [59] [60]
 File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu-utilization.pdf>
- [63]
+ [61]
 File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
 <use figures/kubernetes-cpu-utilization.pdf>
- [64] [65]) [66]
+ [62] [63]) [64]
 \openout2 = `data/chap06.aux'.
 
  (./data/chap06.tex
 第6章
-[67
+[65
 
 
 
-]) [68] (./main.bbl
+]) [66] (./main.bbl
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 76.
+(Font)              scaled to size 7.0pt on input line 89.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 76.
+(Font)              scaled to size 5.0pt on input line 89.
 Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
- [69
+ [67
 
 
 
 
-] [70]) [71]
+] [68]) [69]
 \openout2 = `data/ack.aux'.
 
- (./data/ack.tex [72
+ (./data/ack.tex [70
 
 
 
-]) [73
+]) [71
 
 
 ]
 \openout2 = `data/resume.aux'.
 
 
-(./data/resume.tex) [74
+(./data/resume.tex) [72
 
 
 
@@ -2622,15 +2618,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4A0FF35D8BBAC8C152D7D67145B9DA32.
+(rerunfilecheck)             Checksum: C9D2E508C4C3CAFB08C1DBFCBD246E37.
  ) 
 Here is how much of TeX's memory you used:
- 32966 strings out of 492970
- 633958 string characters out of 6133938
- 780939 words of memory out of 5000000
- 36381 multiletter control sequences out of 15000+600000
+ 32954 strings out of 492970
+ 633647 string characters out of 6133938
+ 780701 words of memory out of 5000000
+ 36370 multiletter control sequences out of 15000+600000
  645105 words of font info for 182 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (85 pages).
+Output written on main.pdf (83 pages).
