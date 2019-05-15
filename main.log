@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  15 MAY 2019 00:24
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  15 MAY 2019 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2622,7 +2622,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A1458F25531832798FD62B4DCA9B2F43.
+(rerunfilecheck)             Checksum: 00E87B7AD17F0176EC9AE176E49CDF6E.
  ) 
 Here is how much of TeX's memory you used:
  32964 strings out of 492970

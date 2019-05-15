@@ -21,10 +21,10 @@
 \contentsline {section}{\numberline {2.5}本章小结}{16}{section.2.5}
 \contentsline {chapter}{\numberline {第3章}面向多计算框架的容器云MRWS调度方法设计}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}OpenShift 容器云平台}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}MRWS调度方法流程优化}{20}{section.3.2}
+\contentsline {section}{\numberline {3.2}MRWS调度流程优化设计}{20}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Kubernetes调度流程}{20}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}MRWS调度方法流程优化}{22}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}MRWS调度方法设计}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.2.2}MRWS调度流程优化}{22}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}MRWS调度算法设计}{24}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}MRWS空闲资源评分}{24}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}MRWS平衡模块评分}{26}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}MRWS均衡度评价模块}{27}{subsection.3.3.3}
