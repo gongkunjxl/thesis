@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  15 MAY 2019 11:22
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.15)  16 MAY 2019 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2367,81 +2367,80 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
  (./data/chap01.tex
 第1章
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 2.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 12.64714pt on input line 9.
+(Font)              scaled to size 12.64714pt on input line 2.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 3.
+File: figures/docker-structure.pdf Graphic file (type pdf)
+<use figures/docker-structure.pdf>
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 11.04124pt on input line 12.
 [1
 
 
 
-]
-File: figures/docker-structure.pdf Graphic file (type pdf)
-<use figures/docker-structure.pdf>
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 11.04124pt on input line 20.
- [2] [3] [4]
+] [2] [3]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.74377pt on input line 36.
- [5]) [6]
+(Font)              scaled to size 11.74377pt on input line 30.
+ [4]) [5]
 \openout2 = `data/chap02.aux'.
 
  (./data/chap02.tex
 第2章
 File: figures/swarm-structure.pdf Graphic file (type pdf)
 <use figures/swarm-structure.pdf>
-[7
+[6
 
 
 
-] [8] [9]
+] [7] [8]
 File: figures/mesos-structure.pdf Graphic file (type pdf)
 <use figures/mesos-structure.pdf>
- [10] [11]
+ [9] [10]
 File: figures/full-state-structure.pdf Graphic file (type pdf)
 <use figures/full-state-structure.pdf>
- [12]
+ [11]
 File: figures/kubernetes-structure.pdf Graphic file (type pdf)
 <use figures/kubernetes-structure.pdf>
- [13] [14]
+ [12] [13]
 File: figures/kubernetes-scheduler.pdf Graphic file (type pdf)
 <use figures/kubernetes-scheduler.pdf>
- [15]) [16]
+ [14]) [15]
 \openout2 = `data/chap03.aux'.
 
  (./data/chap03.tex
 第3章
-[17
+[16
 
 
 
 ]
 File: figures/openshift-structure.pdf Graphic file (type pdf)
 <use figures/openshift-structure.pdf>
- [18] [19]
+ [17] [18]
 File: figures/scheduler-default.pdf Graphic file (type pdf)
 <use figures/scheduler-default.pdf>
- [20] [21]
+ [19] [20]
 File: figures/scheduler-mrws.pdf Graphic file (type pdf)
 <use figures/scheduler-mrws.pdf>
- [22]
+ [21]
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
-ut line 76.
+ut line 77.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.045pt on input line 79.
- [23] [24] [25] [26]) [27]
+(Font)              scaled to size 12.045pt on input line 80.
+ [22] [23] [24] [25]) [26]
 \openout2 = `data/chap04.aux'.
 
  (./data/chap04.tex
 第4章
-[28
+[27
 
 
 
-] [29]
+] [28]
 File: figures/fahp-flow.pdf Graphic file (type pdf)
 <use figures/fahp-flow.pdf>
- [30]
+ [29]
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 71
 .
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
@@ -2450,55 +2449,54 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.06006pt on input line 71.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.07271pt on input line 71.
- [31]
+ [30]
 File: figures/fahp-example.pdf Graphic file (type pdf)
 <use figures/fahp-example.pdf>
- [32] [33]
+ [31] [32]
 File: figures/fahp-model.pdf Graphic file (type pdf)
 <use figures/fahp-model.pdf>
- [34]
+ [33]
 Overfull \hbox (2.4243pt too wide) in paragraph at lines 164--164
  []|\T1/ntxtlf/m/n/11.04124 Resources| 
  []
 
-[35] [36] [37] [38]) [39]
+[34] [35] [36] [37]) [38]
 \openout2 = `data/chap05.aux'.
 
  (./data/chap05.tex
 第5章
-[40
+[39
 
 
 
 ]
 File: figures/cloudsim-layer.pdf Graphic file (type pdf)
 <use figures/cloudsim-layer.pdf>
- [41]
 File: figures/container-cloudsim.pdf Graphic file (type pdf)
 <use figures/container-cloudsim.pdf>
- [42]
+ [40]
 File: figures/containercloudsim-layer.pdf Graphic file (type pdf)
 <use figures/containercloudsim-layer.pdf>
- [43] [44] [45]
+ [41] [42] [43]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'STFangsong' does not contain script 'CJK'.
 *************************************************
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 100.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 78.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Overfull \hbox (3.38382pt too wide) in paragraph at lines 125--125
+Overfull \hbox (3.38382pt too wide) in paragraph at lines 103--103
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-[46]
-Overfull \hbox (3.38382pt too wide) in paragraph at lines 139--139
+[44]
+Overfull \hbox (3.38382pt too wide) in paragraph at lines 117--117
  []|\T1/ntxtlf/m/n/11.04124 CPU(MIPS)| 
  []
 
-[47]
+[45]
 File: figures/firstfit-cpu.pdf Graphic file (type pdf)
 <use figures/firstfit-cpu.pdf>
 File: figures/random-cpu.pdf Graphic file (type pdf)
@@ -2511,7 +2509,7 @@ File: figures/mrws-cpu.pdf Graphic file (type pdf)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48]
+[46]
 File: figures/firstfit-ba.pdf Graphic file (type pdf)
 <use figures/firstfit-ba.pdf>
 File: figures/random-ba.pdf Graphic file (type pdf)
@@ -2520,7 +2518,7 @@ File: figures/kub-ba.pdf Graphic file (type pdf)
 <use figures/kub-ba.pdf>
 File: figures/mrws-ba.pdf Graphic file (type pdf)
 <use figures/mrws-ba.pdf>
- [49]
+ [47]
 File: figures/firstfit-cluster.pdf Graphic file (type pdf)
 <use figures/firstfit-cluster.pdf>
 File: figures/random-cluster.pdf Graphic file (type pdf)
@@ -2529,83 +2527,73 @@ File: figures/kub-cluster.pdf Graphic file (type pdf)
 <use figures/kub-cluster.pdf>
 File: figures/mrws-cluster.pdf Graphic file (type pdf)
 <use figures/mrws-cluster.pdf>
- [50] [51]
+ [48] [49]
 File: figures/paladin-structure.pdf Graphic file (type pdf)
 <use figures/paladin-structure.pdf>
- [52]
+ [50]
 File: figures/paladin-platform.pdf Graphic file (type pdf)
 <use figures/paladin-platform.pdf>
- [53]
+ [51]
 File: figures/paladin-nodelist.pdf Graphic file (type pdf)
 <use figures/paladin-nodelist.pdf>
 File: figures/paladin-web-console.pdf Graphic file (type pdf)
 <use figures/paladin-web-console.pdf>
- [54]
+ [52]
 File: figures/origin-web-console.pdf Graphic file (type pdf)
 <use figures/origin-web-console.pdf>
- [55]
+ [53]
 File: figures/hadoop-flow.pdf Graphic file (type pdf)
 <use figures/hadoop-flow.pdf>
- [56]
+ [54]
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (23.21506pt too wide) in paragraph at lines 334--335
+Overfull \hbox (23.21506pt too wide) in paragraph at lines 312--313
 [][][][][][][][][][][][][][][][]  
  []
 
-[57]
+[55]
 File: figures/hadoop-member.pdf Graphic file (type pdf)
 <use figures/hadoop-member.pdf>
- [58]
+ [56]
 File: figures/hadoop-status.pdf Graphic file (type pdf)
 <use figures/hadoop-status.pdf>
-File: figures/hadoop-task.pdf Graphic file (type pdf)
-<use figures/hadoop-task.pdf>
- [59]
 File: figures/paladin-distribute.pdf Graphic file (type pdf)
 <use figures/paladin-distribute.pdf>
- [60] [61] [62] [63]
-File: figures/firstfit-cpu-utilization.pdf Graphic file (type pdf)
-<use figures/firstfit-cpu-utilization.pdf>
- [64]
-File: figures/kubernetes-cpu-utilization.pdf Graphic file (type pdf)
-<use figures/kubernetes-cpu-utilization.pdf>
- [65] [66]) [67]
+ [57] [58] [59] [60] [61] [62]) [63]
 \openout2 = `data/chap06.aux'.
 
  (./data/chap06.tex
 第6章
-[68
+[64
 
 
 
-]) [69] (./main.bbl
+]) [65] (./main.bbl
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 89.
+(Font)              scaled to size 7.0pt on input line 50.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 89.
+(Font)              scaled to size 5.0pt on input line 50.
 Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
- [70
+ [66
 
 
 
 
-] [71]) [72]
+]) [67]
 \openout2 = `data/ack.aux'.
 
- (./data/ack.tex [73
+ (./data/ack.tex [68
 
 
 
-]) [74
+]) [69
 
 
 ]
 \openout2 = `data/resume.aux'.
 
-
-(./data/resume.tex) [75
+ (./data/resume.tex) [70
 
 
 
@@ -2616,21 +2604,21 @@ Missing character: There is no ☆ in font ntx-Regular-tlf-t1!
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
- (./main.aux (./data/chap01.aux) (./data/chap02.aux)
-(./data/chap03.aux) (./data/chap04.aux) (./data/chap05.aux) (./data/chap06.aux)
-(./data/ack.aux) (./data/resume.aux))
+ (./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux)
+(./data/chap04.aux) (./data/chap05.aux) (./data/chap06.aux) (./data/ack.aux)
+(./data/resume.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 00E87B7AD17F0176EC9AE176E49CDF6E.
+(rerunfilecheck)             Checksum: 41382409ED4C6B70559B2126E70C69A2.
  ) 
 Here is how much of TeX's memory you used:
- 32964 strings out of 492970
- 633927 string characters out of 6133938
- 780843 words of memory out of 5000000
- 36379 multiletter control sequences out of 15000+600000
+ 32928 strings out of 492970
+ 632984 string characters out of 6133938
+ 780037 words of memory out of 5000000
+ 36346 multiletter control sequences out of 15000+600000
  645105 words of font info for 182 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,19n,96p,10432b,1908s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (87 pages).
+Output written on main.pdf (82 pages).
