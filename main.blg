@@ -24,45 +24,45 @@ Warning--empty year in 2015Docker
 Warning--empty year in 2015Docker
 `booktitle' is a missing field, not a string, for entry Jansen2016Employing
 while executing---line 1614 of file thuthesis-numeric.bst
-You've used 35 entries,
+You've used 41 entries,
             3363 wiz_defined-function locations,
-            995 strings with 12398 characters,
-and the built_in function-call counts, 228483 in all, are:
-= -- 23811
-> -- 23627
-< -- 23522
-+ -- 7584
-- -- 230
-* -- 992
-:= -- 24798
-add.period$ -- 102
-call.type$ -- 35
-change.case$ -- 70
-chr.to.int$ -- 6925
-cite$ -- 40
-duplicate$ -- 713
-empty$ -- 1974
-format.name$ -- 423
-if$ -- 66064
+            1033 strings with 13583 characters,
+and the built_in function-call counts, 270165 in all, are:
+= -- 28175
+> -- 27945
+< -- 27825
++ -- 8956
+- -- 266
+* -- 1175
+:= -- 29278
+add.period$ -- 120
+call.type$ -- 41
+change.case$ -- 82
+chr.to.int$ -- 8187
+cite$ -- 46
+duplicate$ -- 835
+empty$ -- 2322
+format.name$ -- 492
+if$ -- 78135
 int.to.chr$ -- 1
-int.to.str$ -- 36
+int.to.str$ -- 42
 missing$ -- 0
-newline$ -- 184
-num.names$ -- 105
-pop$ -- 10206
+newline$ -- 214
+num.names$ -- 123
+pop$ -- 12052
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 41
 quote$ -- 0
-skip$ -- 27655
+skip$ -- 32731
 stack$ -- 0
-substring$ -- 7598
-swap$ -- 89
-text.length$ -- 283
+substring$ -- 9019
+swap$ -- 103
+text.length$ -- 330
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 477
+type$ -- 564
 warning$ -- 5
-while$ -- 391
+while$ -- 462
 width$ -- 0
-write$ -- 507
+write$ -- 597
 (There were 2 error messages)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
@@ -10,6 +10,45 @@
 Hayes B.
 \newblock Cloud computing\allowbreak[J].
 \newblock Communications of the Acm, 2008, 51\penalty0 (7): 9-11.
+
+\bibitem[Weiwei\ et~al.(2012)Weiwei and Deyu]{CloudSummarize}
+Weiwei L, Deyu Q.
+\newblock Survey of resource scheduling in cloud computing\allowbreak[J].
+\newblock Computer Science, 2012, 39\penalty0 (10): 1-6.
+
+\bibitem[Quang-Hung\ et~al.(2013)Quang-Hung, Nien, Nam, Tuong, and
+  Thoai]{Quang2013A}
+Quang-Hung N, Nien P~D, Nam N~H, et~al.
+\newblock {A Genetic Algorithm for Power-Aware Virtual Machine Allocation in
+  Private Cloud}\allowbreak[C]//\allowbreak{}Information and Communication
+  Technology.
+\newblock 2013: 183-191.
+
+\bibitem[R.(2012)]{Beloglazov2012}
+R. B~A~J.
+\newblock Energy-aware resource alocation heuristics for eficient management of
+  data centers for cloud computing\allowbreak[J].
+\newblock Future Generation Computer Systems, 2012, 28\penalty0 (5): 755-768.
+
+\bibitem[Soni\ et~al.(2014)Soni and Kalra]{BalanceCenter}
+Soni G, Kalra M.
+\newblock A novel approach for load balancing in cloud data
+  center\allowbreak[J].
+\newblock Souvenir of the 2014 IEEE International Advance Computing Conference,
+  IACC 2014, 2014: 807-812.
+
+\bibitem[Kumar\ et~al.(2015)Kumar and Raza]{Kumar2015A}
+Kumar D, Raza Z.
+\newblock A pso based vm resource scheduling model for cloud
+  computing\allowbreak[J].
+\newblock Proceedings - 2015 IEEE International Conference on Computational
+  Intelligence and Communication Technology, CICT 2015, 2015: 213-219.
+
+\bibitem[Buyya\ et~al.(2008)Buyya, Yeo, and Venugopal]{Buyya2008Market}
+Buyya R, Yeo C~S, Venugopal S.
+\newblock Market-oriented cloud computing: Vision, hype, and reality for
+  delivering it services as computing utilities\allowbreak[J].
+\newblock High Performance Computing, 2008, 11\penalty0 (4): 5-13.
 
 \bibitem[{浙江大学SEL实验室}()]{2015Docker}
 {浙江大学SEL实验室}.
