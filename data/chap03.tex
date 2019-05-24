@@ -73,7 +73,7 @@ Kubernetes调度器的Default算法核心在于优选阶段的评分函数，调
 \end{figure}
 在Default算法中，优选阶段根据评分集合进行节点评分，其评分函数如下：
 \begin{equation}
-	S_{i} = (w_{1}*f_{1})+(w_{2}*f_{2})+...+(w_{j}*f_{j})+...(w_{p}*f_{p})
+	S_{i} = (w_{1}*f_{1})+(w_{2}*f_{2})+...+(w_{j}*f_{j})+...+(w_{p}*f_{p})
 \end{equation}
 其中，\begin{math}S_{i}\end{math}是第i个节点的总评分，\begin{math}w_{j}\end{math}是第j个评分函数权重，\begin{math}f_{j}\end{math}是第j个评分函数，每个函数的权重可以根据用户的需求进行指定。
 
