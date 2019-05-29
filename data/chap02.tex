@@ -82,7 +82,7 @@ Kubernetes是一个主从架构体系，该集群管理器很好地解决了扩�
 	\item Controller Manager组件。控制管理器提供服务发现、集群管理、Pod扩容、服务绑定、应用生命周期管理等功能。其中Node Controller用于管理节点、Replication Controller用于应用容器管理，保证容器副本和需求一致、Namespace Controller用于命名空间管理、Service Controller提供负载和服务代理、Persistent Controller管理维护Persistent Volume和Persistent Volume Claim等。
 	\item Etcd组件。一个高可用、强一致性的服务发现键值存储仓库，用于保存集群中所有的网络配置和对象的状态信息，具有中心数据库的地位，进行分布式的部署，通过watch机制进行服务更新支持。
 	\item Kubelet组件。Kubelet是运行在Node节点上的控制器，用于裁决和驱动容器的执行层，是API Server和Pod的主要实现者。单个Pod中可以运行多个容器和存储数据卷，能够将Pod和相关的依赖项很方便地打包迁移，	API Server进行访问控制，Scheduler进行资源的调度，但是最终Pod能否在Node上运行成功是由kubelet决定的。此外，kubelet通过cAdvisor组件对Node节点的状态、资源进行监控，定期汇报给控制节点，存储在Etcd中。
-	\item Kube-Proxy组件。负责负载均衡和反向代理组件，通过创建Pod的代理服务，用户可以通过IP地址直接访问Pod应用，实现服务到Pod的路由转发。此外，kube-proxy还实现了一个高可用的负载均衡解决方案，
+	\item Kube-Proxy组件。负责负载均衡和反向代理组件，通过创建Pod的代理服务，用户可以通过IP地址直接访问Pod应用，实现服务到Pod的路由转发。此外，kube-proxy还实现了一个高可用的负载均衡解决方案。
 \end{enumerate}
 
 除上述给出的核心组件外，Kubernetes还有负责提供集群DNS服务的kube-dns、提供外网访问入口的Ingress Controller、提供资源监控的Heapster、提供管理控制界面的Dashboard、提供日志采集、存储和查询的Fluentd-elasticsearch组件等。
