@@ -17,22 +17,22 @@ Docker是当前主流容器化技术的代表，Kubernetes作为现阶段应用�
 \begin{figure}[H] % use float package if you want it here
 	\centering
 	\includegraphics{openshift-structure}
-	\caption{OpenShift Origin架构图}
+	\caption{OpenShift Origin架构图~\cite{Lossent2017PaaS}}
 \end{figure}
 
 如图3.1所示，OpenShift平台的核心组件包括Master、Node、Pod、Scheduler、Service、Storage等。Mater是主控节点，可以配置高可用的多个主控节点，负责管理和维护OpenShift集群状态。Master上运行的API Server是其核心组件，所有用户的Web Console以及RESTful API服务都通过该组件进行访问认证控制，各Node节点也会定期轮询API Server更新节点和容器的状态。Data Store将所有的状态信息存储在分布式的数据库Etcd中，并通过Raft一致性协议保证其数据的一致性。Scheduler调度控制器进行Pod资源的分配和调度，根据各节点收集的资源情况，选择合适的节点作为容器应用的调度目标。Replication Controller是异常自检测和恢复组件，负责监控集群中容器应用的状态和数量是否和用户要求一致，自动启动和关闭容器应用满足用户的需求。Node节点通过接收Master节点指令维护容器应用。Pod是OpenShift平台调度器调度的最小单元，一些容器与容器之间往往存在较大的关联性，将几个联系紧密的容器部署在一个Pod中进行调度是OpenShift平台的主要创新工作，如分布式数据库多个容器放在一个Pod。容器是一个非持久化的对象，一旦容器重启或销毁，其状态信息将会随之销毁，集群每次给Pod分配的IP地址不同。要对外提供统一持久的服务，需要Service组件，该组件能将所有的信息转发到其对应的容器IP和端口上。此外，还有Router、Persistent Storage、Registry、Haproxy、Kubelet等都是集群的重要组成组件。数据可以持久化存储在集群数据库、分布式数据库或者其他数据库中，当前支持NFS、Ceph RDB、GlusterFS等。
 
 \section{MRWS调度流程优化设计}
-Kubernetes调度流程分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。MRWS调度方法将对其调度流程流程进行一定的优化，增加调度“记忆”模块和信息存储模块，缩短任务调度时间和节约系统资源。
+Kubernetes调度流程分为预选和优选两阶段，在预选阶段过滤掉不满足需求的节点，优选阶段对剩余节点评分，选择评分最高的节点作为调度目标。整个调度器可以分为待调度的Pod列表、满足条件的Node列表以及调度策略三部分。MRWS调度方法将对其调度流程进行一定的优化，增加调度“记忆”模块和信息存储模块，缩短任务调度时间和节约系统资源。
 
 \subsection{Kubernetes调度流程}
 在Kubernetes默认调度流程中，预选阶段解决节点过滤问题，优选阶段解决节点选择问题。用户可以对两个阶段进行简单的配置，调度器将根据用户指定的预选和优选规则进行过滤和评分计算，最终输出满足条件的Node和Pod绑定策略，将Pod调度到合适的Node，针对两阶段的规则，下面进行详细的介绍。
 \begin{figure}[H] % use float package if you want it here
 	\centering
 	\includegraphics{scheduler-default}
-	\caption{Kubernetes调度流程}
+	\caption{Kubernetes调度器流程}
 \end{figure}
-Predicates阶段过滤掉不满足Pod资源需求的节点，依据一定规进行筛选，包括磁盘卷冲突、端口冲突、资源容量、节点检测、服务占用、亲和性等。1.7版本的筛选条件主要如下，新的版本Kubernetes还在不断更新和完善。
+Predicates阶段过滤掉不满足Pod资源需求的节点，依据一定规则进行筛选，包括磁盘卷冲突、端口冲突、资源容量、节点检测、服务占用、亲和性等。1.7版本的筛选条件主要如下，新的版本Kubernetes还在不断更新和完善。
 \begin{enumerate}[(1)]
 	\item NoDiskConflict：检测磁盘卷冲突，在当前的规则中，两个不同Pod不能使用相同的卷。因此，一旦Node上挂载了该卷并被某个Pod使用，则新的Pod不能再调度到该Node上，否则造成卷冲突。不同的系统对该冲突检测范围不同，如Google Compute Engine在只读模式下允许共用卷，Ceph RDB允许两个Pod分享部分资源，Amazon EBS禁止两个Pod挂载同一个卷。
 	\item NoVolumeZoneConflict：在给定Zone限制的条件下，检测Node上部署的Pod是否存在卷冲突，当前只限定对PV(Persistant Volume)范围进行支持。
@@ -40,7 +40,7 @@ Predicates阶段过滤掉不满足Pod资源需求的节点，依据一定规进�
 	\item PodFitsResources：根据Pod资源的需求检测节点空闲资源量是否满足其运行需求，主要检测CPU、内存、磁盘等资源。Kubernetes的调度是静态调度，资源的判断是根据分配的资源量而不是资源的实际使用量。
 	\item HostName：检测Pod是否指定了Node节点，所有不在指定Node集合内的节点都将被过滤掉。
 	\item MatchNodeSelector：检测Pod是否指定了MatchNodeSelector属性，若指定了该属性，Node的Label必须和该属性匹配。
-	\item MaxEBSVolumeCount：确保挂载的EBS存储卷总合不超过设置最大值，调度器计算每个Node上直接或间接使用的全部卷总合，一旦超过最大值，Pod不能调度到该节点上。
+	\item MaxEBSVolumeCount：确保挂载的EBS存储卷总和不超过设置最大值，调度器计算每个Node上直接或间接使用的全部卷总和，一旦超过最大值，Pod不能调度到该节点上。
 	\item CheckNodeMemoryPressure：判断节点是否存在内存压力，若存在内存压力则标记为1，Pod只能调度到内存标记为0的节点上。
 	\item CheckNodeDiskPressure：判断节点是否存在磁盘压力，若存在磁盘压力则标记为1，Pod只能调度到磁盘标记为0节点。
 	\item MatchInterPodAffinity：节点的亲和性过滤，检测Pod是否和已部署的Pod存在亲和性，将有亲和性的Pod调度到相同节点。
@@ -54,7 +54,7 @@ Priorities阶段根据一定的评分算法对预选出来的节点列表进行�
 	\item LeastRequestedPriority：节点资源空闲率评分函数，即根据节点的空闲资源与节点资源总量的比值((节点资源总量-节点上Pod的资源和-新Pod的需求)/总容量)来计算。设置CPU和内存具有相同权重系数，都设置为0.5，资源空闲率越大，剩余资源越多，节点的评分就越高。
 	\item BalancedResourceAllocation：该函数必须联合LeastRequestedPriority函数一起使用，用于平衡各维度资源的使用率，资源使用越均衡，节点的评分越高。Kubernetes主要对内存和CPU资源消耗进行平衡，由两者的“距离”决定分值大小，即使用10-abs(CPU空闲率-内存空闲率)*10进行计算。
 	\item SelectorSpreadPriority：为了更好应对容灾和宕机风险，同属Service、Replication Controller下的Pod尽可能分散部署到不同的Node上。对于指定Zone的Pod，也要尽量分散到不同区域的主机。调度器统计Node上相同Service、Replication Controller下的Pod，Node上Pod数量越少，评分越高。
-	\item NodeAffinityPriority：设置调度器的亲和性机制，主要对节点进行精确匹配。有两种选择器匹配模式，选择器"hard"模式下设置的NodeSelector必须和节点的Label匹配，保证选择的Node是完全满足需求规则的，"soft"模式下不能完全保证百分百的匹配，但会尽量满足规则要求
+	\item NodeAffinityPriority：设置调度器的亲和性机制，主要对节点进行精确匹配。有两种选择器匹配模式，选择器"hard"模式下设置的NodeSelector必须和节点的Label匹配，保证选择的Node是完全满足需求规则的，"soft"模式下不能完全保证百分百的匹配，但会尽量满足规则要求。
 	\item ImageLocalityPriority：为避免镜像的重复下载对网络和磁盘资源的重复消耗，该函数根据Pod中运行容器需要的镜像对节点进行评分，节点上存在的镜像越多，该节点评分越高。若该节点上没有所需的镜像，评分为0，镜像评分的权重可以根据镜像大小按比例决定。
 	\item MostRequestedPriority：和LeastRequestedPriority相反作用，两者使用一个来计算评分。该函数确保使用资源越多的节点，评分越高，目的在于使用更少的服务器提供服务，节约服务器资源，提升集群资源利用率。
 	\item TaintTolerationPriority：容忍性评分函数，匹配Pod的TolerationList与节点Taint，匹配项越多，该节点的容忍性越好，从而评分越高。
@@ -124,7 +124,7 @@ f_{i} = v_{i}+b_{i}
 \subsection{MRWS均衡度评价模块}
 设计完调度算法后需要对调度算法多维资源利用均衡性进行度量，由于资源重要程度不同，不能简单用空闲资源利用率总合进行加权平均计算。在概率论和统计中，通常用方差来度量一组数据的离散程度，计算一个变量与整体均值之间的差异。因此，用预选阶段剩余节点的多维资源空闲率的方差来度量集群的负载均衡性，定义集群的负载均衡度$u_{v}$如式(3-11)。
 \begin{eqnarray}
-	u_{i} &=& \sqrt{\frac{1}{D+1}(\sum_{d=1}^{D}(k_{i}^{d}-k_{v}^{d})^{2}+(c_{i}-c_{v})^{2})} \\[0.3cm]
+		u_{i} &=& (\frac{1}{D+1}(\sum_{d=1}^{D}(k_{i}^{d}-k_{v}^{d})^{2}+(c_{i}-c_{v})^{2}))^{1/2} \\
 	u_{v} &=& (\sum_{i=1}^{m}u_{i})/m
 \end{eqnarray}
 其中，\begin{math}u_{i}\end{math}表示节点i上多维资源空闲率的负载均衡度，该值越小，表示多维资源利用越均衡，即各维度资源利用越接近平均值。因此，用集群中满足预选阶段剩余节点负载均衡的均值表示集群的负载均衡度。这种使用方差度量集群均衡性的方法不仅适用于MRWS算法，对于Kubernetes默认的Default算法以及Random、FirstFit算法同样适用。在后面进行算法性能对比实验中，将使用上式的负载均衡度衡量不同调度算法下集群的负载均衡性。
