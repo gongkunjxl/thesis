@@ -71,7 +71,7 @@
   \begin{itemize}
   	\item 提出了面向多计算框架的容器云资源调度方法MRWS。该方法综合考虑待调度容器的资源需求、物理节点的CPU、内存、磁盘、网络带宽空闲率和已部署的容器应用数量等因素，基于多维资源权重参数进行综合评分。
   	\item 设计自动求解MRWS权重参数的方法。针对MRWS调度方法中的权重参数，使用模糊层次分析法FAHP(Fuzzy Analytic Hierarchy Process)对集群资源自动建模并求解容器应用多维资源权重参数。
-  	\item 在容器云平台上设计和实现MRWS调度方法并进行性能分析。首先在容器云仿真平台ContainerCloudSim上进行大规模的调度仿真，并与Random、FirstFit、Kubernetes调度算法进行对比，新的调度方法能提升约40\%的集群负载均衡度。然后基于OpenShift研发了面向多计算框架的容器云平台Paladin。最后在该平台上进行多计算框架资源调度性能测试，新的调度方法约提升20\%的任务处理性能。
+  	\item 在容器云平台上设计和实现MRWS调度方法并进行性能分析。首先在容器云仿真平台ContainerCloudSim上进行大规模的调度仿真，并与Random、FirstFit、Kubernetes调度算法进行对比，新的调度方法能提升约40\%的集群负载均衡。然后基于OpenShift研发了面向多计算框架的容器云平台Paladin。最后在该平台上进行多计算框架资源调度性能测试，新的调度方法约提升20\%的任务处理性能。
   \end{itemize}
 \end{cabstract}
 
@@ -79,14 +79,14 @@
 \ckeywords{Kubernetes, 容器云平台, 多计算框架, 调度策略, ContainerCloudSim, FAHP权重参数}
 
 \begin{eabstract}
-Docker container virtualization technology is a virtualization solution that shares the operating system kernel. The cloud platform based on Docker technology is gradually becoming the core of the next generation cloud computing. In the container cloud, the resource scheduler plays a key role in the performance and resource utilization. Kubernetes container orchestration engine has become the most widely used container cloud platform scheduler with its powerful service discovery, cluster monitoring and error recovery capabilities.However, Kubernetes does not consider the multi-computing framework resource scheduling problem, resulting in low resource utilization and poor load balance when the container cloud cluster processing big data problems.
+Docker container virtualization technology is a virtualization solution that shares the operating system kernel. The cloud platform based on Docker technology is gradually becoming the core of the next generation cloud computing. In the container cloud, the resource scheduler plays a key role in the performance and resource utilization. Kubernetes container orchestration engine has become the most widely used container cloud platform scheduler with its powerful service discovery, cluster monitoring and error recovery capabilities. However, Kubernetes does not consider the multi-computing framework resource scheduling problem, resulting in low resource utilization and poor load balance when the container cloud cluster processing big data problems.
 
 For the insufficient performance of Kubernetes resource scheduling under multi-computing framework, this thesis proposed a MRWS(Multidimensional Resource Weights Scheduling) scheduling method, and developed a container cloud platform Paladin for multi-computing framework based on open-source container OpenShift. Designed and implemented new scheduling methods on the platform and performed scheduling performance tests. The main contributions are as follows:
 
 \begin{itemize}
 	\item A container cloud resource scheduling method MRWS for multi-computing framework is proposed. The method comprehensively considers the resource requirements of the container to be scheduled, the CPU of the physical node, the memory, the disk, the network bandwidth idle rate, and the number of deployed container applications, and comprehensively scores based on the multi-dimensional resource weighting parameter.
 	\item Designed a method to automatically solve MRWS weight parameters. For the weight parameters in the MRWS scheduling method, the FAHP(Fuzzy Analytic Hierarchy Process) is used to automatically model the cluster resources and solve the container application multi-dimensional resource weight parameters.
-	\item Designed and implemented the MRWS scheduling method on the container cloud platform and performed performance analysis. Firstly, a large-scale scheduling simulation is performed on the container cloud simulation platform ContainerCloudSim, and compared with the Random, FirstFit, and Kubernetes scheduling algorithms. The new scheduling method can improve the cluster load balance of about 40\%. Then based on OpenShift, the container cloud platform Paladin for multi-computing framework was developed. Finally, the multi-computing framework resource scheduling performance test is performed on the platform, and the new scheduling method improves the task processing performance by about 20\%.
+	\item Designed and implemented the MRWS scheduling method on the container cloud platform and performed performance analysis. Firstly, a large-scale scheduling simulation is performed on the container cloud simulation platform ContainerCloudSim, and compared with the Random, FirstFit, and Kubernetes scheduling algorithms. The new scheduling method can improve the cluster load balance by about 40\%. Then based on OpenShift, the container cloud platform Paladin for multi-computing framework was developed. Finally, the multi-computing framework resource scheduling performance test is performed on the platform, and the new scheduling method improves the task processing performance by about 20\%.
 \end{itemize}
 \end{eabstract}
 
